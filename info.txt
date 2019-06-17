@@ -1,0 +1,33 @@
+FTP: ftp://xvex.de/isms/test/asset_management/
+
+SITE: https://xvex.de/isms/test/asset_management/tabs1.php
+
+phpMyAdmin: https://w00f311e.kasserver.com/mysqladmin/PMA4/index.php?server=98938209&db=d02eb2b7
+
+FTP user: w00f311e
+Password: CrLRsvSo3du2RA7P
+Domain: xvex.de
+Folder: isms/test
+
+MYSQL {
+	"Server=xvex.de; database=d02eb2b7; UID=d02eb2b7; password=kmG6PAbTxMWXKSkn"
+	
+	https://w018fe98.kasserver.com/mysqladmin/kaslogin.php
+	user: d02ebbd1 pass: aoB8bxLYvWkdU5DJ
+}
+
+
+
+Manufacturer           Product  SerialNumber          Version  
+
+ASUSTeK COMPUTER INC.  X550ZE   BSN12345678901234567  1.0
+
+
+<?
+if (...) {
+	php include('footer.php'); 
+}
+else{
+    header('location:../404.php');
+}
+?>

@@ -1,0 +1,21 @@
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\bin\Debug\Script.exe.config
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\bin\Debug\Script.exe
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\bin\Debug\Script.pdb
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\bin\Debug\Google.Protobuf.dll
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\bin\Debug\MySql.Data.dll
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\bin\Debug\Google.Protobuf.xml
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\bin\Debug\MySql.Data.xml
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\obj\Debug\Script.exe
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\obj\Debug\Script.pdb
+C:\Users\Олег\documents\visual studio 2015\Projects\Script\Script\obj\Debug\Script.csprojResolveAssemblyReference.cache
+C:\Users\Олег\Desktop\Project\Script\Script\bin\Debug\Script.exe.config
+C:\Users\Олег\Desktop\Project\Script\Script\obj\Debug\Script.exe
+C:\Users\Олег\Desktop\Project\Script\Script\obj\Debug\Script.pdb
+C:\Users\Олег\Desktop\Project\Script\Script\bin\Debug\Script.exe
+C:\Users\Олег\Desktop\Project\Script\Script\bin\Debug\Script.pdb
+C:\Users\Олег\Desktop\Project\Script\Script\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Олег\Desktop\Project\Script\Script\bin\Debug\Google.Protobuf.dll
+C:\Users\Олег\Desktop\Project\Script\Script\bin\Debug\MySql.Data.dll
+C:\Users\Олег\Desktop\Project\Script\Script\bin\Debug\Google.Protobuf.xml
+C:\Users\Олег\Desktop\Project\Script\Script\bin\Debug\MySql.Data.xml

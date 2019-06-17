@@ -1,0 +1,36 @@
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\bin\Debug\ScriptWpf.exe.config
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\MainWindow.g.cs
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\App.g.cs
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\ScriptWpf_MarkupCompile.cache
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\ScriptWpf_MarkupCompile.lref
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\bin\Debug\ScriptWpf.exe
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\bin\Debug\ScriptWpf.pdb
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\bin\Debug\BouncyCastle.Crypto.dll
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\bin\Debug\Google.Protobuf.dll
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\bin\Debug\MySql.Data.dll
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\bin\Debug\Google.Protobuf.xml
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\bin\Debug\MySql.Data.xml
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\MainWindow.baml
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\ScriptWpf.g.resources
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\ScriptWpf.Properties.Resources.resources
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\ScriptWpf.csproj.GenerateResource.Cache
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\ScriptWpf.exe
+c:\users\олег\documents\visual studio 2015\Projects\ScriptWpf\ScriptWpf\obj\Debug\ScriptWpf.pdb
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\ScriptWpf.exe.config
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\ScriptWpf.exe
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\ScriptWpf.pdb
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\ScriptWpf.exe
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\ScriptWpf.pdb
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\Google.Protobuf.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\MySql.Data.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\Google.Protobuf.xml
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\MySql.Data.xml
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\MainWindow.g.cs
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\App.g.cs
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\ScriptWpf_MarkupCompile.cache
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\ScriptWpf_MarkupCompile.lref
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\MainWindow.baml
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\ScriptWpf.g.resources
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\ScriptWpf.Properties.Resources.resources
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\ScriptWpf.csproj.GenerateResource.Cache

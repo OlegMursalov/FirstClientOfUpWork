@@ -1,0 +1,9 @@
+Output file name (installation) - Cetbix CVD Version 2.7.msi
+Author - Cetbix Technology
+Product Name - Cetbix CVD Version 2.7
+Title - Cetbix CVD Version 2.7
+Manufacturer - Cetbix Technology
+Common Banner - cetbix2_7_update.jpg
+Common Logo (all shorticons) - cetbixdesktop.ico
+Welcome Text - Setup will run Cetbix CVD v2.7. Cetbix CVD v2.7 will not leave any files on your PC. To run click on next to continue.
+Output file name (program exe) - CetbixCVD

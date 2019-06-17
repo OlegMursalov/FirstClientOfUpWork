@@ -1,0 +1,5 @@
+cd C:\Program Files (x86)\Microsoft\ILMerge
+
+ILMerge.exe /target:winexe /targetplatform:"v4,C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2" /out:ScanScript.exe C:\Users\Олег\Desktop\Project\Merge\Script.exe C:\Users\Олег\Desktop\Project\Merge\MySql.Data.dll C:\Users\Олег\Desktop\Project\Merge\Google.Protobuf.dll C:\Users\Олег\Desktop\Project\Merge\BouncyCastle.Crypto.dll
+
+-- if need change paths
