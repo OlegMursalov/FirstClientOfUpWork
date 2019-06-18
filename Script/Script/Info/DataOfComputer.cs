@@ -4,6 +4,7 @@ namespace Script.Info
 {
     public class DataOfComputer
     {
+        public string Id { get; set; }
         public string SystemUptime { get; set; }
         public string HostName { get; set; }
         public string Domain { get; set; }
@@ -14,6 +15,7 @@ namespace Script.Info
         public string OSCaption { get; set; }
         public string AccountLockoutDuration { get; set; }
         public string CetbixVulnerabilityScannerVersion { get; set; }
+        public string DateScan { get; set; }
         public string ComputerRole { get; set; }
         public string Java { get; set; }
         public string LAPS { get; set; }
@@ -59,5 +61,6 @@ namespace Script.Info
         public List<GraphicsCard> GraphicsCards { get; set; }
         public List<CPU> CPUs { get; set; }
         public List<SoundCard> SoundCards { get; set; }
+        public List<HDD> HDDs { get; set; }
     }
 }

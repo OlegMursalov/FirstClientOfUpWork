@@ -1,10 +1,17 @@
 <?
+include 'config.php';
 if ($_POST && isset($_POST['idRecord'])) {
 	$id = $_POST['idRecord'];
 	$hostname = $_POST['hostname'];
 	$domain = $_POST['domain'];
-	$dateScan = $_POST['dateScan'];
-	$conn = new mysqli("localhost", "d02eb2b7", "kmG6PAbTxMWXKSkn", "d02eb2b7");
+	$dateScanShort = "";
+	if (isset($_POST['dateScan'])) {
+		$parts = explode(' ', $_POST['dateScan']);
+		if ($parts != null && sizeof($parts) >= 3) {
+			$dateScanShort = $parts[2];
+		}
+	}
+	$conn = new mysqli($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 	if (!$conn->connect_error) {
 		$arr = [];
 		$arr[$id] = [];
@@ -60,6 +67,29 @@ if ($_POST && isset($_POST['idRecord'])) {
 			$arr[$row["Id"]]["Firewall - LAN"] = $row["FireWallLAN"];
 			$arr[$row["Id"]]["Firewall - Public network"] = $row["FireWallPublicNetwork"];
 			// $arr[$row["Id"]]["MDP5: Intel-perso.xml"] = "";
+			$arr[$row["Id"]]["Motherboard product"] = $row["MotherboardProduct"];
+			$arr[$row["Id"]]["Motherboard version"] = $row["MotherboardVersion"];
+			$arr[$row["Id"]]["Motherboard serial number"] = $row["MotherboardSerialNumber"];
+			$arr[$row["Id"]]["Motherboard manufacturer"] = $row["MotherboardManufacturer"];
+			$arr[$row["Id"]]["Amount of Ram"] = $row["AmountOfRam"];
+			$arr[$row["Id"]]["Ram capacity"] = $row["RamCapacity"];
+			$arr[$row["Id"]]["Ram speed"] = $row["RamSpeed"];
+			$arr[$row["Id"]]["Ram device locator"] = $row["RamDeviceLocator"];
+			$arr[$row["Id"]]["Amount of graphics card"] = $row["AmountOfGraphicsCard"];
+			$arr[$row["Id"]]["Graphics card name"] = $row["GraphicsCardName"];
+			$arr[$row["Id"]]["Graphics card installed display drivers"] = $row["GraphicsCardInstalledDisplayDrivers"];
+			$arr[$row["Id"]]["Graphics card video memory type"] = $row["GraphicsCardVideoMemoryType"];
+			$arr[$row["Id"]]["Amount of CPU"] = $row["AmountOfCPU"];
+			$arr[$row["Id"]]["CPU name"] = $row["CPUName"];
+			$arr[$row["Id"]]["CPU producer"] = $row["CPUProducer"];
+			$arr[$row["Id"]]["Amount of sound card"] = $row["AmountOfSoundCard"];
+			$arr[$row["Id"]]["Sound card caption"] = $row["SoundCardCaption"];
+			$arr[$row["Id"]]["Sound card manufacturer"] = $row["SoundCardManufacturer"];
+			$arr[$row["Id"]]["Sound card status info"] = $row["SoundCardStatusInfo"];
+			$arr[$row["Id"]]["Amount of HDD"] = $row["AmountOfHDD"];
+			$arr[$row["Id"]]["HDD caption"] = $row["HDDCaption"];
+			$arr[$row["Id"]]["HDD media type"] = $row["HDDMediaType"];
+			$arr[$row["Id"]]["HDD size"] = $row["HDDSize"];
 		}
 	} else {
 		$conn->close();
@@ -97,7 +127,7 @@ if ($_POST && isset($_POST['idRecord'])) {
 											<td><input type="checkbox"  class="i-checks" name="input[]"></td>
 											<td style="white-space: nowrap;"><?=$hostname?></td>
 											<td style="white-space: nowrap;"><?=$domain?></td>
-											<td style="white-space: nowrap;"><?=$dateScan?></td>
+											<td style="white-space: nowrap;"><?=$dateScanShort?></td>
 											<td style="white-space: nowrap;"><?=$keys[$i]?></td>
 											<td style="word-break: break-word;"><?=$arr[$id][$keys[$i]]?></td>
 											<td style="white-space: nowrap;"><?=$arr[$id]["Type"]?></td>

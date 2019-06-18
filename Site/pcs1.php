@@ -28,7 +28,7 @@
                                 <div id="asset_tab" class="tab-pane">
                                     <div class="panel-body">
 										<?php  include ('tools_tab.php');   ?>
-										
+										<?php  include ('pcs1.php');   ?>
                                    
                                     </div>
                                 </div>

@@ -14,6 +14,8 @@ MYSQL {
 	
 	https://w018fe98.kasserver.com/mysqladmin/kaslogin.php
 	user: d02ebbd1 pass: aoB8bxLYvWkdU5DJ
+	
+	https://w00f311e.kasserver.com/mysqladmin/kaslogin.php
 }
 
 

@@ -45,15 +45,15 @@ namespace Script.Info
                         {
                             var column = pair.Key[i];
                             var value = pair.Value[i];
-                            if (column.Equals("Capacity", StringComparison.OrdinalIgnoreCase))
+                            if (column.Equals("Capacity", StringComparison.OrdinalIgnoreCase) && value != null)
                             {
-                                ram.Capacity = value + " bytes";
+                                ram.Capacity = CommonF.DisplayBytesForHuman(Convert.ToDouble(value));
                             }
-                            if (column.Equals("Speed", StringComparison.OrdinalIgnoreCase))
+                            if (column.Equals("Speed", StringComparison.OrdinalIgnoreCase) && value != null)
                             {
                                 ram.Speed = value;
                             }
-                            if (column.Equals("DeviceLocator", StringComparison.OrdinalIgnoreCase))
+                            if (column.Equals("DeviceLocator", StringComparison.OrdinalIgnoreCase) && value != null)
                             {
                                 ram.DeviceLocator = value;
                             }

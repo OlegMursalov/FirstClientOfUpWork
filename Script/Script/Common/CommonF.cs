@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -108,7 +109,9 @@ namespace Script.Common
                     }
                     else
                     {
-                        dictionary.Add(header, parts);
+                        var newHeader = new string[header.Length];
+                        Array.Copy(header, newHeader, header.Length);
+                        dictionary.Add(newHeader, parts);
                     }
                 }
                 catch (Exception ex)
@@ -116,6 +119,31 @@ namespace Script.Common
                 }
             }
             return dictionary;
+        }
+
+        public static string DisplayBytesForHuman(double bytes)
+        {
+            try
+            {
+                var units = new string[] { "B", "KB", "MB", "GB", "TB", "PB" };
+                double mod = 1024.0;
+                int i = 0;
+                while (bytes >= mod)
+                {
+                    bytes /= mod;
+                    i++;
+                }
+                return Math.Round(bytes, 2) + " " + units[i];
+            }
+            catch (Exception ex)
+            {
+                return "Error";
+            }
+        }
+
+        public static string GetDateScan()
+        {
+            return $"{DateTime.Now.ToString("hh:mm tt", new CultureInfo("en-US"))} {DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}";
         }
     }
 }

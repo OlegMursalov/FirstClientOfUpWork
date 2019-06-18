@@ -1,5 +1,6 @@
 <!--    TABLE for Documents -- ----------------  -->
 <!-- document table -->
+<?include 'config.php';?>
 <div class="row">
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
@@ -17,7 +18,7 @@
 						</thead>
 						<tbody>
 							<?
-								$conn = new mysqli("localhost", "d02eb2b7", "kmG6PAbTxMWXKSkn", "d02eb2b7");
+								$conn = new mysqli($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 								if (!$conn->connect_error) {
 									$j = 0;
 									$main_arr = [];

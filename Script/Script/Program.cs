@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using Script.Info;
 using System.IO;
 using Script.Sender;
+using Script.Common;
 
 namespace Script
 {
@@ -10,9 +11,13 @@ namespace Script
     {
         static void Main()
         {
+            var uriCetbixApi = "https://xvex.de/isms/add_ons/cetbix_vulnerability_management/add_assets.php";
+
             var dataOfComputer = new DataOfComputer();
 
-            dataOfComputer.CetbixVulnerabilityScannerVersion = "2.7";
+            dataOfComputer.Id = Guid.NewGuid().ToString();
+            dataOfComputer.CetbixVulnerabilityScannerVersion = "2.7.00.1";
+            dataOfComputer.DateScan = CommonF.GetDateScan();
 
             dataOfComputer.SystemUptime = MainInfo.SystemUptime;
             dataOfComputer.HostName = MainInfo.HostName;
@@ -88,7 +93,9 @@ namespace Script
 
             dataOfComputer.SoundCards = SoundCardInfo.SoundCards;
 
-            var sender = new HttpSender();
+            dataOfComputer.HDDs = HDDInfo.HDDs;
+
+            var sender = new HttpJsonSender(uriCetbixApi);
             sender.SendData(dataOfComputer);
         }
     }
