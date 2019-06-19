@@ -16,4 +16,3 @@ C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.Proper
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.csproj.GenerateResource.Cache
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.exe
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.pdb
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.csprojResolveAssemblyReference.cache

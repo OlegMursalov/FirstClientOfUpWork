@@ -6,6 +6,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Reflection;
+using Script.Common;
 
 namespace ScriptWpf
 {
@@ -34,8 +35,8 @@ namespace ScriptWpf
                 await Task.Run(() =>
                 {
                     dataOfComputer.Id = Guid.NewGuid().ToString();
-                    dataOfComputer.DateScan = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}";
-                    dataOfComputer.CetbixVulnerabilityScannerVersion = "2.7";
+                    dataOfComputer.CetbixVulnerabilityScannerVersion = "2.7.00.1";
+                    dataOfComputer.DateScan = CommonF.GetDateScan();
 
                     dataOfComputer.SystemUptime = MainInfo.SystemUptime;
                     dataOfComputer.HostName = MainInfo.HostName;
@@ -97,12 +98,27 @@ namespace ScriptWpf
 
                     dataOfComputer.MPPActivated = MPPInfo.MPPActivated;
                     dataOfComputer.MPPTempExe = MPPInfo.MPPTempExe;
+
+                    dataOfComputer.MotherboardProduct = BaseBoardInfo.Product;
+                    dataOfComputer.MotherboardVersion = BaseBoardInfo.Version;
+                    dataOfComputer.MotherboardSerialNumber = BaseBoardInfo.SerialNumber;
+                    dataOfComputer.MotherboardManufacturer = BaseBoardInfo.Manufacturer;
+
+                    dataOfComputer.Rams = RamInfo.Rams;
+
+                    dataOfComputer.GraphicsCards = GraphicsCardInfo.GraphicsCards;
+
+                    dataOfComputer.CPUs = CPUInfo.CPUs;
+
+                    dataOfComputer.SoundCards = SoundCardInfo.SoundCards;
+
+                    dataOfComputer.HDDs = HDDInfo.HDDs;
                 });
 
                 if (SendToCetbixRadio.IsChecked != null && SendToCetbixRadio.IsChecked.Value)
                 {
                     string exMessgae = string.Empty;
-                    var mySender = new HttpSender(cetbixURI);
+                    var mySender = new HttpJsonSender(cetbixURI);
                     var sendFlag = await Task.Run(() =>
                     {
                         return mySender.SendData(dataOfComputer, out exMessgae);

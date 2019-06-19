@@ -1,7 +1,5 @@
 ﻿using System;
-using MySql.Data.MySqlClient;
 using Script.Info;
-using System.IO;
 using Script.Sender;
 using Script.Common;
 

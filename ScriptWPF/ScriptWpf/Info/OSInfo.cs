@@ -54,7 +54,6 @@ namespace Script.Info
             }
             catch (Exception ex)
             {
-                
             }
         }
     }

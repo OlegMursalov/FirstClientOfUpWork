@@ -85,7 +85,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Info\AntivirusInfo.cs" />
-    <Compile Include="Info\DataOfComputer.cs" />
+    <Compile Include="DTO\DataOfComputer.cs" />
     <Compile Include="Info\JavaInfo.cs" />
     <Compile Include="Info\LapsInfo.cs" />
     <Compile Include="Info\MainInfo.cs" />

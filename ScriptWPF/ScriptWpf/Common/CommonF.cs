@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -88,6 +90,60 @@ namespace Script.Common
             {
                 return null;
             }
+        }
+
+        public static Dictionary<string[], string[]> GetDataFromCMDOutputWithTableFormat(string output)
+        {
+            string[] header = null;
+            var dictionary = new Dictionary<string[], string[]>();
+            var lines = output.Split('\n');
+            for (int i = 0; i < lines.Length; i++)
+            {
+                try
+                {
+                    var parts = lines[i].Trim().Split(new string[] { "  " }, StringSplitOptions.RemoveEmptyEntries);
+                    parts = parts.Select(s => s.Trim()).ToArray();
+                    if (i == 0)
+                    {
+                        header = parts;
+                    }
+                    else
+                    {
+                        var newHeader = new string[header.Length];
+                        Array.Copy(header, newHeader, header.Length);
+                        dictionary.Add(newHeader, parts);
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+            return dictionary;
+        }
+
+        public static string DisplayBytesForHuman(double bytes)
+        {
+            try
+            {
+                var units = new string[] { "B", "KB", "MB", "GB", "TB", "PB" };
+                double mod = 1024.0;
+                int i = 0;
+                while (bytes >= mod)
+                {
+                    bytes /= mod;
+                    i++;
+                }
+                return Math.Round(bytes, 2) + " " + units[i];
+            }
+            catch (Exception ex)
+            {
+                return "Error";
+            }
+        }
+
+        public static string GetDateScan()
+        {
+            return $"{DateTime.Now.ToString("hh:mm tt", new CultureInfo("en-US"))} {DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}";
         }
     }
 }
