@@ -5,7 +5,6 @@ using System.Windows;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Media;
-using System.Reflection;
 using Script.Common;
 
 namespace ScriptWpf
@@ -18,6 +17,20 @@ namespace ScriptWpf
         public MainWindow()
         {
             InitializeComponent();
+            var currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += CurrentDomain_UnhandledException;
+        }
+
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args)
+        {
+            if (args != null)
+            {
+                var ex = args.ExceptionObject as Exception;
+                if (ex != null)
+                {
+                    MessageBox.Show(ex.Message + " - " + ex.StackTrace);
+                }
+            }
         }
 
         private async void Run_Click(object sender, RoutedEventArgs e)

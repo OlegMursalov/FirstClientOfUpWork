@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Management;
 
 namespace Script.Info
 {
@@ -40,26 +39,45 @@ namespace Script.Info
                 {
                     foreach (var pair in dictionary)
                     {
-                        var graphicsCard = new GraphicsCard();
-                        for (int i = 0; i < pair.Key.Length; i++)
+                        if (pair.Key != null && pair.Value != null && pair.Key.Length > 0 && pair.Value.Length > 0)
                         {
-                            var column = pair.Key[i];
-                            var value = pair.Value[i];
-                            if (column.Equals("Name", StringComparison.OrdinalIgnoreCase) && value != null)
+                            try
                             {
-                                graphicsCard.Name = value;
+                                var graphicsCard = new GraphicsCard();
+                                for (int i = 0; i < pair.Key.Length; i++)
+                                {
+                                    var column = pair.Key[i];
+                                    var value = pair.Value[i];
+                                    if (column != null)
+                                    {
+                                        if (column.Equals("Name", StringComparison.OrdinalIgnoreCase) && value != null)
+                                        {
+                                            graphicsCard.Name = value;
+                                        }
+                                        if (column.Equals("InstalledDisplayDrivers", StringComparison.OrdinalIgnoreCase) && value != null)
+                                        {
+                                            graphicsCard.InstalledDisplayDrivers = value;
+                                        }
+                                        if (column.Equals("VideoMemoryType", StringComparison.OrdinalIgnoreCase) && value != null)
+                                        {
+                                            var memoryTypeVal = 2; // Unknown
+                                            if (int.TryParse(value, out memoryTypeVal))
+                                            {
+                                                graphicsCard.VideoMemoryType = GetVideoMemoryTypeText(memoryTypeVal);
+                                            }
+                                            else
+                                            {
+                                                graphicsCard.VideoMemoryType = GetVideoMemoryTypeText(memoryTypeVal);
+                                            }
+                                        }
+                                    }
+                                }
+                                GraphicsCards.Add(graphicsCard);
                             }
-                            if (column.Equals("InstalledDisplayDrivers", StringComparison.OrdinalIgnoreCase) && value != null)
+                            catch (Exception ex)
                             {
-                                graphicsCard.InstalledDisplayDrivers = value;
-                            }
-                            if (column.Equals("VideoMemoryType", StringComparison.OrdinalIgnoreCase) && value != null)
-                            {
-                                var memoryTypeVal = Convert.ToInt32(value);
-                                graphicsCard.VideoMemoryType = GetVideoMemoryTypeText(memoryTypeVal);
                             }
                         }
-                        GraphicsCards.Add(graphicsCard);
                     }
                 }
             }
