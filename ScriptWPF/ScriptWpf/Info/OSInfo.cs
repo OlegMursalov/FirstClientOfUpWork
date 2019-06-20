@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Management;
 
 namespace Script.Info
@@ -13,7 +12,6 @@ namespace Script.Info
         static OSInfo()
         {
             var servicePackMajorVersion = 0;
-            var dictionary = new Dictionary<string, string>();
             try
             {
                 var searcher = new ManagementObjectSearcher("Select * from Win32_OperatingSystem");

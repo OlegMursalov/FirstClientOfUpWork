@@ -1,11 +1,8 @@
 ﻿using Microsoft.Win32;
 using Script.Info;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Script.Saver
 {
@@ -16,7 +13,7 @@ namespace Script.Saver
             exMessgae = string.Empty;
             try
             {
-                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                var saveFileDialog1 = new SaveFileDialog();
                 saveFileDialog1.Filter = "txt|*.txt";
                 saveFileDialog1.Title = "Save log file";
                 saveFileDialog1.ShowDialog();
@@ -41,7 +38,7 @@ namespace Script.Saver
             }
             catch (Exception ex)
             {
-                exMessgae = ex.Message;
+                exMessgae = $"SaveInfoToFile: {ex.Message}";
                 return false;
             }
         }

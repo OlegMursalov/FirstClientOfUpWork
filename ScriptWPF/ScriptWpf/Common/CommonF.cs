@@ -143,7 +143,15 @@ namespace Script.Common
 
         public static string GetDateScan()
         {
-            return $"{DateTime.Now.ToString("hh:mm tt", new CultureInfo("en-US"))} {DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}";
+            var now = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}";
+            try
+            {
+                return $"{DateTime.Now.ToString("hh:mm tt", new CultureInfo("en-US"))} {now}";
+            }
+            catch (Exception ex)
+            {
+                return now;
+            }
         }
     }
 }

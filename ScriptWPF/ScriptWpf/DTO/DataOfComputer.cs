@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System;
 
 namespace Script.Info
 {
@@ -71,57 +72,63 @@ namespace Script.Info
             var type = typeof(DataOfComputer);
             foreach (var prop in type.GetProperties())
             {
-                if (prop.PropertyType == typeof(string))
+                try
                 {
-                    sb.AppendLine($"{prop.Name} = {prop.GetValue(this, null)}");
+                    if (prop.PropertyType == typeof(string))
+                    {
+                        sb.AppendLine($"{prop.Name} = {prop.GetValue(this, null)}");
+                    }
+                    else if (prop.PropertyType.GetInterfaces().Where(i => i.GetGenericTypeDefinition() == typeof(IList<>)).FirstOrDefault() != null)
+                    {
+                        var value = prop.GetValue(this, null);
+                        var rams = value as List<Ram>;
+                        if (rams != null)
+                        {
+                            sb.AppendLine($"AmountOfRam = {rams.Count}");
+                            sb.AppendLine($"RamCapacity = {string.Join("; ", rams.Select(e => e.Capacity))}");
+                            sb.AppendLine($"RamSpeed = {string.Join("; ", rams.Select(e => e.Speed))}");
+                            sb.AppendLine($"RamDeviceLocator = {string.Join("; ", rams.Select(e => e.DeviceLocator))}");
+                            continue;
+                        }
+                        var graphicsCards = value as List<GraphicsCard>;
+                        if (graphicsCards != null)
+                        {
+                            sb.AppendLine($"AmountOfGraphicsCard = {graphicsCards.Count}");
+                            sb.AppendLine($"GraphicsCardName = {string.Join("; ", graphicsCards.Select(e => e.Name))}");
+                            sb.AppendLine($"GraphicsCardInstalledDisplayDrivers = {string.Join("; ", graphicsCards.Select(e => e.InstalledDisplayDrivers))}");
+                            sb.AppendLine($"GraphicsCardVideoMemoryType = {string.Join("; ", graphicsCards.Select(e => e.VideoMemoryType))}");
+                            continue;
+                        }
+                        var cpus = value as List<CPU>;
+                        if (cpus != null)
+                        {
+                            sb.AppendLine($"AmountOfCPU = {cpus.Count}");
+                            sb.AppendLine($"CPUName = {string.Join("; ", cpus.Select(e => e.Name))}");
+                            sb.AppendLine($"CPUProducer = {string.Join("; ", cpus.Select(e => e.Producer))}");
+                            continue;
+                        }
+                        var soundCards = value as List<SoundCard>;
+                        if (soundCards != null)
+                        {
+                            sb.AppendLine($"AmountOfSoundCard = {soundCards.Count}");
+                            sb.AppendLine($"SoundCardCaption = {string.Join("; ", soundCards.Select(e => e.Caption))}");
+                            sb.AppendLine($"SoundCardManufacturer = {string.Join("; ", soundCards.Select(e => e.Manufacturer))}");
+                            sb.AppendLine($"SoundCardStatusInfo = {string.Join("; ", soundCards.Select(e => e.StatusInfo))}");
+                            continue;
+                        }
+                        var hdds = value as List<HDD>;
+                        if (hdds != null)
+                        {
+                            sb.AppendLine($"AmountOfHDD = {hdds.Count}");
+                            sb.AppendLine($"HDDCaption = {string.Join("; ", hdds.Select(e => e.Caption))}");
+                            sb.AppendLine($"HDDMediaType = {string.Join("; ", hdds.Select(e => e.MediaType))}");
+                            sb.AppendLine($"HDDSize = {string.Join("; ", hdds.Select(e => e.Size))}");
+                            continue;
+                        }
+                    }
                 }
-                else if (prop.PropertyType.GetInterfaces().Where(i => i.GetGenericTypeDefinition() == typeof(IList<>)).FirstOrDefault() != null)
+                catch (Exception ex)
                 {
-                    var value = prop.GetValue(this, null);
-                    var rams = value as List<Ram>;
-                    if (rams != null)
-                    {
-                        sb.AppendLine($"AmountOfRam = {rams.Count}");
-                        sb.AppendLine($"RamCapacity = {string.Join("; ", rams.Select(e => e.Capacity))}");
-                        sb.AppendLine($"RamSpeed = {string.Join("; ", rams.Select(e => e.Speed))}");
-                        sb.AppendLine($"RamDeviceLocator = {string.Join("; ", rams.Select(e => e.DeviceLocator))}");
-                        continue;
-                    }
-                    var graphicsCards = value as List<GraphicsCard>;
-                    if (graphicsCards != null)
-                    {
-                        sb.AppendLine($"AmountOfGraphicsCard = {graphicsCards.Count}");
-                        sb.AppendLine($"GraphicsCardName = {string.Join("; ", graphicsCards.Select(e => e.Name))}");
-                        sb.AppendLine($"GraphicsCardInstalledDisplayDrivers = {string.Join("; ", graphicsCards.Select(e => e.InstalledDisplayDrivers))}");
-                        sb.AppendLine($"GraphicsCardVideoMemoryType = {string.Join("; ", graphicsCards.Select(e => e.VideoMemoryType))}");
-                        continue;
-                    }
-                    var cpus = value as List<CPU>;
-                    if (cpus != null)
-                    {
-                        sb.AppendLine($"AmountOfCPU = {cpus.Count}");
-                        sb.AppendLine($"CPUName = {string.Join("; ", cpus.Select(e => e.Name))}");
-                        sb.AppendLine($"CPUProducer = {string.Join("; ", cpus.Select(e => e.Producer))}");
-                        continue;
-                    }
-                    var soundCards = value as List<SoundCard>;
-                    if (soundCards != null)
-                    {
-                        sb.AppendLine($"AmountOfSoundCard = {soundCards.Count}");
-                        sb.AppendLine($"SoundCardCaption = {string.Join("; ", soundCards.Select(e => e.Caption))}");
-                        sb.AppendLine($"SoundCardManufacturer = {string.Join("; ", soundCards.Select(e => e.Manufacturer))}");
-                        sb.AppendLine($"SoundCardStatusInfo = {string.Join("; ", soundCards.Select(e => e.StatusInfo))}");
-                        continue;
-                    }
-                    var hdds = value as List<HDD>;
-                    if (hdds != null)
-                    {
-                        sb.AppendLine($"AmountOfHDD = {hdds.Count}");
-                        sb.AppendLine($"HDDCaption = {string.Join("; ", hdds.Select(e => e.Caption))}");
-                        sb.AppendLine($"HDDMediaType = {string.Join("; ", hdds.Select(e => e.MediaType))}");
-                        sb.AppendLine($"HDDSize = {string.Join("; ", hdds.Select(e => e.Size))}");
-                        continue;
-                    }
                 }
             }
             return sb.ToString();

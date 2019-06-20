@@ -67,7 +67,6 @@ namespace Script.Info
         {
             try
             {
-                
                 var searcher = new ManagementObjectSearcher("root\\cimv2", "Select DomainRole from Win32_ComputerSystem");
                 foreach (var mo in searcher.Get())
                 {

@@ -80,7 +80,7 @@ namespace Script.Info
             }
             catch (Exception ex)
             {
-                AntivirusInstalled = "Not installed";
+                AntivirusInstalled = "Unknown";
             }
         }
     }
