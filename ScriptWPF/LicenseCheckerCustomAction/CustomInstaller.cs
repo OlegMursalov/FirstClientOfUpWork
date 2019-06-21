@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Configuration.Install;
-using System.IO;
 using System.Net;
-using System.Windows;
+using System.Text;
 
 namespace LicenseCheckerCustomAction
 {
@@ -14,7 +14,6 @@ namespace LicenseCheckerCustomAction
         public override void Install(IDictionary stateSaver)
         {
             base.Install(stateSaver);
-            MessageBox.Show("Install");
         }
 
         protected override void OnBeforeInstall(IDictionary savedState)
@@ -24,24 +23,19 @@ namespace LicenseCheckerCustomAction
                 string licenseKey = Context.Parameters["LicenseKey"];
                 if (!string.IsNullOrEmpty(licenseKey))
                 {
-                    var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/license-checker.php");
-                    httpWebRequest.ContentType = "application/json";
-                    httpWebRequest.Method = "POST";
-                    using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                    using (var wb = new WebClient())
                     {
-                        streamWriter.Write(licenseKey);
-                    }
-                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                    {
-                        var result = streamReader.ReadToEnd();
-                        if (result == "OK")
+                        var data = new NameValueCollection();
+                        data["LicenseKeyValue"] = licenseKey;
+                        var response = wb.UploadValues("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/license-checker.php", "POST", data);
+                        string message = Encoding.UTF8.GetString(response);
+                        if (message == "OK")
                         {
                             base.OnBeforeInstall(savedState);
                         }
                         else
                         {
-                            throw new Exception("This key has already been used.");
+                            throw new Exception(message);
                         }
                     }
                 }
@@ -59,7 +53,6 @@ namespace LicenseCheckerCustomAction
         public override void Rollback(IDictionary mySavedState)
         {
             base.Rollback(mySavedState);
-            MessageBox.Show("Rollback");
         }
     }
 }
