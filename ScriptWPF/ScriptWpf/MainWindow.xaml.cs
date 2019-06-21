@@ -29,6 +29,10 @@ namespace ScriptWpf
                 if (ex != null)
                 {
                     MessageBox.Show(ex.Message + " - " + ex.StackTrace);
+                    if (ex.InnerException != null)
+                    {
+                        MessageBox.Show($"InnerException: {ex.InnerException.Message}" + " - " + ex.InnerException.StackTrace);
+                    }
                 }
             }
         }

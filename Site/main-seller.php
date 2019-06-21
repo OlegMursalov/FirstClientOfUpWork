@@ -19,29 +19,43 @@ if (isset($_POST['userId']) && isset($_POST['idApp'])) {
 					$files = glob("applications/" . $mainFileName);
 					if ($files != null && count($files) > 0) {
 						$filePath = $files[0];
-						$query = "select Id, Value from LicensingKeys where UserId = '" . $_POST['userId'] . "' and AppId = '" . $_POST['idApp'] . "' and IsAvailable = 1";
-						$result = $conn->query($query);
-						$bodytext = '';
-						if ($result != null && $result->num_rows > 0) {
-							$row = $result->fetch_row();
-							$bodytext = "Your licensing key = '" . $row[1] . "'";
-						} else {
-							$id = uniqid();
-							$value = $id . uniqid();
-							$query = "INSERT INTO `LicensingKeys`(`Id`, `UserId`, `AppId`, `Value`, `IsAvailable`) VALUES ('" . $id . "','" . $_POST['userId'] . "','" . $_POST['idApp'] . "','" . $value . "',1)";
+						$newFilePath = "applications/copy/" . $mainFileName;
+						if (copy($filePath, $newFilePath)) {
+							$query = "select Id, Value from LicensingKeys where UserId = '" . $_POST['userId'] . "' and AppId = '" . $_POST['idApp'] . "' and IsAvailable = 1";
 							$result = $conn->query($query);
-							$bodytext = "Your licensing key = '" . $value . "'";
-						}
-						$message = new PHPMailer();
-						$message->SetFrom('olegmursalovistrue@gmail.com', 'Cetbix');
-						$message->AddAddress($email);
-						$message->Subject = "Message from Cetbix";
-						$message->Body = $bodytext;
-						$message->AddAttachment($filePath, $mainFileName);
-						if($message->Send()) {
-							echo 'Please, check your email box.';
-						} else {
-							echo 'Sorry, bad request.';
+							$bodytext = '';
+							if ($result != null && $result->num_rows > 0) {
+								$row = $result->fetch_row();
+								$key = $row[1];
+								$bodytext = "Your licensing key = '" . $key . "'";
+							} else {
+								$id = uniqid() . uniqid();
+								$key = '';
+								for ($i = 0; $i < 30; $i++) {
+									$key .= random_int(0, 9);
+								}
+								$query = "INSERT INTO `LicensingKeys`(`Id`, `UserId`, `AppId`, `Value`, `IsAvailable`) VALUES ('" . $id . "','" . $_POST['userId'] . "','" . $_POST['idApp'] . "','" . $key . "',1)";
+								$result = $conn->query($query);
+								$bodytext = "Your licensing key = '" . $key . "'";
+							}
+							$parts = str_split($key);
+							$fp = fopen($newFilePath, 'a');
+							for ($i = 0; $i < 30; $i++) {
+								fwrite($fp, $parts[$i]);
+							}
+							fclose($fp);
+							$message = new PHPMailer();
+							$message->SetFrom('olegmursalovistrue@gmail.com', 'Cetbix');
+							$message->AddAddress($email);
+							$message->Subject = "Message from Cetbix";
+							$message->Body = $bodytext;
+							$message->AddAttachment($newFilePath, $newMainFile);
+							if($message->Send()) {
+								echo 'Please, check your email box.';
+							} else {
+								echo 'Sorry, bad request.';
+							}
+							unlink($newFilePath);
 						}
 					}
 				}
