@@ -21,7 +21,7 @@ if (isset($_POST['userId']) && isset($_POST['idApp'])) {
 						$filePath = $files[0];
 						$newFilePath = "applications/copy/" . $mainFileName;
 						if (copy($filePath, $newFilePath)) {
-							$query = "select Id, Value from LicensingKeys where UserId = '" . $_POST['userId'] . "' and AppId = '" . $_POST['idApp'] . "' and IsAvailable = 1";
+							$query = "select Id, Value from LicensingKeys where UserId = '" . $_POST['userId'] . "' and AppId = '" . $_POST['idApp'];
 							$result = $conn->query($query);
 							$bodytext = '';
 							if ($result != null && $result->num_rows > 0) {
@@ -34,7 +34,7 @@ if (isset($_POST['userId']) && isset($_POST['idApp'])) {
 								for ($i = 0; $i < 30; $i++) {
 									$key .= random_int(0, 9);
 								}
-								$query = "INSERT INTO `LicensingKeys`(`Id`, `UserId`, `AppId`, `Value`, `IsAvailable`) VALUES ('" . $id . "','" . $_POST['userId'] . "','" . $_POST['idApp'] . "','" . $key . "',1)";
+								$query = "INSERT INTO `LicensingKeys`(`Id`, `UserId`, `AppId`, `Value`) VALUES ('" . $id . "','" . $_POST['userId'] . "','" . $_POST['idApp'] . "','" . $key . ")";
 								$result = $conn->query($query);
 								$bodytext = "Your licensing key = '" . $key . "'";
 							}
