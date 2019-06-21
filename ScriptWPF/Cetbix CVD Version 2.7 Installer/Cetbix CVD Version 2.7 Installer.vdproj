@@ -554,7 +554,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cetbix CVD Version 2.7"
         "ProductCode" = "8:{6660ED01-F8AC-4045-8DED-34138F953CD5}"
-        "PackageCode" = "8:{92BB0F23-F1F6-412D-8183-D8219F8ADDCF}"
+        "PackageCode" = "8:{2A158176-B009-474E-982E-2FFAF301F0BA}"
         "UpgradeCode" = "8:{812A0348-2DB6-4AB0-A22C-44BAC554EC4B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1150,7 +1150,7 @@
                             "ContextData" = "8:1;True=1;False=0"
                             "Attributes" = "3:0"
                             "Setting" = "3:0"
-                            "Value" = "3:1"
+                            "Value" = "3:0"
                             "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }

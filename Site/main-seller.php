@@ -34,7 +34,7 @@ if (isset($_POST['userId']) && isset($_POST['idApp'])) {
 								for ($i = 0; $i < 30; $i++) {
 									$key .= random_int(0, 9);
 								}
-								$query = "INSERT INTO `LicensingKeys`(`Id`, `UserId`, `AppId`, `Value`) VALUES ('" . $id . "','" . $_POST['userId'] . "','" . $_POST['idApp'] . "','" . $key . ")";
+								$query = "INSERT INTO `LicensingKeys`(`Id`, `UserId`, `AppId`, `Value`) VALUES ('" . $id . "','" . $_POST['userId'] . "','" . $_POST['idApp'] . "','" . $key . "')";
 								$result = $conn->query($query);
 								$bodytext = "Your licensing key = '" . $key . "'";
 							}
