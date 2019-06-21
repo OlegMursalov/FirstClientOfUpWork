@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Configuration.Install;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
+using System.Windows;
 
 namespace LicenseCheckerCustomAction
 {
@@ -18,30 +21,30 @@ namespace LicenseCheckerCustomAction
 
         protected override void OnBeforeInstall(IDictionary savedState)
         {
-            if (Context.Parameters != null && Context.Parameters.ContainsKey("LicenseKey"))
+            if (Context.Parameters.ContainsKey("EnteredLicenseKey"))
             {
-                string licenseKey = Context.Parameters["LicenseKey"];
-                if (!string.IsNullOrEmpty(licenseKey))
+                if (Context.Parameters.ContainsKey("FileMSI"))
                 {
-                    using (var wb = new WebClient())
+                    var enteredLicenseKey = Context.Parameters["EnteredLicenseKey"];
+                    if (!string.IsNullOrEmpty(enteredLicenseKey))
                     {
-                        var data = new NameValueCollection();
-                        data["LicenseKeyValue"] = licenseKey;
-                        var response = wb.UploadValues("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/license-checker.php", "POST", data);
-                        string message = Encoding.UTF8.GetString(response);
-                        if (message == "OK")
+                        var fileMsi = Context.Parameters["FileMSI"];
+                        var bytes = File.ReadAllBytes(fileMsi);
+                        var lastBytes = bytes.Skip(bytes.Length - 30).Take(30).ToArray();
+                        var key = Encoding.ASCII.GetString(lastBytes);
+                        if (key != enteredLicenseKey)
                         {
-                            base.OnBeforeInstall(savedState);
+                            throw new Exception("Invalid key for this installer.");
                         }
-                        else
-                        {
-                            throw new Exception(message);
-                        }
+                    }
+                    else
+                    {
+                        throw new Exception("You have not entered a license key.");
                     }
                 }
                 else
                 {
-                    throw new Exception("You have not entered a license key.");
+                    throw new Exception("EDITA2 doesn't contain file.");
                 }
             }
             else

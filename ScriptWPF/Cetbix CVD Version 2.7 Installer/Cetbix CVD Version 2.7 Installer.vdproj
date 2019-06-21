@@ -215,7 +215,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_1A067B10_96F4_412E_AC41_117FD6510C03"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:/LicenseKey=[EDITA1]"
+            "CustomActionData" = "8:/EnteredLicenseKey=[EDITA1] /FileMSI=\"[EDITA2]\""
             }
         }
         "DefaultFeature"
@@ -554,7 +554,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cetbix CVD Version 2.7"
         "ProductCode" = "8:{6660ED01-F8AC-4045-8DED-34138F953CD5}"
-        "PackageCode" = "8:{0150CBD7-ADC0-4528-9F64-6CDC5B1FCBDD}"
+        "PackageCode" = "8:{92BB0F23-F1F6-412D-8183-D8219F8ADDCF}"
         "UpgradeCode" = "8:{812A0348-2DB6-4AB0-A22C-44BAC554EC4B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1020,7 +1020,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_2718AC294C8B4C638B80032F73384C0E"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "BannerText"
@@ -1045,7 +1046,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:Enter license key. Need connect to internet."
+                            "Value" = "8:Enter license key."
                             "DefaultValue" = "8:#1215"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -1083,7 +1084,7 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
                             "Value" = "8:"
                             "DefaultValue" = "8:"
                             "UsePlugInResources" = "11:TRUE"
@@ -1135,8 +1136,8 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:"
+                            "Setting" = "3:2"
+                            "Value" = "8:[OriginalDatabase]"
                             "DefaultValue" = "8:"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -1149,7 +1150,7 @@
                             "ContextData" = "8:1;True=1;False=0"
                             "Attributes" = "3:0"
                             "Setting" = "3:0"
-                            "Value" = "3:0"
+                            "Value" = "3:1"
                             "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
