@@ -143,14 +143,14 @@ namespace Script.Common
 
         public static string GetDateScan()
         {
-            var now = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}";
+            var nowShort = $"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}";
             try
             {
-                return $"{DateTime.Now.ToString("hh:mm tt", new CultureInfo("en-US"))} {now}";
+                return $"{DateTime.Now.ToString("hh:mm", new CultureInfo("en-US"))} {nowShort}";
             }
             catch (Exception ex)
             {
-                return now;
+                return nowShort;
             }
         }
     }
