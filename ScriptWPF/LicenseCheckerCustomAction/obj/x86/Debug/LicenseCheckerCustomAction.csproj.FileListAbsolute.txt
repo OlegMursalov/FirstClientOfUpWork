@@ -1,0 +1,7 @@
+C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\bin\Debug\LicenseCheckerCustomAction.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\bin\Debug\LicenseCheckerCustomAction.CA.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\bin\Debug\LicenseCheckerCustomAction.pdb
+C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\bin\Debug\Microsoft.Deployment.WindowsInstaller.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\bin\Debug\Microsoft.Deployment.WindowsInstaller.xml
+C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\obj\x86\Debug\LicenseCheckerCustomAction.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\obj\x86\Debug\LicenseCheckerCustomAction.pdb
