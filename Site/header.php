@@ -1,3 +1,4 @@
+<? session_start(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -52,11 +53,6 @@
     <link href="css/plugins/dropzone/basic.css" rel="stylesheet">
     <link href="css/plugins/dropzone/dropzone.css" rel="stylesheet">
 </head>
-	
-	
-
-
-
 
 
 

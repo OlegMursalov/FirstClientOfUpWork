@@ -2,7 +2,6 @@
 <body>
 
 <?php include ('../navi.php'); ?>
-      
 
         <div class="wrapper wrapper-content animated fadeInRight ecommerce">
 
@@ -28,8 +27,6 @@
                                 <div id="asset_tab" class="tab-pane">
                                     <div class="panel-body">
 										<?php  include ('tools_tab.php');   ?>
-										
-                                   
                                     </div>
                                 </div>
                                 <div id="tab-3" class="tab-pane">
@@ -59,9 +56,6 @@
                                     </div>
                                 </div>
                             </div>
-						
-						
-						
                     </div>
                 </div>
             </div>
