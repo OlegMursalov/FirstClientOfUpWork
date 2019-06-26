@@ -3,15 +3,15 @@ include 'config.php';
 if (isset($_POST['email']) && isset($_POST['login']) && isset($_POST['password'])) {
 	$conn = new mysqli($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 	if (!$conn->connect_error) {
-		$id = uniqid();
+		$id = uniqid() . uniqid();
 		$login = $_POST['login'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];
 		$query = "INSERT INTO `Users`(`Id`, `Login`, `Password`, `Email`) VALUES ('" . $id . "', '" . $login . "', '" . $password . "', '" . $email . "')";
 		$result = $conn->query($query);
-		$_SESSION['UserId'] = $id;
-		$_SESSION['UserLogin'] = $login;
-		header('location:../asset_management/tabs1.php');
+		$_POST['UserId'] = $id;
+		$_POST['UserLogin'] = $login;
+		header('location:../asset_management/buyapp.php');
 	} else {
 		print_r('No connection');
 	}

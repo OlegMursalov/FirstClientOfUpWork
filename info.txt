@@ -5,7 +5,7 @@ SITE: https://xvex.de/isms/test/asset_management/tabs1.php
 phpMyAdmin: https://w00f311e.kasserver.com/mysqladmin/PMA4/index.php?server=98938209&db=d02eb2b7
 
 FTP user: w00f311e
-Password: CrLRsvSo3du2RA7P
+Password: v6kKamYds7xYme6w
 Domain: xvex.de
 Folder: isms/test
 

@@ -2,6 +2,7 @@
 <body>
 
 <?php include ('../navi.php'); ?>
+      
 
         <div class="wrapper wrapper-content animated fadeInRight ecommerce">
 
@@ -9,7 +10,7 @@
                 <div class="col-lg-12">
                     <div class="tabs-container">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#tab-1">Dashboard</a></li>
+                                <li class="active"><a data-toggle="tab" href="#tab-1">Dashboards</a></li>
                                 <li class=""><a data-toggle="tab" href="#asset_tab"> Assets</a></li>
 								<li class=""><a data-toggle="tab" href="#invoice-tab">Invoice</a></li>
                                 <li class=""><a data-toggle="tab" href="#tab-3"> Search</a></li>

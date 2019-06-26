@@ -342,21 +342,11 @@
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
                     </li>-->
-					<?if (!isset($_SESSION['UserId'])) {
-						?>
-						<li>
-							<a href="login.php">
-								<i class="fa fa-sign-out"></i> Sign up
-							</a>
-						</li>
-					<?} else {?>
-						<li>
-							Hello, <?=$_SESSION['UserLogin']?>
-						</li>
-					<?}?>
+					<li>
+						<a href="signup_buyapp.php">
+							<i class="fa fa-sign-out"></i> Sign up and buy app
+						</a>
+					</li>
                 </ul>
             </nav>
-			<?if (isset($_SESSION['UserId'])) {?>
-				<a href="buyapp.php" class="btn btn-primary" style="right: 25px; position: absolute; z-index: 1000; top: 70px;">Buy app</a>
-			<?}?>
         </div>

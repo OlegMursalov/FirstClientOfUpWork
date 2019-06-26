@@ -23,7 +23,35 @@ namespace LicenseCheckerCustomAction
         {
             if (Context.Parameters.ContainsKey("EnteredLicenseKey"))
             {
-                if (Context.Parameters.ContainsKey("FileMSI"))
+                var enteredLicenseKey = Context.Parameters["EnteredLicenseKey"];
+                if (!string.IsNullOrEmpty(enteredLicenseKey))
+                {
+                    var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/license-checker.php");
+                    httpWebRequest.ContentType = "application/json";
+                    httpWebRequest.Method = "POST";
+                    using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                    {
+                        streamWriter.Write($"LicenseKeyValue={enteredLicenseKey}");
+                    }
+                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                    {
+                        var result = streamReader.ReadToEnd();
+                        if (result == "OK")
+                        {
+                            base.OnBeforeInstall(savedState);
+                        }
+                        else
+                        {
+                            throw new Exception(result);
+                        }
+                    }
+                }
+                else
+                {
+                    throw new Exception("You have not entered a license key.");
+                }
+                /*if (Context.Parameters.ContainsKey("FileMSI"))
                 {
                     var enteredLicenseKey = Context.Parameters["EnteredLicenseKey"];
                     if (!string.IsNullOrEmpty(enteredLicenseKey))
@@ -45,7 +73,7 @@ namespace LicenseCheckerCustomAction
                 else
                 {
                     throw new Exception("EDITA2 doesn't contain file.");
-                }
+                }*/
             }
             else
             {
