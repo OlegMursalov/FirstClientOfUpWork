@@ -13,30 +13,20 @@ if ($rest_json != null) {
 				$userId = $row[4];
 				$amountOfDays = $row[5];
 				$amountOfUsers = $row[6];
-				$query = "select count(*) from `Activations`";
+				$query = "select count(*) from `Activations` where UserId = '" . $userId . "'";
 				$result = $conn->query($query);
 				if ($result != null && $result->num_rows > 0) {
 					$row = $result->fetch_row();
-					$amountOfActivations = $row[0];
-					if ($amountOfActivations < $amountOfUsers) {
-						$query = "select count(*) from `Activations` where UserId = '" . $userId . "'";
+					$amountOfActivationsForCurrUser = $row[0];
+					if ($amountOfActivationsForCurrUser == 0) {
+						$id = uniqid() . uniqid();
+						$now = date("Y-m-d H:i:s");
+						$lastDate = date("Y-m-d H:i:s", strtotime('+' . $amountOfDays . ' days', strtotime($now)));
+						$query = "INSERT INTO `Activations`(`Id`, `UserId`, `LicensingKeyId`, `ActivationDate`, `LastDate`) VALUES ('" . $id . "','" . $userId . "','" . $keyId . "','" . $now . "','" . $lastDate . "')";
 						$result = $conn->query($query);
-						if ($result != null && $result->num_rows > 0) {
-							$row = $result->fetch_row();
-							$amountOfActivationsForCurrUser = $row[0];
-							if ($amountOfActivationsForCurrUser == 0) {
-								$id = uniqid() . uniqid();
-								$now = date("Y-m-d H:i:s");
-								$lastDate = date("Y-m-d H:i:s", strtotime('+' . $amountOfDays . ' days', strtotime($now)));
-								$query = "INSERT INTO `Activations`(`Id`, `UserId`, `LicensingKeyId`, `ActivationDate`, `LastDate`) VALUES ('" . $id . "','" . $userId . "','" . $keyId . "','" . $now . "','" . $lastDate . "')";
-								$result = $conn->query($query);
-								print "OK";
-							} else {
-								print "There is already an activation for this user.";
-							}
-						}
+						print "OK";
 					} else {
-						print "Activations have ended.";
+						print "There is already an activation for this user.";
 					}
 				}
 			} else {

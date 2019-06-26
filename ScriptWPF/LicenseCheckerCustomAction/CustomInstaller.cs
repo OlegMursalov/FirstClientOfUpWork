@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Configuration.Install;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Windows;
 
 namespace LicenseCheckerCustomAction
 {
@@ -39,7 +36,29 @@ namespace LicenseCheckerCustomAction
                         var result = streamReader.ReadToEnd();
                         if (result == "OK")
                         {
-                            base.OnBeforeInstall(savedState);
+                            var assemblyPath = Context.Parameters["AssemblyPath"];
+                            if (!string.IsNullOrEmpty(assemblyPath))
+                            {
+                                var i = assemblyPath.LastIndexOf("\\");
+                                var path = assemblyPath.Substring(0, i);
+                                if (Directory.Exists(path))
+                                {
+                                    base.OnBeforeInstall(savedState);
+                                    using (var fstream = new FileStream($"{path}\\key.txt", FileMode.OpenOrCreate))
+                                    {
+                                        var array = Encoding.UTF8.GetBytes(enteredLicenseKey);
+                                        fstream.Write(array, 0, array.Length);
+                                    }
+                                }
+                                else
+                                {
+                                    throw new Exception("Error in MSI [1124]");
+                                }
+                            }
+                            else
+                            {
+                                throw new Exception("Error in MSI [4435]");
+                            }
                         }
                         else
                         {

@@ -9,6 +9,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Cetbix CVD Version 2.7 Inst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseCheckerCustomAction", "LicenseCheckerCustomAction\LicenseCheckerCustomAction.csproj", "{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyChecker", "KeyChecker\KeyChecker.csproj", "{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,14 @@ Global
 		{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}.Release|Any CPU.ActiveCfg = Release|x86
 		{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}.Release|x86.ActiveCfg = Release|x86
 		{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}.Release|x86.Build.0 = Release|x86
+		{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}.Debug|x86.Build.0 = Debug|Any CPU
+		{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}.Release|x86.ActiveCfg = Release|Any CPU
+		{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

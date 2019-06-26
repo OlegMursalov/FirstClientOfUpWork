@@ -1,0 +1,4 @@
+C:\Users\Олег\Desktop\Project\ScriptWPF\KeyChecker\bin\Debug\KeyChecker.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\KeyChecker\bin\Debug\KeyChecker.pdb
+C:\Users\Олег\Desktop\Project\ScriptWPF\KeyChecker\obj\Debug\KeyChecker.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\KeyChecker\obj\Debug\KeyChecker.pdb
