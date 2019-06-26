@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KeyChecker;
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
@@ -52,7 +53,10 @@ namespace LicenseCheckerCustomAction
                                             base.OnBeforeInstall(savedState);
                                             using (var fstream = new FileStream($"{path}\\activation.txt", FileMode.OpenOrCreate))
                                             {
-                                                var array = Encoding.UTF8.GetBytes(parts[1]);
+                                                var activationId = parts[1];
+                                                var encryptor = new Encryptor("bf269582-eab7-4f53-9311-12cb834076b0");
+                                                var text = encryptor.Encrypt(activationId);
+                                                var array = Encoding.UTF8.GetBytes(text);
                                                 fstream.Write(array, 0, array.Length);
                                             }
                                         }

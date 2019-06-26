@@ -44,28 +44,42 @@ namespace KeyChecker
         {
             if (File.Exists(keyFilePath))
             {
-                var enteredLicenseKey = File.ReadAllText(keyFilePath).Trim();
-                if (!string.IsNullOrEmpty(enteredLicenseKey))
+                var text = File.ReadAllText(keyFilePath).Trim();
+                if (!string.IsNullOrEmpty(text))
                 {
-                    try
+                    var encryptor = new Encryptor("bf269582-eab7-4f53-9311-12cb834076b0");
+                    var activatedKey = encryptor.Decrypt(text);
+                    if (!string.IsNullOrEmpty(activatedKey))
                     {
-                        var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/activation-checker.php");
-                        httpWebRequest.ContentType = "application/json";
-                        httpWebRequest.Method = "POST";
-                        using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                        try
                         {
-                            streamWriter.Write($"ActivationId={enteredLicenseKey}");
+                            var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/activation-checker.php");
+                            httpWebRequest.ContentType = "application/json";
+                            httpWebRequest.Method = "POST";
+                            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                            {
+                                streamWriter.Write($"ActivationId={activatedKey}");
+                            }
+                            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                            {
+                                var result = streamReader.ReadToEnd().Trim();
+                                var mainFlag = Convert.ToBoolean(int.Parse(result));
+                                if (mainFlag)
+                                {
+                                    File.Delete(keyFilePath);
+                                }
+                                return mainFlag;
+                            }
                         }
-                        var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                        using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                        catch (WebException ex)
                         {
-                            var result = streamReader.ReadToEnd().Trim();
-                            return Convert.ToBoolean(int.Parse(result));
+                            return true;
                         }
                     }
-                    catch (WebException ex)
+                    else
                     {
-                        return true;
+                        return false;
                     }
                 }
                 else
