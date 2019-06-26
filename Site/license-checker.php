@@ -1,4 +1,5 @@
 <?
+// Check license key when installation..
 $rest_json = file_get_contents("php://input");
 if ($rest_json != null) {
 	$licenseKeyValue = str_replace("LicenseKeyValue=", "", $rest_json);
@@ -19,12 +20,12 @@ if ($rest_json != null) {
 					$row = $result->fetch_row();
 					$amountOfActivationsForCurrUser = $row[0];
 					if ($amountOfActivationsForCurrUser == 0) {
-						$id = uniqid() . uniqid();
+						$activationId = uniqid() . uniqid();
 						$now = date("Y-m-d H:i:s");
 						$lastDate = date("Y-m-d H:i:s", strtotime('+' . $amountOfDays . ' days', strtotime($now)));
-						$query = "INSERT INTO `Activations`(`Id`, `UserId`, `LicensingKeyId`, `ActivationDate`, `LastDate`) VALUES ('" . $id . "','" . $userId . "','" . $keyId . "','" . $now . "','" . $lastDate . "')";
+						$query = "INSERT INTO `Activations`(`Id`, `UserId`, `LicensingKeyId`, `ActivationDate`, `LastDate`) VALUES ('" . $activationId . "','" . $userId . "','" . $keyId . "','" . $now . "','" . $lastDate . "')";
 						$result = $conn->query($query);
-						print "OK";
+						print "OK:" . $activationId;
 					} else {
 						print "There is already an activation for this user.";
 					}

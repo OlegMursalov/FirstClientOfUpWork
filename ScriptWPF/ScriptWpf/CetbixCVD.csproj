@@ -152,6 +152,12 @@
     <EmbeddedResource Include="Images\cetbix2_7_update.jpg" />
     <EmbeddedResource Include="Images\cetbixdesktop.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KeyChecker\KeyChecker.csproj">
+      <Project>{84ba66cc-d7b4-49c2-8daf-8f22cf23a6f2}</Project>
+      <Name>KeyChecker</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

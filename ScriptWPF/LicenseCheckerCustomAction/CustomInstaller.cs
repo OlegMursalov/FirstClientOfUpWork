@@ -5,6 +5,7 @@ using System.Configuration.Install;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Windows;
 
 namespace LicenseCheckerCustomAction
 {
@@ -23,47 +24,62 @@ namespace LicenseCheckerCustomAction
                 var enteredLicenseKey = Context.Parameters["EnteredLicenseKey"];
                 if (!string.IsNullOrEmpty(enteredLicenseKey))
                 {
-                    var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/license-checker.php");
-                    httpWebRequest.ContentType = "application/json";
-                    httpWebRequest.Method = "POST";
-                    using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                    try
                     {
-                        streamWriter.Write($"LicenseKeyValue={enteredLicenseKey}");
-                    }
-                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                    {
-                        var result = streamReader.ReadToEnd();
-                        if (result == "OK")
+                        var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/license-checker.php");
+                        httpWebRequest.ContentType = "application/json";
+                        httpWebRequest.Method = "POST";
+                        using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                         {
-                            var assemblyPath = Context.Parameters["AssemblyPath"];
-                            if (!string.IsNullOrEmpty(assemblyPath))
+                            streamWriter.Write($"LicenseKeyValue={enteredLicenseKey}");
+                        }
+                        var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                        using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                        {
+                            var result = streamReader.ReadToEnd();
+                            if (result != null && result.IndexOf("OK", 0, StringComparison.CurrentCultureIgnoreCase) != -1)
                             {
-                                var i = assemblyPath.LastIndexOf("\\");
-                                var path = assemblyPath.Substring(0, i);
-                                if (Directory.Exists(path))
+                                var parts = result.Split(':');
+                                if (parts.Length >= 2)
                                 {
-                                    base.OnBeforeInstall(savedState);
-                                    using (var fstream = new FileStream($"{path}\\key.txt", FileMode.OpenOrCreate))
+                                    var assemblyPath = Context.Parameters["AssemblyPath"];
+                                    if (!string.IsNullOrEmpty(assemblyPath))
                                     {
-                                        var array = Encoding.UTF8.GetBytes(enteredLicenseKey);
-                                        fstream.Write(array, 0, array.Length);
+                                        var i = assemblyPath.LastIndexOf("\\");
+                                        var path = assemblyPath.Substring(0, i);
+                                        if (Directory.Exists(path))
+                                        {
+                                            base.OnBeforeInstall(savedState);
+                                            using (var fstream = new FileStream($"{path}\\activation.txt", FileMode.OpenOrCreate))
+                                            {
+                                                var array = Encoding.UTF8.GetBytes(parts[1]);
+                                                fstream.Write(array, 0, array.Length);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            throw new Exception("Error in MSI [1124]");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        throw new Exception("Error in MSI [4435]");
                                     }
                                 }
                                 else
                                 {
-                                    throw new Exception("Error in MSI [1124]");
+                                    throw new Exception("Error in MSI [5543]");
                                 }
                             }
                             else
                             {
-                                throw new Exception("Error in MSI [4435]");
+                                throw new Exception(result);
                             }
                         }
-                        else
-                        {
-                            throw new Exception(result);
-                        }
+                    }
+                    catch (WebException ex)
+                    {
+                        throw new Exception("Check your internet connection.");
                     }
                 }
                 else

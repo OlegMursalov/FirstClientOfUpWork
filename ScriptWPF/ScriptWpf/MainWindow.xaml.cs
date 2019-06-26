@@ -6,6 +6,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Script.Common;
+using KeyChecker;
 
 namespace ScriptWpf
 {
@@ -19,6 +20,14 @@ namespace ScriptWpf
             InitializeComponent();
             var currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
+            // Checking license key
+            var keyFile = AppDomain.CurrentDomain.BaseDirectory + "activation.txt";
+            var checker = new Checker(keyFile);
+            checker.StartChecking(3600000, () => {
+                MessageBox.Show("Your trial period has expired.");
+                Application.Current.Shutdown();
+            });
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args)
