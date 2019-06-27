@@ -25,7 +25,7 @@ if ($rest_json != null) {
 						$lastDate = date("Y-m-d H:i:s", strtotime('+' . $amountOfMinutes . ' minutes', strtotime($now)));
 						$query = "INSERT INTO `Activations`(`Id`, `UserId`, `LicensingKeyId`, `ActivationDate`, `LastDate`) VALUES ('" . $activationId . "','" . $userId . "','" . $keyId . "','" . $now . "','" . $lastDate . "')";
 						$result = $conn->query($query);
-						print "OK:" . $activationId;
+						print "ActivationId=" . $activationId . ";AmountOfMinutes=" . $amountOfMinutes;
 					} else {
 						print "There is already an activation for this user.";
 					}
