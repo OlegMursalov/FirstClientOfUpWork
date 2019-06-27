@@ -22,11 +22,20 @@ namespace ScriptWpf
             currentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             // Checking license key
-            var keyFile = AppDomain.CurrentDomain.BaseDirectory + "activation.txt";
-            var checker = new Checker(keyFile);
-            checker.StartChecking(3600000, () => {
+            var checker = new Checker();
+            checker.StartChecking(10000, () =>
+            {
                 MessageBox.Show("Your trial period has expired.");
-                Application.Current.Shutdown();
+                Application.Current.Dispatcher.Invoke(new Action(() =>
+                {
+                    SendToCetbixRadio.IsEnabled = false;
+                    SaveToLocalRadio.IsEnabled = false;
+                    Run.IsEnabled = false;
+                    CetbixURI.IsEnabled = false;
+                    LabelCetbix.IsEnabled = false;
+                    MainProgress.IsEnabled = false;
+                    Background = new SolidColorBrush(Color.FromRgb(255, 176, 176));
+                }));
             });
         }
 

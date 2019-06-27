@@ -4,17 +4,18 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace KeyChecker
 {
     public class Checker
     {
-        private string keyFilePath;
+        private string baseFile;
 
-        public Checker(string keyFilePath)
+        public Checker()
         {
-            this.keyFilePath = keyFilePath;
+            this.baseFile = AppDomain.CurrentDomain.BaseDirectory + "Cetbix.Activation.dll";
         }
 
         /// <summary>
@@ -23,13 +24,13 @@ namespace KeyChecker
         /// </summary>
         public void StartChecking(int milliseconds, Action action)
         {
-            Task.Run(async () =>
+            Task.Run(() =>
             {
                 while (true)
                 {
                     if (Check())
                     {
-                        await Task.Delay(milliseconds);
+                        Thread.Sleep(milliseconds);
                     }
                     else
                     {
@@ -42,39 +43,73 @@ namespace KeyChecker
 
         private bool Check()
         {
-            if (File.Exists(keyFilePath))
+            if (File.Exists(baseFile))
             {
-                var text = File.ReadAllText(keyFilePath).Trim();
+                var text = File.ReadAllText(baseFile).Trim();
                 if (!string.IsNullOrEmpty(text))
                 {
                     var encryptor = new Encryptor("bf269582-eab7-4f53-9311-12cb834076b0");
-                    var activatedKey = encryptor.Decrypt(text);
-                    if (!string.IsNullOrEmpty(activatedKey))
+                    var decryptText = encryptor.Decrypt(text);
+                    if (!string.IsNullOrEmpty(decryptText))
                     {
-                        try
+                        var parts = decryptText.Split(';');
+                        if (parts.Length >= 2)
                         {
-                            var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/activation-checker.php");
-                            httpWebRequest.ContentType = "application/json";
-                            httpWebRequest.Method = "POST";
-                            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                            if (parts[0].IndexOf("ActivationId", 0, StringComparison.CurrentCultureIgnoreCase) != -1 && parts[1].IndexOf("LastDate", 0, StringComparison.CurrentCultureIgnoreCase) != -1)
                             {
-                                streamWriter.Write($"ActivationId={activatedKey}");
-                            }
-                            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                            {
-                                var result = streamReader.ReadToEnd().Trim();
-                                var mainFlag = Convert.ToBoolean(int.Parse(result));
-                                if (mainFlag)
+                                var fragmentsOfActivationId = parts[0].Split('=');
+                                var fragmentsOfLastDate = parts[1].Split('=');
+                                if (fragmentsOfActivationId.Length >= 2 && fragmentsOfLastDate.Length >= 2)
                                 {
-                                    File.Delete(keyFilePath);
+                                    var activationId = fragmentsOfActivationId[1];
+                                    var lastDateStr = fragmentsOfLastDate[1];
+                                    if (!string.IsNullOrEmpty(activationId) && !string.IsNullOrEmpty(lastDateStr))
+                                    {
+                                        try
+                                        {
+                                            var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/activation-checker.php");
+                                            httpWebRequest.ContentType = "application/json";
+                                            httpWebRequest.Method = "POST";
+                                            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                                            {
+                                                streamWriter.Write($"ActivationId={activationId}");
+                                            }
+                                            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                                            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                                            {
+                                                var result = streamReader.ReadToEnd().Trim();
+                                                var mainFlag = Convert.ToBoolean(int.Parse(result));
+                                                if (mainFlag)
+                                                {
+                                                    File.Delete(baseFile);
+                                                }
+                                                return mainFlag;
+                                            }
+                                        }
+                                        catch (WebException ex)
+                                        {
+                                            var lastDate = DateTime.Parse(lastDateStr);
+                                            return DateTime.Now <= lastDate;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
                                 }
-                                return mainFlag;
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                return false;
                             }
                         }
-                        catch (WebException ex)
+                        else
                         {
-                            return true;
+                            return false;
                         }
                     }
                     else

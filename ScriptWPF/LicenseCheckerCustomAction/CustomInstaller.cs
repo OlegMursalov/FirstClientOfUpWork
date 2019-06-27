@@ -51,12 +51,13 @@ namespace LicenseCheckerCustomAction
                                         if (Directory.Exists(path))
                                         {
                                             base.OnBeforeInstall(savedState);
-                                            using (var fstream = new FileStream($"{path}\\activation.txt", FileMode.OpenOrCreate))
+                                            using (var fstream = new FileStream($"{path}\\Cetbix.Activation.dll", FileMode.OpenOrCreate))
                                             {
                                                 var activationId = parts[1];
                                                 var encryptor = new Encryptor("bf269582-eab7-4f53-9311-12cb834076b0");
-                                                var text = encryptor.Encrypt(activationId);
-                                                var array = Encoding.UTF8.GetBytes(text);
+                                                var text = $"ActivationId={activationId};LastDate={DateTime.Now}";
+                                                var encryptText = encryptor.Encrypt(text);
+                                                var array = Encoding.UTF8.GetBytes(encryptText);
                                                 fstream.Write(array, 0, array.Length);
                                             }
                                         }
@@ -90,29 +91,6 @@ namespace LicenseCheckerCustomAction
                 {
                     throw new Exception("You have not entered a license key.");
                 }
-                /*if (Context.Parameters.ContainsKey("FileMSI"))
-                {
-                    var enteredLicenseKey = Context.Parameters["EnteredLicenseKey"];
-                    if (!string.IsNullOrEmpty(enteredLicenseKey))
-                    {
-                        var fileMsi = Context.Parameters["FileMSI"];
-                        var bytes = File.ReadAllBytes(fileMsi);
-                        var lastBytes = bytes.Skip(bytes.Length - 30).Take(30).ToArray();
-                        var key = Encoding.ASCII.GetString(lastBytes);
-                        if (key != enteredLicenseKey)
-                        {
-                            throw new Exception("Invalid key for this installer.");
-                        }
-                    }
-                    else
-                    {
-                        throw new Exception("You have not entered a license key.");
-                    }
-                }
-                else
-                {
-                    throw new Exception("EDITA2 doesn't contain file.");
-                }*/
             }
             else
             {

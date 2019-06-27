@@ -45,8 +45,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4F144BBE0CE08F2024B1DBCB2F27F7A3"
+        "OwnerKey" = "8:_C5938A1AFF2149CDB4DD877F3B00F6C1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
         "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
+        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -93,8 +105,50 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C5938A1AFF2149CDB4DD877F3B00F6C1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
+        "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
+        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
+        "OwnerKey" = "8:_846EBC936A1B412CA5AD3C2135E694CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_846EBC936A1B412CA5AD3C2135E694CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C5938A1AFF2149CDB4DD877F3B00F6C1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -131,6 +185,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -494,6 +554,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D1B1C3ED345FC0A32986D739FCBA7371"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:KeyChecker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D1B1C3ED345FC0A32986D739FCBA7371"
+                    {
+                    "Name" = "8:KeyChecker.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:KeyChecker.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2D071D025D614EE98AED0CD4F9D7F2F0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -562,7 +653,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cetbix CVD Version 2.7"
         "ProductCode" = "8:{6660ED01-F8AC-4045-8DED-34138F953CD5}"
-        "PackageCode" = "8:{AEF375D7-3F6D-40D1-B23E-6501B0F1B3EC}"
+        "PackageCode" = "8:{F309D466-C16B-42B0-BD95-AE1E057A99DB}"
         "UpgradeCode" = "8:{812A0348-2DB6-4AB0-A22C-44BAC554EC4B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1427,6 +1518,62 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{D069A32F-5E84-4E11-8B25-6C7E7F31A93C}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C5938A1AFF2149CDB4DD877F3B00F6C1"
+            {
+            "SourcePath" = "8:..\\KeyChecker\\obj\\Debug\\KeyChecker.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2D071D025D614EE98AED0CD4F9D7F2F0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DDCFD9779C4645A184A92F58D4D02CF5"
+            {
+            "SourcePath" = "8:..\\LicenseCheckerCustomAction\\obj\\x86\\Debug\\LicenseCheckerCustomAction.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2D071D025D614EE98AED0CD4F9D7F2F0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
