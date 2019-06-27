@@ -79,10 +79,6 @@ namespace KeyChecker
                                             {
                                                 var result = streamReader.ReadToEnd().Trim();
                                                 var mainFlag = Convert.ToBoolean(int.Parse(result));
-                                                if (mainFlag)
-                                                {
-                                                    File.Delete(baseFile);
-                                                }
                                                 return mainFlag;
                                             }
                                         }

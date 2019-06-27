@@ -25,7 +25,6 @@ namespace ScriptWpf
             var checker = new Checker();
             checker.StartChecking(10000, () =>
             {
-                MessageBox.Show("Your trial period has expired.");
                 Application.Current.Dispatcher.Invoke(new Action(() =>
                 {
                     SendToCetbixRadio.IsEnabled = false;
