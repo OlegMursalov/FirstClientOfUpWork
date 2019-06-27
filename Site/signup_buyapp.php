@@ -49,7 +49,9 @@ include ('../header.php'); ?>
 												<td><?=$row[1];?></td>
 												<td><?=$row[2];?></td>
 												<td>
-													<button class="buy-app" type="submit" data-id-app="<?=$row[0]?>" data-amount-of-days="14" data-amount-of-users="1" class="btn btn-primary" onclick="main(this);">Buy for 14 days</button>
+													<button class="buy-app" type="submit" data-id-app="<?=$row[0]?>" data-amount-of-minutes="20160" data-amount-of-users="1" class="btn btn-primary" onclick="main(this);">Buy for 14 days</button>
+													<button class="buy-app" type="submit" data-id-app="<?=$row[0]?>" data-amount-of-minutes="1440" data-amount-of-users="1" class="btn btn-primary" onclick="main(this);">Buy for 1 days</button>
+													<button class="buy-app" type="submit" data-id-app="<?=$row[0]?>" data-amount-of-minutes="30" data-amount-of-users="1" class="btn btn-primary" onclick="main(this);">Buy for 30 minutes</button>
 												</td>
 											</tr>
 										<?}
@@ -89,12 +91,12 @@ include ('../header.php'); ?>
 			}
 			if (flag) {
 				obj.idApp = elem.getAttribute('data-id-app');
-				obj.amountOfDays = elem.getAttribute('data-amount-of-days');
+				obj.amountOfMinutes = elem.getAttribute('data-amount-of-minutes');
 				obj.amountOfUsers = elem.getAttribute('data-amount-of-users');
 				$.ajax({
 					type: "POST",
 					url: "main-seller.php",
-					data: "userDataEmail=" + obj.userDataEmail + "&userDataLogin=" + obj.userDataLogin + "&userDataPassword=" + obj.userDataPassword + "&idApp=" + obj.idApp + "&amountOfDays=" + obj.amountOfDays + "&amountOfUsers=" + obj.amountOfUsers,
+					data: "userDataEmail=" + obj.userDataEmail + "&userDataLogin=" + obj.userDataLogin + "&userDataPassword=" + obj.userDataPassword + "&idApp=" + obj.idApp + "&amountOfMinutes=" + obj.amountOfMinutes + "&amountOfUsers=" + obj.amountOfUsers,
 					success: function(msg){
 						alert(msg);
 					}

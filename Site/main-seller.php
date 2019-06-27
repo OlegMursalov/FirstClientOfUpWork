@@ -1,7 +1,7 @@
 <?
 include 'config.php';
 require_once('class.phpmailer.php');
-if (isset($_POST['userDataEmail']) && isset($_POST['userDataLogin']) && isset($_POST['userDataPassword']) && isset($_POST['idApp']) && isset($_POST['amountOfDays']) &&
+if (isset($_POST['userDataEmail']) && isset($_POST['userDataLogin']) && isset($_POST['userDataPassword']) && isset($_POST['idApp']) && isset($_POST['amountOfMinutes']) &&
 	isset($_POST['amountOfUsers'])) {
 	$conn = new mysqli($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 	if (!$conn->connect_error) {
@@ -43,7 +43,7 @@ if (isset($_POST['userDataEmail']) && isset($_POST['userDataLogin']) && isset($_
 									for ($i = 0; $i < 30; $i++) {
 										$key .= random_int(0, 9);
 									}
-									$query = "INSERT INTO `LicensingKeys`(`Id`, `UserId`, `AppId`, `Value`, `GenerationDate`, `AmountOfDays`, `AmountOfUsers`) VALUES ('" . $id . "','" . $userId . "','" . $_POST['idApp'] . "','" . $key . "','" . date("Y-m-d H:i:s") . "','" . $_POST['amountOfDays'] . "','" . $_POST['amountOfUsers'] . "')";
+									$query = "INSERT INTO `LicensingKeys`(`Id`, `UserId`, `AppId`, `Value`, `GenerationDate`, `AmountOfMinutes`, `AmountOfUsers`) VALUES ('" . $id . "','" . $userId . "','" . $_POST['idApp'] . "','" . $key . "','" . date("Y-m-d H:i:s") . "','" . $_POST['amountOfMinutes'] . "','" . $_POST['amountOfUsers'] . "')";
 									$result = $conn->query($query);
 									$bodytext = "Your licensing key = '" . $key . "'";
 								}
