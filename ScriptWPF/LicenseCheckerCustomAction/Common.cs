@@ -9,6 +9,7 @@ namespace LicenseCheckerCustomAction
     {
         public static string TestApi { get { return "https://xvex.de/isms/add_ons/cetbix_vulnerability_management"; } }
         public static string GuidForEncryptor { get { return "bf269582-eab7-4f53-9311-12cb834076b0"; } }
+        public static string URIForBuyApp { get { return "https://xvex.de/isms/test/asset_management/signup_buyapp.php"; } }
 
         public static string GetUUID()
         {

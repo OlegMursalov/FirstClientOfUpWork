@@ -21,7 +21,10 @@ namespace ScriptWpf
             var currentDomain = AppDomain.CurrentDomain;
             currentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
-            // Checking license key
+            // Set URI (add_assets.php)
+            CetbixURI.Text = $"{Common.TestApi}/add_assets.php";
+
+            // Checking license key (trial)
             var checker = new Checker();
             checker.StartChecking(10000, () =>
             {
@@ -34,6 +37,7 @@ namespace ScriptWpf
                     LabelCetbix.IsEnabled = false;
                     MainProgress.IsEnabled = false;
                     Background = new SolidColorBrush(Color.FromRgb(255, 176, 176));
+                    
                 }));
             });
         }
