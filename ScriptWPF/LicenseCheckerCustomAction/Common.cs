@@ -1,9 +1,7 @@
-﻿using LicenseCheckerCustomAction;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Net.NetworkInformation;
 
 namespace LicenseCheckerCustomAction
 {
