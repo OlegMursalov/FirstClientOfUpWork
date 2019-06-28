@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ScriptWpf"
         mc:Ignorable="d"
         Title="Cetbix CVD Version 2.7" Height="350" Width="300">
-    <Grid>
+    <Grid Name="MainGrid">
         <RadioButton IsChecked="True" x:Name="SendToCetbixRadio" Content="Send the Information to Your Cetbix Account" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" />
         <RadioButton x:Name="SaveToLocalRadio" Content="Save the Information on your local PC" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Checked="SaveToLocalRadio_Checked" Unchecked="SaveToLocalRadio_Unchecked" />
         <Button x:Name="Run" Content="Run" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Width="263" Height="28" Click="Run_Click"/>

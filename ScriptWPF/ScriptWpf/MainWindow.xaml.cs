@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using Script.Common;
 using LicenseCheckerCustomAction;
+using CetbixCVD.Trial;
 
 namespace ScriptWpf
 {
@@ -28,17 +29,8 @@ namespace ScriptWpf
             var checker = new Checker();
             checker.StartChecking(10000, () =>
             {
-                Application.Current.Dispatcher.Invoke(new Action(() =>
-                {
-                    SendToCetbixRadio.IsEnabled = false;
-                    SaveToLocalRadio.IsEnabled = false;
-                    Run.IsEnabled = false;
-                    CetbixURI.IsEnabled = false;
-                    LabelCetbix.IsEnabled = false;
-                    MainProgress.IsEnabled = false;
-                    Background = new SolidColorBrush(Color.FromRgb(255, 176, 176));
-                    
-                }));
+                var createrTrialWindow = new CreaterTrialWindow(this);
+                createrTrialWindow.Create();
             });
         }
 
