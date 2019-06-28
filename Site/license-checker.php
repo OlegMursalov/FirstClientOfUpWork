@@ -37,7 +37,7 @@ if ($rest_json != null) {
 									$result = $conn->query($query);
 									print "ActivationId=" . $activationId . ";AmountOfMinutes=" . $amountOfMinutes;
 								} else {
-									print "There is already an activation for this user.";
+									print "Your trial period has expired.";
 								}
 							} else {
 								"Error in MSI [1228].";
