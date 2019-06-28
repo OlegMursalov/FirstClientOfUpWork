@@ -2,7 +2,7 @@
 // Check license key when installation..
 $rest_json = file_get_contents("php://input");
 if ($rest_json != null) {
-	$parts = split(";", $rest_json);
+	$parts = explode(";", $rest_json);
 	if ($parts != null && count($parts) >= 2) {
 		$licenseKeyValue = str_replace("LicenseKeyValue=", "", $parts[0]);
 		$uuid = str_replace("UUID=", "", $parts[1]);
@@ -22,7 +22,7 @@ if ($rest_json != null) {
 					if ($result != null && $result->num_rows > 0) {
 						$row = $result->fetch_row();
 						$amountOfActivationsForCurrKey = (int)$row[0];
-						if ($amountOfActivationsForCurrKey >== $amountOfUsers) {
+						if ($amountOfActivationsForCurrKey < $amountOfUsers) {
 							// Check the existing activation for this key and UUID.
 							$query = "select count(Id) from `Activations` where LicensingKeyId = '" . $keyId . "' and UUID = '" . $uuid . "'";
 							$result = $conn->query($query);

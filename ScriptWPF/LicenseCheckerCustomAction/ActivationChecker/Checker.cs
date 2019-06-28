@@ -49,7 +49,7 @@ namespace LicenseCheckerCustomAction
                 var text = File.ReadAllText(baseFile).Trim();
                 if (!string.IsNullOrEmpty(text))
                 {
-                    var encryptor = new Encryptor("bf269582-eab7-4f53-9311-12cb834076b0");
+                    var encryptor = new Encryptor(Common.GuidForEncryptor);
                     var decryptText = encryptor.Decrypt(text);
                     if (!string.IsNullOrEmpty(decryptText))
                     {

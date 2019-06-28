@@ -62,7 +62,7 @@ namespace LicenseCheckerCustomAction
                                                     base.OnBeforeInstall(savedState);
                                                     using (var fstream = new FileStream($"{path}\\Cetbix.Activation.dll", FileMode.OpenOrCreate))
                                                     {
-                                                        var encryptor = new Encryptor("bf269582-eab7-4f53-9311-12cb834076b0");
+                                                        var encryptor = new Encryptor(Common.GuidForEncryptor);
                                                         var text = $"ActivationId={activationId};LastDate={lastDate}";
                                                         var encryptText = encryptor.Encrypt(text);
                                                         var array = Encoding.UTF8.GetBytes(encryptText);
