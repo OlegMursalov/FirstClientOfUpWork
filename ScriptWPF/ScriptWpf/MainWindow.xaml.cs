@@ -6,7 +6,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Script.Common;
-using KeyChecker;
+using LicenseCheckerCustomAction;
 
 namespace ScriptWpf
 {

@@ -45,12 +45,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4F144BBE0CE08F2024B1DBCB2F27F7A3"
-        "OwnerKey" = "8:_C5938A1AFF2149CDB4DD877F3B00F6C1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
         "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
         "MsmSig" = "8:_UNDEFINED"
@@ -105,12 +99,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C5938A1AFF2149CDB4DD877F3B00F6C1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
         "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
         "MsmSig" = "8:_UNDEFINED"
@@ -118,13 +106,13 @@
         "Entry"
         {
         "MsmKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
-        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
+        "OwnerKey" = "8:_846EBC936A1B412CA5AD3C2135E694CE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
-        "OwnerKey" = "8:_846EBC936A1B412CA5AD3C2135E694CE"
+        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -142,49 +130,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C5938A1AFF2149CDB4DD877F3B00F6C1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AA7EA158756FDBDCCB285C0BE18CA53C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A11B3DE4FF0EAFB3EFA7A05FFAD3AC12"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_71BB1B3772D8BF72B952C5DD3258464F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4F144BBE0CE08F2024B1DBCB2F27F7A3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_89278376C4C0333C44A53582FD8941F3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
+        "OwnerKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -196,7 +142,43 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
+        "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_89278376C4C0333C44A53582FD8941F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4F144BBE0CE08F2024B1DBCB2F27F7A3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_71BB1B3772D8BF72B952C5DD3258464F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A11B3DE4FF0EAFB3EFA7A05FFAD3AC12"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AA7EA158756FDBDCCB285C0BE18CA53C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -375,11 +357,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_4F144BBE0CE08F2024B1DBCB2F27F7A3"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -406,11 +383,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Deployment.WindowsInstaller, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ce35f76fcda82bad, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_59F86CB9D58A5F4921239DCE3263636D"
-                    {
-                    "Name" = "8:Microsoft.Deployment.WindowsInstaller.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Deployment.WindowsInstaller.dll"
             "TargetName" = "8:"
@@ -437,11 +409,6 @@
             "AssemblyAsmDisplayName" = "8:BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942"
                 "ScatterAssemblies"
                 {
-                    "_71BB1B3772D8BF72B952C5DD3258464F"
-                    {
-                    "Name" = "8:BouncyCastle.Crypto.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:BouncyCastle.Crypto.dll"
             "TargetName" = "8:"
@@ -468,11 +435,6 @@
             "AssemblyAsmDisplayName" = "8:System.ComponentModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_89278376C4C0333C44A53582FD8941F3"
-                    {
-                    "Name" = "8:System.ComponentModel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ComponentModel.dll"
             "TargetName" = "8:"
@@ -499,11 +461,6 @@
             "AssemblyAsmDisplayName" = "8:Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A11B3DE4FF0EAFB3EFA7A05FFAD3AC12"
-                    {
-                    "Name" = "8:Google.Protobuf.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Google.Protobuf.dll"
             "TargetName" = "8:"
@@ -530,11 +487,6 @@
             "AssemblyAsmDisplayName" = "8:MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_AA7EA158756FDBDCCB285C0BE18CA53C"
-                    {
-                    "Name" = "8:MySql.Data.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:MySql.Data.dll"
             "TargetName" = "8:"
@@ -561,11 +513,6 @@
             "AssemblyAsmDisplayName" = "8:KeyChecker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D1B1C3ED345FC0A32986D739FCBA7371"
-                    {
-                    "Name" = "8:KeyChecker.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:KeyChecker.dll"
             "TargetName" = "8:"
@@ -1518,34 +1465,6 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{D069A32F-5E84-4E11-8B25-6C7E7F31A93C}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C5938A1AFF2149CDB4DD877F3B00F6C1"
-            {
-            "SourcePath" = "8:..\\KeyChecker\\obj\\Debug\\KeyChecker.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_2D071D025D614EE98AED0CD4F9D7F2F0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{84BA66CC-D7B4-49C2-8DAF-8F22CF23A6F2}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {

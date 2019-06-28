@@ -153,9 +153,9 @@
     <EmbeddedResource Include="Images\cetbixdesktop.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KeyChecker\KeyChecker.csproj">
-      <Project>{84ba66cc-d7b4-49c2-8daf-8f22cf23a6f2}</Project>
-      <Name>KeyChecker</Name>
+    <ProjectReference Include="..\LicenseCheckerCustomAction\LicenseCheckerCustomAction.csproj">
+      <Project>{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}</Project>
+      <Name>LicenseCheckerCustomAction</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

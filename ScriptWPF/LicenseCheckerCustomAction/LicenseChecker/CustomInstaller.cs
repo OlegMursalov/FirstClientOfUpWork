@@ -1,5 +1,4 @@
-﻿using KeyChecker;
-using System;
+﻿using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
@@ -27,12 +26,13 @@ namespace LicenseCheckerCustomAction
                 {
                     try
                     {
-                        var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://xvex.de/isms/add_ons/cetbix_vulnerability_management/license-checker.php");
+                        var uuid = Common.GetUUID();
+                        var httpWebRequest = (HttpWebRequest)WebRequest.Create($"{Common.TestApi}/license-checker.php");
                         httpWebRequest.ContentType = "application/json";
                         httpWebRequest.Method = "POST";
                         using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                         {
-                            streamWriter.Write($"LicenseKeyValue={enteredLicenseKey}");
+                            streamWriter.Write($"LicenseKeyValue={enteredLicenseKey};UUID={uuid}");
                         }
                         var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
                         using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
