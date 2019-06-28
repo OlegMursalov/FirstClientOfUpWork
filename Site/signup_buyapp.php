@@ -49,9 +49,7 @@ include ('../header.php'); ?>
 												<td><?=$row[1];?></td>
 												<td><?=$row[2];?></td>
 												<td>
-													<button class="buy-app" type="submit" data-id-app="<?=$row[0]?>" data-amount-of-minutes="20160" data-amount-of-users="1" class="btn btn-primary" onclick="main(this);">Buy for 14 days</button>
-													<button class="buy-app" type="submit" data-id-app="<?=$row[0]?>" data-amount-of-minutes="1440" data-amount-of-users="1" class="btn btn-primary" onclick="main(this);">Buy for 1 days</button>
-													<button class="buy-app" type="submit" data-id-app="<?=$row[0]?>" data-amount-of-minutes="30" data-amount-of-users="1" class="btn btn-primary" onclick="main(this);">Buy for 30 minutes</button>
+													<button class="buy-app" type="submit" data-id-app="<?=$row[0]?>" data-amount-of-minutes="10" data-amount-of-users="3" class="btn btn-primary" onclick="main(this);">Buy for 10 minutes for three users</button>
 												</td>
 											</tr>
 										<?}
