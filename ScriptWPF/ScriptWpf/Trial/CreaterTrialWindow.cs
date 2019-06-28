@@ -92,7 +92,7 @@ namespace CetbixCVD.Trial
 
         private void LinkToBuyApp_Click(object sender, RoutedEventArgs e)
         {
-            
+            System.Diagnostics.Process.Start(Common.URIForBuyApp);
         }
 
         private void CheckLicenseKey_Click(object sender, RoutedEventArgs e)

@@ -14,10 +14,10 @@ C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\LicenseCheckerCu
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\Google.Protobuf.xml
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\MySql.Data.xml
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\Microsoft.Deployment.WindowsInstaller.xml
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.csprojResolveAssemblyReference.cache
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\MainWindow.baml
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.g.resources
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.Properties.Resources.resources
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.csproj.GenerateResource.Cache
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.exe
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.pdb
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.csprojResolveAssemblyReference.cache
