@@ -87,7 +87,6 @@
     <Compile Include="Info\SoundCardInfo.cs" />
     <Compile Include="Saver\Log.cs" />
     <Compile Include="Sender\HttpJsonSender.cs" />
-    <Compile Include="Trial\CreaterTrialWindow.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

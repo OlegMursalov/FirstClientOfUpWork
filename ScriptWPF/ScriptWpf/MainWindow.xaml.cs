@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using Script.Common;
 using LicenseCheckerCustomAction;
-using CetbixCVD.Trial;
+using LicenseCheckerCustomAction.Trial;
 
 namespace ScriptWpf
 {
@@ -29,7 +29,7 @@ namespace ScriptWpf
             var checker = new Checker();
             checker.StartChecking(10000, () =>
             {
-                var createrTrialWindow = new CreaterTrialWindow(this);
+                var createrTrialWindow = new CreaterTrialWindow(this, MainGrid, Application.Current.Dispatcher, SendToCetbixRadio, SaveToLocalRadio, Run, CetbixURI, LabelCetbix);
                 createrTrialWindow.Create();
             });
         }

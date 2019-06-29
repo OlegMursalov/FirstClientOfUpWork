@@ -1,5 +1,4 @@
 ﻿using LicenseCheckerCustomAction;
-using ScriptWpf;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,15 +9,19 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 
-namespace CetbixCVD.Trial
+namespace LicenseCheckerCustomAction.Trial
 {
     public class CreaterTrialWindow
     {
-        private MainWindow mainWindow;
+        private Window window;
+        private Grid grid;
+        private Dispatcher dispatcher;
+        private Control[] unnecessaryControls;
 
         private string labelName = "TitleForTrial";
-        private string labelContent = "Your trial is expired. You can buy and enter new key. Need internet connection that checking new key.";
+        private string labelContent = "Your trial is expired. \nYou can buy and enter new key. \nNeed internet connection that checking new key.";
         private string textBoxName = "EnteredLicenseKey";
         private string button1Name = "CheckLicenseKey";
         private string button1Content = "Check license key.";
@@ -30,9 +33,12 @@ namespace CetbixCVD.Trial
         private Button CheckLicenseKey;
         private Button LinkToBuyApp;
 
-        public CreaterTrialWindow(MainWindow mainWindow)
+        public CreaterTrialWindow(Window window, Grid grid, Dispatcher dispatcher, params Control[] unnecessaryControls)
         {
-            this.mainWindow = mainWindow;
+            this.window = window;
+            this.grid = grid;
+            this.dispatcher = dispatcher;
+            this.unnecessaryControls = unnecessaryControls;
         }
 
         public void Create()
@@ -43,51 +49,68 @@ namespace CetbixCVD.Trial
 
         private void BlockAndHideInterface(bool isBlock)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() =>
+            dispatcher.Invoke(new Action(() =>
             {
-                mainWindow.SendToCetbixRadio.IsEnabled = isBlock;
-                mainWindow.SendToCetbixRadio.Visibility = isBlock ? Visibility.Collapsed : Visibility.Visible;
-                mainWindow.SaveToLocalRadio.IsEnabled = isBlock;
-                mainWindow.SaveToLocalRadio.Visibility = isBlock ? Visibility.Collapsed : Visibility.Visible;
-                mainWindow.Run.IsEnabled = isBlock;
-                mainWindow.Run.Visibility = isBlock ? Visibility.Collapsed : Visibility.Visible;
-                mainWindow.CetbixURI.IsEnabled = isBlock;
-                mainWindow.CetbixURI.Visibility = isBlock ? Visibility.Collapsed : Visibility.Visible;
-                mainWindow.LabelCetbix.IsEnabled = isBlock;
-                mainWindow.LabelCetbix.Visibility = isBlock ? Visibility.Collapsed : Visibility.Visible;
-                mainWindow.MainProgress.IsEnabled = isBlock;
-                mainWindow.MainProgress.Visibility = isBlock ? Visibility.Collapsed : Visibility.Visible;
-                mainWindow.Background = isBlock ? new SolidColorBrush(Color.FromRgb(255, 176, 176)) : new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                for (var i = 0; i < unnecessaryControls.Length; i++)
+                {
+                    unnecessaryControls[i].IsEnabled = !isBlock;
+                    unnecessaryControls[i].Visibility = isBlock ? Visibility.Collapsed : Visibility.Visible;
+                }
+                window.Background = isBlock ? new SolidColorBrush(Color.FromRgb(255, 176, 176)) : new SolidColorBrush(Color.FromRgb(255, 255, 255));
             }));
         }
-
+        
         private void AddControlsForTrial()
         {
-            TitleForTrial = new Label();
-            TitleForTrial.Content = this.labelContent;
-            TitleForTrial.Name = this.labelName;
-            mainWindow.MainGrid.Children.Add(TitleForTrial);
-            EnteredLicenseKey = new TextBox();
-            EnteredLicenseKey.Name = this.textBoxName;
-            mainWindow.MainGrid.Children.Add(EnteredLicenseKey);
-            CheckLicenseKey = new Button();
-            CheckLicenseKey.Name = this.button1Name;
-            CheckLicenseKey.Content = this.button1Content;
-            CheckLicenseKey.Click += CheckLicenseKey_Click;
-            mainWindow.MainGrid.Children.Add(CheckLicenseKey);
-            LinkToBuyApp = new Button();
-            LinkToBuyApp.Name = this.button2Name;
-            LinkToBuyApp.Content = this.button2Content;
-            LinkToBuyApp.Click += LinkToBuyApp_Click;
-            mainWindow.MainGrid.Children.Add(LinkToBuyApp);
+            dispatcher.Invoke(new Action(() =>
+            {
+                TitleForTrial = new Label();
+                TitleForTrial.HorizontalAlignment = HorizontalAlignment.Left;
+                TitleForTrial.VerticalAlignment = VerticalAlignment.Top;
+                TitleForTrial.Margin = new Thickness(10, 29, 0, 0);
+                TitleForTrial.Content = this.labelContent;
+                TitleForTrial.Name = this.labelName;
+                grid.Children.Add(TitleForTrial);
+                EnteredLicenseKey = new TextBox();
+                EnteredLicenseKey.HorizontalAlignment = HorizontalAlignment.Left;
+                EnteredLicenseKey.VerticalAlignment = VerticalAlignment.Top;
+                EnteredLicenseKey.Width = 263;
+                EnteredLicenseKey.Height = 28;
+                EnteredLicenseKey.Margin = new Thickness(10, 89, 0, 0);
+                EnteredLicenseKey.Name = this.textBoxName;
+                grid.Children.Add(EnteredLicenseKey);
+                CheckLicenseKey = new Button();
+                CheckLicenseKey.HorizontalAlignment = HorizontalAlignment.Left;
+                CheckLicenseKey.VerticalAlignment = VerticalAlignment.Top;
+                CheckLicenseKey.Width = 263;
+                CheckLicenseKey.Height = 28;
+                CheckLicenseKey.Margin = new Thickness(10, 129, 0, 0);
+                CheckLicenseKey.Name = this.button1Name;
+                CheckLicenseKey.Content = this.button1Content;
+                CheckLicenseKey.Click += CheckLicenseKey_Click;
+                grid.Children.Add(CheckLicenseKey);
+                LinkToBuyApp = new Button();
+                LinkToBuyApp.HorizontalAlignment = HorizontalAlignment.Left;
+                LinkToBuyApp.VerticalAlignment = VerticalAlignment.Top;
+                LinkToBuyApp.Width = 263;
+                LinkToBuyApp.Height = 28;
+                LinkToBuyApp.Margin = new Thickness(10, 169, 0, 0);
+                LinkToBuyApp.Name = this.button2Name;
+                LinkToBuyApp.Content = this.button2Content;
+                LinkToBuyApp.Click += LinkToBuyApp_Click;
+                grid.Children.Add(LinkToBuyApp);
+            }));
         }
 
         private void RemoveControlsForTrial()
         {
-            mainWindow.MainGrid.Children.Remove(TitleForTrial);
-            mainWindow.MainGrid.Children.Remove(EnteredLicenseKey);
-            mainWindow.MainGrid.Children.Remove(CheckLicenseKey);
-            mainWindow.MainGrid.Children.Remove(LinkToBuyApp);
+            dispatcher.Invoke(new Action(() =>
+            {
+                grid.Children.Remove(TitleForTrial);
+                grid.Children.Remove(EnteredLicenseKey);
+                grid.Children.Remove(CheckLicenseKey);
+                grid.Children.Remove(LinkToBuyApp);
+            }));
         }
 
         private void LinkToBuyApp_Click(object sender, RoutedEventArgs e)
