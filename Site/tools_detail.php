@@ -4,13 +4,13 @@ if ($_POST && isset($_POST['idRecord'])) {
 	$id = $_POST['idRecord'];
 	$hostname = $_POST['hostname'];
 	$domain = $_POST['domain'];
-	$dateScanShort = "";
-	if (isset($_POST['dateScan'])) {
+	$dateScanShort = $_POST['dateScan'];
+	/*if (isset($_POST['dateScan'])) {
 		$parts = explode(' ', $_POST['dateScan']);
 		if ($parts != null && sizeof($parts) >= 3) {
 			$dateScanShort = $parts[2];
 		}
-	}
+	}*/
 	$conn = new mysqli($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 	if (!$conn->connect_error) {
 		$arr = [];
