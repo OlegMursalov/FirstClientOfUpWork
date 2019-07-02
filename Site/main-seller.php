@@ -19,6 +19,7 @@ if (isset($_POST['idApp']) && isset($_POST['amountOfMinutes']) && isset($_POST['
 				for ($i = 0; $i < 30; $i++) {
 					$key .= random_int(0, 9);
 				}
+				$userId = ''; // User Id (if you need)
 				$query = "INSERT INTO `LicensingKeys`(`Id`, `Buyer`, `AppId`, `Value`, `GenerationDate`, `AmountOfMinutes`, `AmountOfUsers`) VALUES ('" . $id . "','" . $userId . "','" . $_POST['idApp'] . "','" . $key . "','" . date("Y-m-d H:i:s") . "','" . $_POST['amountOfMinutes'] . "','" . $_POST['amountOfUsers'] . "')";
 				$result = $conn->query($query);
 				$message = new PHPMailer();
