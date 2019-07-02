@@ -1,5 +1,4 @@
 ﻿using Script.Info;
-using Script.Sender;
 using System.Windows;
 using System;
 using System.Threading.Tasks;
@@ -8,6 +7,7 @@ using Script.Common;
 using LicenseCheckerCustomAction;
 using LicenseCheckerCustomAction.Trial;
 using CetbixCVD.Saver;
+using CetbixCVD.Sender;
 
 namespace ScriptWpf
 {
@@ -173,7 +173,7 @@ namespace ScriptWpf
                     });
                     if (saveFlag)
                     {
-                        MessageBox.Show("Data successfully save to local.");
+                        MessageBox.Show("Data successfully save to local (*.txt).");
                     }
                     else
                     {
@@ -191,7 +191,7 @@ namespace ScriptWpf
                     });
                     if (saveFlag)
                     {
-                        MessageBox.Show("Data successfully save to local.");
+                        MessageBox.Show("Data successfully save to local (*.xlsx).");
                     }
                     else
                     {

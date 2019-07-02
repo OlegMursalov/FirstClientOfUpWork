@@ -2,11 +2,8 @@
 using OfficeOpenXml;
 using Script.Info;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CetbixCVD.Saver
 {
@@ -29,15 +26,27 @@ namespace CetbixCVD.Saver
                     {
                         var informationWorksheet = pck.Workbook.Worksheets.Add("Information");
                         var dictionary = dataOfComputer.GetInfoByDictionary();
-                        var chars = Enumerable.Range(0, char.MaxValue + 1).Select(i => (char)i).Where(c => !char.IsControl(c)).ToArray();
-                        foreach (var item in dictionary)
+                        var chars = Enumerable.Range(0, char.MaxValue + 1).Select(i => (char)i).Where(c => char.IsLetter(c) && char.IsUpper(c)).Take(26).ToArray();
+                        for (var i = 0; i < chars.Length; i++)
                         {
-                            var c = chars.FirstOrDefault();
-                            if (c != default(char))
+                            for (var j = 0; j < chars.Length; j++)
                             {
-                                var headerKey = c.ToString().ToUpper();
-                                informationWorksheet.Cells[$"{headerKey}1"].Value = item.Key;
-                                informationWorksheet.Cells[$"{headerKey}2"].Value = item.Value;
+                                var item = dictionary.FirstOrDefault();
+                                if (!string.IsNullOrEmpty(item.Key))
+                                {
+                                    var partOfKey = i == 0 ? $"{chars[j]}" : $"{chars[i - 1]}{chars[j]}";
+                                    informationWorksheet.Cells[$"{partOfKey}1"].Value = item.Key;
+                                    informationWorksheet.Cells[$"{partOfKey}2"].Value = item.Value;
+                                    if (item.Key.Length > item.Value.Length)
+                                    {
+                                        informationWorksheet.Cells[$"{partOfKey}1"].AutoFitColumns();
+                                    }
+                                    else
+                                    {
+                                        informationWorksheet.Cells[$"{partOfKey}2"].AutoFitColumns();
+                                    }
+                                    dictionary.Remove(item.Key);
+                                }
                             }
                         }
                         pck.Save();

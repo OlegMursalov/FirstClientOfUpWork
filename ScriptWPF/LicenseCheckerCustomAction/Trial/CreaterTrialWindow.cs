@@ -125,35 +125,35 @@ namespace LicenseCheckerCustomAction.Trial
             {
                 try
                 {
-                    var uuid = Common.GetUUID();
-                    var httpWebRequest = (HttpWebRequest)WebRequest.Create($"{Common.TestApi}/license-checker.php");
-                    httpWebRequest.ContentType = "application/json";
-                    httpWebRequest.Method = "POST";
-                    using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                    var mainPath = AppDomain.CurrentDomain.BaseDirectory;
+                    using (var fstream = new FileStream($"{mainPath}\\Cetbix.Activation.dll", FileMode.OpenOrCreate))
                     {
-                        streamWriter.Write($"LicenseKeyValue={enteredLicenseKey};UUID={uuid}");
-                    }
-                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                    {
-                        var result = streamReader.ReadToEnd();
-                        if (!string.IsNullOrEmpty(result))
+                        var uuid = Common.GetUUID();
+                        var httpWebRequest = (HttpWebRequest)WebRequest.Create($"{Common.TestApi}/license-checker.php");
+                        httpWebRequest.ContentType = "application/json";
+                        httpWebRequest.Method = "POST";
+                        using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                         {
-                            var parts = result.Split(';');
-                            if (parts.Length >= 2)
+                            streamWriter.Write($"LicenseKeyValue={enteredLicenseKey};UUID={uuid}");
+                        }
+                        var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                        using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                        {
+                            var result = streamReader.ReadToEnd();
+                            if (!string.IsNullOrEmpty(result))
                             {
-                                if (parts[0].IndexOf("ActivationId", 0, StringComparison.CurrentCultureIgnoreCase) != -1 && parts[1].IndexOf("AmountOfMinutes", 0, StringComparison.CurrentCultureIgnoreCase) != -1)
+                                var parts = result.Split(';');
+                                if (parts.Length >= 2)
                                 {
-                                    var fragmentsOfActivationId = parts[0].Split('=');
-                                    var fragmentsOfAmountOfMinutes = parts[1].Split('=');
-                                    if (fragmentsOfActivationId.Length >= 2 && fragmentsOfAmountOfMinutes.Length >= 2)
+                                    if (parts[0].IndexOf("ActivationId", 0, StringComparison.CurrentCultureIgnoreCase) != -1 && parts[1].IndexOf("AmountOfMinutes", 0, StringComparison.CurrentCultureIgnoreCase) != -1)
                                     {
-                                        var activationId = fragmentsOfActivationId[1];
-                                        var amountOfMinutes = int.Parse(fragmentsOfAmountOfMinutes[1]);
-                                        var lastDate = DateTime.Now.AddMinutes(amountOfMinutes);
-                                        var mainPath = AppDomain.CurrentDomain.BaseDirectory;
-                                        using (var fstream = new FileStream($"{mainPath}\\Cetbix.Activation.dll", FileMode.OpenOrCreate))
+                                        var fragmentsOfActivationId = parts[0].Split('=');
+                                        var fragmentsOfAmountOfMinutes = parts[1].Split('=');
+                                        if (fragmentsOfActivationId.Length >= 2 && fragmentsOfAmountOfMinutes.Length >= 2)
                                         {
+                                            var activationId = fragmentsOfActivationId[1];
+                                            var amountOfMinutes = int.Parse(fragmentsOfAmountOfMinutes[1]);
+                                            var lastDate = DateTime.Now.AddMinutes(amountOfMinutes);
                                             var encryptor = new Encryptor(Common.GuidForEncryptor);
                                             var text = $"ActivationId={activationId};LastDate={lastDate}";
                                             var encryptText = encryptor.Encrypt(text);
@@ -163,25 +163,29 @@ namespace LicenseCheckerCustomAction.Trial
                                             BlockAndHideInterface(false);
                                         }
                                     }
+                                    else
+                                    {
+                                        // throw new Exception("Error in MSI [6703]");
+                                        MessageBox.Show("Error in MSI [6703]");
+                                    }
                                 }
                                 else
                                 {
-                                    // throw new Exception("Error in MSI [6703]");
-                                    MessageBox.Show("Error in MSI [6703]");
+                                    // throw new Exception(result);
+                                    MessageBox.Show(result);
                                 }
                             }
                             else
                             {
-                                // throw new Exception(result);
-                                MessageBox.Show(result);
+                                // throw new Exception("Error in MSI [9958]");
+                                MessageBox.Show("Error in MSI [9958]");
                             }
                         }
-                        else
-                        {
-                            // throw new Exception("Error in MSI [9958]");
-                            MessageBox.Show("Error in MSI [9958]");
-                        }
                     }
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    MessageBox.Show("Run as admin.");
                 }
                 catch (WebException ex)
                 {

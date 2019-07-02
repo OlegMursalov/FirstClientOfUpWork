@@ -25,7 +25,7 @@ namespace LicenseCheckerCustomAction
             {
                 while (true)
                 {
-                    if (/*Check()*/true)
+                    if (Check())
                     {
                         Thread.Sleep(milliseconds);
                     }
