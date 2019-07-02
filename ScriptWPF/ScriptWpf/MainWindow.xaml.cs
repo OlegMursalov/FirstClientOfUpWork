@@ -29,7 +29,7 @@ namespace ScriptWpf
             var checker = new Checker();
             checker.StartChecking(10000, () =>
             {
-                var createrTrialWindow = new CreaterTrialWindow(this, MainGrid, Application.Current.Dispatcher, SendToCetbixRadio, SaveToLocalRadio, Run, CetbixURI, LabelCetbix);
+                var createrTrialWindow = new CreaterTrialWindow(this, MainGrid, Application.Current.Dispatcher, SendToCetbixRadio, SaveToLocalTxtRadio, SaveToLocalExcelRadio, Run, CetbixURI, LabelCetbix);
                 createrTrialWindow.Create();
             });
         }
@@ -162,7 +162,7 @@ namespace ScriptWpf
                         MessageBox.Show($"Exception: {exMessgae}");
                     }
                 }
-                if (SaveToLocalRadio.IsChecked != null && SaveToLocalRadio.IsChecked.Value)
+                if (SaveToLocalTxtRadio.IsChecked != null && SaveToLocalTxtRadio.IsChecked.Value)
                 {
                     string exMessgae = string.Empty;
                     var myLog = new Log();
@@ -191,20 +191,20 @@ namespace ScriptWpf
             MainProgress.Visibility = Visibility.Hidden;
         }
 
-        private void SaveToLocalRadio_Checked(object sender, RoutedEventArgs e)
+        private void SaveToLocalTxtRadio_Checked(object sender, RoutedEventArgs e)
         {
             LabelCetbix.Visibility = Visibility.Hidden;
             CetbixURI.Visibility = Visibility.Hidden;
-            Run.Margin = new Thickness(10, 90, 0, 0);
-            MainProgress.Margin = new Thickness(10, 134, 0, 0);
+            Run.Margin = new Thickness(10, 109, 0, 0);
+            MainProgress.Margin = new Thickness(10, 153, 0, 0);
         }
 
-        public void SaveToLocalRadio_Unchecked(object sender, RoutedEventArgs e)
+        public void SaveToLocalTxtRadio_Unchecked(object sender, RoutedEventArgs e)
         {
             LabelCetbix.Visibility = Visibility.Visible;
             CetbixURI.Visibility = Visibility.Visible;
-            Run.Margin = new Thickness(10, 137, 0, 0);
-            MainProgress.Margin = new Thickness(10, 181, 0, 0);
+            Run.Margin = new Thickness(10, 156, 0, 0);
+            MainProgress.Margin = new Thickness(10, 200, 0, 0);
         }
     }
 }
