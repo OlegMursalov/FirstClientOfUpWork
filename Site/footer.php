@@ -789,7 +789,47 @@ function foc(val_1)
 
       });
 
-
+	var main = function (elem) {
+		debugger;
+		if (elem.parentNode != null) {
+			var obj = new Object();
+			obj.idApp = elem.getAttribute('data-id-app');
+			var amUsSel = elem.parentNode.querySelector('#amountOfUsers');
+			if (amUsSel.options != null && amUsSel.selectedIndex > 0) {
+				var amountOfUsers = amUsSel.options[amUsSel.selectedIndex].value;
+				if (amountOfUsers > 999) {
+					amountOfUsers = 999;
+				}
+				if (amountOfUsers < 1) {
+					amountOfUsers = 1;
+				}
+				obj.amountOfUsers = amountOfUsers;
+			}
+			var amMSel = elem.parentNode.querySelector('#amountOfMinutes');
+			if (amMSel.options != null && amMSel.selectedIndex > 0) {
+				var value = amMSel.options[amMSel.selectedIndex].value;
+				if (value > 3) {
+					value = 3;
+				}
+				if (value < 1) {
+					value = 1;
+				}
+				obj.amountOfMinutes = value * 525600;
+			}
+			if (obj.idApp && obj.amountOfUsers && obj.amountOfMinutes) {
+				$.ajax({
+					type: "POST",
+					url: "main-seller.php",
+					data: "userDataEmail=" + obj.userDataEmail + "&userDataLogin=" + obj.userDataLogin + "&userDataPassword=" + obj.userDataPassword + "&idApp=" + obj.idApp + "&amountOfMinutes=" + obj.amountOfMinutes + "&amountOfUsers=" + obj.amountOfUsers,
+					success: function(msg){
+						alert(msg);
+					}
+				});
+			} else {
+				alert('Please, select amount of users and select type license.');
+			}
+		}
+	}
 
   </script>
   <!-- upload file -->
