@@ -4,9 +4,9 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace Script.Saver
+namespace CetbixCVD.Saver
 {
-    public class Log
+    public class TxtFileCreator : IFileCreator
     {
         public bool SaveInfoToFile(DataOfComputer dataOfComputer, out string exMessgae)
         {
@@ -38,7 +38,7 @@ namespace Script.Saver
             }
             catch (Exception ex)
             {
-                exMessgae = $"SaveInfoToFile: {ex.Message}";
+                exMessgae = $"SaveInfoToFile (Txt): {ex.Message}";
                 return false;
             }
         }

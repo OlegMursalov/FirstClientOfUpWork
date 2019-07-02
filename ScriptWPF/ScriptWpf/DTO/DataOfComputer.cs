@@ -68,7 +68,18 @@ namespace Script.Info
 
         public override string ToString()
         {
+            var dictionary = GetInfoByDictionary();
             var sb = new StringBuilder();
+            foreach (var item in dictionary)
+            {
+                sb.AppendLine($"{item.Key} = {item.Value}");
+            }
+            return sb.ToString();
+        }
+
+        public Dictionary<string, string> GetInfoByDictionary()
+        {
+            var dictionary = new Dictionary<string, string>();
             var type = typeof(DataOfComputer);
             foreach (var prop in type.GetProperties())
             {
@@ -76,7 +87,7 @@ namespace Script.Info
                 {
                     if (prop.PropertyType == typeof(string))
                     {
-                        sb.AppendLine($"{prop.Name} = {prop.GetValue(this, null)}");
+                        dictionary.Add(prop.Name, $"{prop.GetValue(this, null)}");
                     }
                     else if (prop.PropertyType.GetInterfaces().Where(i => i.GetGenericTypeDefinition() == typeof(IList<>)).FirstOrDefault() != null)
                     {
@@ -84,45 +95,45 @@ namespace Script.Info
                         var rams = value as List<Ram>;
                         if (rams != null)
                         {
-                            sb.AppendLine($"AmountOfRam = {rams.Count}");
-                            sb.AppendLine($"RamCapacity = {string.Join("; ", rams.Select(e => e.Capacity))}");
-                            sb.AppendLine($"RamSpeed = {string.Join("; ", rams.Select(e => e.Speed))}");
-                            sb.AppendLine($"RamDeviceLocator = {string.Join("; ", rams.Select(e => e.DeviceLocator))}");
+                            dictionary.Add("AmountOfRam", $"{rams.Count}");
+                            dictionary.Add("RamCapacity", string.Join("; ", rams.Select(e => e.Capacity)));
+                            dictionary.Add("RamSpeed", string.Join("; ", rams.Select(e => e.Speed)));
+                            dictionary.Add("RamDeviceLocator", string.Join("; ", rams.Select(e => e.DeviceLocator)));
                             continue;
                         }
                         var graphicsCards = value as List<GraphicsCard>;
                         if (graphicsCards != null)
                         {
-                            sb.AppendLine($"AmountOfGraphicsCard = {graphicsCards.Count}");
-                            sb.AppendLine($"GraphicsCardName = {string.Join("; ", graphicsCards.Select(e => e.Name))}");
-                            sb.AppendLine($"GraphicsCardInstalledDisplayDrivers = {string.Join("; ", graphicsCards.Select(e => e.InstalledDisplayDrivers))}");
-                            sb.AppendLine($"GraphicsCardVideoMemoryType = {string.Join("; ", graphicsCards.Select(e => e.VideoMemoryType))}");
+                            dictionary.Add("AmountOfGraphicsCard", $"{graphicsCards.Count}");
+                            dictionary.Add("GraphicsCardName", string.Join("; ", graphicsCards.Select(e => e.Name)));
+                            dictionary.Add("GraphicsCardInstalledDisplayDrivers", string.Join("; ", graphicsCards.Select(e => e.InstalledDisplayDrivers)));
+                            dictionary.Add("GraphicsCardVideoMemoryType", string.Join("; ", graphicsCards.Select(e => e.VideoMemoryType)));
                             continue;
                         }
                         var cpus = value as List<CPU>;
                         if (cpus != null)
                         {
-                            sb.AppendLine($"AmountOfCPU = {cpus.Count}");
-                            sb.AppendLine($"CPUName = {string.Join("; ", cpus.Select(e => e.Name))}");
-                            sb.AppendLine($"CPUProducer = {string.Join("; ", cpus.Select(e => e.Producer))}");
+                            dictionary.Add("AmountOfCPU", $"{cpus.Count}");
+                            dictionary.Add("CPUName", string.Join("; ", cpus.Select(e => e.Name)));
+                            dictionary.Add("CPUProducer", string.Join("; ", cpus.Select(e => e.Producer)));
                             continue;
                         }
                         var soundCards = value as List<SoundCard>;
                         if (soundCards != null)
                         {
-                            sb.AppendLine($"AmountOfSoundCard = {soundCards.Count}");
-                            sb.AppendLine($"SoundCardCaption = {string.Join("; ", soundCards.Select(e => e.Caption))}");
-                            sb.AppendLine($"SoundCardManufacturer = {string.Join("; ", soundCards.Select(e => e.Manufacturer))}");
-                            sb.AppendLine($"SoundCardStatusInfo = {string.Join("; ", soundCards.Select(e => e.StatusInfo))}");
+                            dictionary.Add("AmountOfSoundCard", $"{soundCards.Count}");
+                            dictionary.Add("SoundCardCaption", string.Join("; ", soundCards.Select(e => e.Caption)));
+                            dictionary.Add("SoundCardManufacturer", string.Join("; ", soundCards.Select(e => e.Manufacturer)));
+                            dictionary.Add("SoundCardStatusInfo", string.Join("; ", soundCards.Select(e => e.StatusInfo)));
                             continue;
                         }
                         var hdds = value as List<HDD>;
                         if (hdds != null)
                         {
-                            sb.AppendLine($"AmountOfHDD = {hdds.Count}");
-                            sb.AppendLine($"HDDCaption = {string.Join("; ", hdds.Select(e => e.Caption))}");
-                            sb.AppendLine($"HDDMediaType = {string.Join("; ", hdds.Select(e => e.MediaType))}");
-                            sb.AppendLine($"HDDSize = {string.Join("; ", hdds.Select(e => e.Size))}");
+                            dictionary.Add("AmountOfHDD", $"{hdds.Count}");
+                            dictionary.Add("HDDCaption", string.Join("; ", hdds.Select(e => e.Caption)));
+                            dictionary.Add("HDDMediaType", string.Join("; ", hdds.Select(e => e.MediaType)));
+                            dictionary.Add("HDDSize", string.Join("; ", hdds.Select(e => e.Size)));
                             continue;
                         }
                     }
@@ -131,7 +142,7 @@ namespace Script.Info
                 {
                 }
             }
-            return sb.ToString();
+            return dictionary;
         }
     }
 }

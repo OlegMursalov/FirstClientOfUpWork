@@ -4,9 +4,9 @@ using System.IO;
 using System.Net;
 using System.Web.Script.Serialization;
 
-namespace Script.Sender
+namespace CetbixCVD.Sender
 {
-    public class HttpJsonSender
+    public class HttpJsonSender : ISender
     {
         private string uri;
 

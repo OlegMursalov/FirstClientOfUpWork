@@ -1,6 +1,5 @@
 ﻿using Script.Info;
 using Script.Sender;
-using Script.Saver;
 using System.Windows;
 using System;
 using System.Threading.Tasks;
@@ -8,6 +7,7 @@ using System.Windows.Media;
 using Script.Common;
 using LicenseCheckerCustomAction;
 using LicenseCheckerCustomAction.Trial;
+using CetbixCVD.Saver;
 
 namespace ScriptWpf
 {
@@ -162,13 +162,32 @@ namespace ScriptWpf
                         MessageBox.Show($"Exception: {exMessgae}");
                     }
                 }
+
                 if (SaveToLocalTxtRadio.IsChecked != null && SaveToLocalTxtRadio.IsChecked.Value)
                 {
                     string exMessgae = string.Empty;
-                    var myLog = new Log();
+                    var myLog = new TxtFileCreator();
                     var saveFlag = await Task.Run(() =>
                     {
                         return myLog.SaveInfoToFile(dataOfComputer, out exMessgae);
+                    });
+                    if (saveFlag)
+                    {
+                        MessageBox.Show("Data successfully save to local.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Exception: {exMessgae}");
+                    }
+                }
+
+                if (SaveToLocalExcelRadio.IsChecked != null && SaveToLocalExcelRadio.IsChecked.Value)
+                {
+                    string exMessgae = string.Empty;
+                    var excelFileCreator = new ExcelFileCreator();
+                    var saveFlag = await Task.Run(() =>
+                    {
+                        return excelFileCreator.SaveInfoToFile(dataOfComputer, out exMessgae);
                     });
                     if (saveFlag)
                     {
