@@ -24,31 +24,17 @@ namespace CetbixCVD.Saver
                     var fileInfo = new FileInfo(pathToFile);
                     using (var pck = new ExcelPackage(fileInfo))
                     {
+                        var i = 1;
                         var informationWorksheet = pck.Workbook.Worksheets.Add("Information");
                         var dictionary = dataOfComputer.GetInfoByDictionary();
-                        var chars = Enumerable.Range(0, char.MaxValue + 1).Select(i => (char)i).Where(c => char.IsLetter(c) && char.IsUpper(c)).Take(26).ToArray();
-                        for (var i = 0; i < chars.Length; i++)
+                        foreach (var item in dictionary)
                         {
-                            for (var j = 0; j < chars.Length; j++)
-                            {
-                                var item = dictionary.FirstOrDefault();
-                                if (!string.IsNullOrEmpty(item.Key))
-                                {
-                                    var partOfKey = i == 0 ? $"{chars[j]}" : $"{chars[i - 1]}{chars[j]}";
-                                    informationWorksheet.Cells[$"{partOfKey}1"].Value = item.Key;
-                                    informationWorksheet.Cells[$"{partOfKey}2"].Value = item.Value;
-                                    if (item.Key.Length > item.Value.Length)
-                                    {
-                                        informationWorksheet.Cells[$"{partOfKey}1"].AutoFitColumns();
-                                    }
-                                    else
-                                    {
-                                        informationWorksheet.Cells[$"{partOfKey}2"].AutoFitColumns();
-                                    }
-                                    dictionary.Remove(item.Key);
-                                }
-                            }
+                            informationWorksheet.Cells[$"A{i}"].Value = item.Key;
+                            informationWorksheet.Cells[$"B{i}"].Value = item.Value;
+                            i++;
                         }
+                        informationWorksheet.Column(1).Width = 50;
+                        informationWorksheet.Column(2).Width = 50;
                         pck.Save();
                         return true;
                     }
