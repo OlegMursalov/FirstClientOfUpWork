@@ -581,7 +581,8 @@
 											<option value="3">3 year</option>
 										</select>
 									</div>
-									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this);">Buy</a>
+									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this);">Buy</a></br>
+									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this, { amountOfUsers: Number.MAX_SAFE_INTEGER, amountOfMinutes: 20160 });">Try for 14 days</a>
 								</li>
 							<?}
 						}
@@ -771,32 +772,37 @@
 <script type="text/javascript">
 	// COMMON FUNCTION!!!
 	// Transfer to footer!
-	var buyApp = function (elem) {
+	var buyApp = function (elem, info) {
 		debugger;
 		if (elem.parentNode != null) {
 			var obj = new Object();
 			obj.idApp = elem.getAttribute('data-id-app');
-			var amUsSel = elem.parentNode.querySelector('#amountOfUsers');
-			if (amUsSel.options != null && amUsSel.selectedIndex > 0) {
-				var amountOfUsers = amUsSel.options[amUsSel.selectedIndex].value;
-				if (amountOfUsers > 999) {
-					amountOfUsers = 999;
+			if (info != null) {
+				obj.amountOfUsers = info.amountOfUsers;
+				obj.amountOfMinutes = info.amountOfMinutes;
+			} else {
+				var amUsSel = elem.parentNode.querySelector('#amountOfUsers');
+				if (amUsSel.options != null && amUsSel.selectedIndex > 0) {
+					var amountOfUsers = amUsSel.options[amUsSel.selectedIndex].value;
+					if (amountOfUsers > 5000) {
+						amountOfUsers = 5000;
+					}
+					if (amountOfUsers < 1) {
+						amountOfUsers = 1;
+					}
+					obj.amountOfUsers = amountOfUsers;
 				}
-				if (amountOfUsers < 1) {
-					amountOfUsers = 1;
+				var amMSel = elem.parentNode.querySelector('#amountOfMinutes');
+				if (amMSel.options != null && amMSel.selectedIndex > 0) {
+					var value = amMSel.options[amMSel.selectedIndex].value;
+					if (value > 3) {
+						value = 3;
+					}
+					if (value < 1) {
+						value = 1;
+					}
+					obj.amountOfMinutes = value * 525600;
 				}
-				obj.amountOfUsers = amountOfUsers;
-			}
-			var amMSel = elem.parentNode.querySelector('#amountOfMinutes');
-			if (amMSel.options != null && amMSel.selectedIndex > 0) {
-				var value = amMSel.options[amMSel.selectedIndex].value;
-				if (value > 3) {
-					value = 3;
-				}
-				if (value < 1) {
-					value = 1;
-				}
-				obj.amountOfMinutes = value * 525600;
 			}
 			if (obj.idApp && obj.amountOfUsers && obj.amountOfMinutes) {
 				$.ajax({
