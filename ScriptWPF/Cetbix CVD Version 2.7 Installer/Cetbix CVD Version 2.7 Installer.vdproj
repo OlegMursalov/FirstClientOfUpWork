@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:Cetbix CVD Version 2.7 Installer"
+"ProjectName" = "8:Cetbix Utilities WMP Version 2.7 Installer"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -21,8 +21,26 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_14C93C17EA83C778A41AD86071FF319A"
+        "OwnerKey" = "8:_846EBC936A1B412CA5AD3C2135E694CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_25505608612742F08349B241F4C9B2C7"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_263162BF6A3CB0042A2D608E3D9B1C2C"
+        "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_263162BF6A3CB0042A2D608E3D9B1C2C"
+        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -53,6 +71,18 @@
         {
         "MsmKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
         "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
+        "OwnerKey" = "8:_846EBC936A1B412CA5AD3C2135E694CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
+        "OwnerKey" = "8:_D611E4A00E2D5949C5454C5229E4415D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -99,20 +129,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
-        "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
+        "MsmKey" = "8:_D611E4A00E2D5949C5454C5229E4415D"
         "OwnerKey" = "8:_846EBC936A1B412CA5AD3C2135E694CE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
-        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,43 +148,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D1B1C3ED345FC0A32986D739FCBA7371"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_89278376C4C0333C44A53582FD8941F3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4F144BBE0CE08F2024B1DBCB2F27F7A3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_71BB1B3772D8BF72B952C5DD3258464F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A11B3DE4FF0EAFB3EFA7A05FFAD3AC12"
+        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -178,7 +160,55 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
+        "OwnerKey" = "8:_A11B3DE4FF0EAFB3EFA7A05FFAD3AC12"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_14C93C17EA83C778A41AD86071FF319A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_71BB1B3772D8BF72B952C5DD3258464F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D611E4A00E2D5949C5454C5229E4415D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4F144BBE0CE08F2024B1DBCB2F27F7A3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_89278376C4C0333C44A53582FD8941F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_25505608612742F08349B241F4C9B2C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_59F86CB9D58A5F4921239DCE3263636D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_263162BF6A3CB0042A2D608E3D9B1C2C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -189,7 +219,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\Cetbix CVD Version 2.7.msi"
+        "OutputFilename" = "8:Debug\\Cetbix Utilities WMP Version 2.7.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -310,6 +340,68 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14C93C17EA83C778A41AD86071FF319A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:EPPlus, Version=4.5.3.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_14C93C17EA83C778A41AD86071FF319A"
+                    {
+                    "Name" = "8:EPPlus.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:EPPlus.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2D071D025D614EE98AED0CD4F9D7F2F0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_263162BF6A3CB0042A2D608E3D9B1C2C"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Windows, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_263162BF6A3CB0042A2D608E3D9B1C2C"
+                    {
+                    "Name" = "8:System.Windows.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Windows.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2D071D025D614EE98AED0CD4F9D7F2F0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2718AC294C8B4C638B80032F73384C0E"
             {
             "SourcePath" = "8:..\\ScriptWpf\\Images\\2cetbixscannerjune13.jpg"
@@ -357,6 +449,11 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_4F144BBE0CE08F2024B1DBCB2F27F7A3"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -383,6 +480,11 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Deployment.WindowsInstaller, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ce35f76fcda82bad, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_59F86CB9D58A5F4921239DCE3263636D"
+                    {
+                    "Name" = "8:Microsoft.Deployment.WindowsInstaller.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Microsoft.Deployment.WindowsInstaller.dll"
             "TargetName" = "8:"
@@ -409,6 +511,11 @@
             "AssemblyAsmDisplayName" = "8:BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942"
                 "ScatterAssemblies"
                 {
+                    "_71BB1B3772D8BF72B952C5DD3258464F"
+                    {
+                    "Name" = "8:BouncyCastle.Crypto.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:BouncyCastle.Crypto.dll"
             "TargetName" = "8:"
@@ -435,6 +542,11 @@
             "AssemblyAsmDisplayName" = "8:System.ComponentModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_89278376C4C0333C44A53582FD8941F3"
+                    {
+                    "Name" = "8:System.ComponentModel.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.ComponentModel.dll"
             "TargetName" = "8:"
@@ -461,6 +573,11 @@
             "AssemblyAsmDisplayName" = "8:Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_A11B3DE4FF0EAFB3EFA7A05FFAD3AC12"
+                    {
+                    "Name" = "8:Google.Protobuf.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Google.Protobuf.dll"
             "TargetName" = "8:"
@@ -487,6 +604,11 @@
             "AssemblyAsmDisplayName" = "8:MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_AA7EA158756FDBDCCB285C0BE18CA53C"
+                    {
+                    "Name" = "8:MySql.Data.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:MySql.Data.dll"
             "TargetName" = "8:"
@@ -506,15 +628,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D1B1C3ED345FC0A32986D739FCBA7371"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D611E4A00E2D5949C5454C5229E4415D"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:KeyChecker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:LicenseCheckerCustomAction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_D611E4A00E2D5949C5454C5229E4415D"
+                    {
+                    "Name" = "8:LicenseCheckerCustomAction.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:KeyChecker.dll"
+            "SourcePath" = "8:LicenseCheckerCustomAction.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2D071D025D614EE98AED0CD4F9D7F2F0"
@@ -561,7 +688,7 @@
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_A87401741F344C47BDD60C02A606EE72"
                     {
-                    "Name" = "8:Cetbix CVD Version 2.7"
+                    "Name" = "8:Cetbix Utilities WMP Version 2.7"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
@@ -598,20 +725,20 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Cetbix CVD Version 2.7"
-        "ProductCode" = "8:{6660ED01-F8AC-4045-8DED-34138F953CD5}"
-        "PackageCode" = "8:{F309D466-C16B-42B0-BD95-AE1E057A99DB}"
+        "ProductName" = "8:Cetbix Utilities WMP Version 2.7"
+        "ProductCode" = "8:{2F1EDE24-D020-4E7A-89CF-87CD0B15DB9C}"
+        "PackageCode" = "8:{920BEA42-9791-4733-908C-6856DEC0B2CF}"
         "UpgradeCode" = "8:{812A0348-2DB6-4AB0-A22C-44BAC554EC4B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:Cetbix Technology"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Cetbix CVD Version 2.7"
+        "Title" = "8:Cetbix Utilities WMP Version 2.7"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Cetbix Technology"
         "Keywords" = "8:"
@@ -722,7 +849,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1A76C5003C4644068E11D89836557553"
             {
-            "Name" = "8:Cetbix CVD Version 2.7"
+            "Name" = "8:Cetbix Utilities WMP Version 2.7"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -736,7 +863,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_242F046146FB47998709F8B4A0513FEC"
             {
-            "Name" = "8:Cetbix CVD Version 2.7"
+            "Name" = "8:Cetbix Utilities WMP Version 2.7"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -1092,7 +1219,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:Setup will run Cetbix CVD v2.7. Cetbix CVD v2.7 will not leave any files on your PC. To run click on next to continue."
+                            "Value" = "8:Setup will run Cetbix Utilities WMP Version 2.7. Cetbix Utilities WMP Version 2.7 will not leave any files on your PC. To run click on next to continue."
                             "DefaultValue" = "8:#1203"
                             "UsePlugInResources" = "11:TRUE"
                             }

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CetbixCVD", "ScriptWpf\CetbixCVD.csproj", "{D069A32F-5E84-4E11-8B25-6C7E7F31A93C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cetbix Utilities WMP Version 2.7", "ScriptWpf\Cetbix Utilities WMP Version 2.7.csproj", "{D069A32F-5E84-4E11-8B25-6C7E7F31A93C}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Cetbix CVD Version 2.7 Installer", "Cetbix CVD Version 2.7 Installer\Cetbix CVD Version 2.7 Installer.vdproj", "{6A3B64EA-BEA3-4C35-9995-86AE17B382CD}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Cetbix Utilities WMP Version 2.7 Installer", "Cetbix CVD Version 2.7 Installer\Cetbix CVD Version 2.7 Installer.vdproj", "{6A3B64EA-BEA3-4C35-9995-86AE17B382CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseCheckerCustomAction", "LicenseCheckerCustomAction\LicenseCheckerCustomAction.csproj", "{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}"
 EndProject
