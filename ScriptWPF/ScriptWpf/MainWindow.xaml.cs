@@ -8,6 +8,8 @@ using LicenseCheckerCustomAction;
 using LicenseCheckerCustomAction.Trial;
 using CetbixCVD.Saver;
 using CetbixCVD.Sender;
+using System.Windows.Controls;
+using System.Collections.Generic;
 
 namespace ScriptWpf
 {
@@ -33,6 +35,12 @@ namespace ScriptWpf
                 var createrTrialWindow = new CreaterTrialWindow(this, MainGrid, Application.Current.Dispatcher, SendToCetbixRadio, SaveToLocalTxtRadio, SaveToLocalExcelRadio, Run, CetbixURI, LabelCetbix);
                 createrTrialWindow.Create();
             });
+
+            // Selecting language for interface
+            var languageSettingFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.LanguageFileName;
+            var languageHelper = new LanguageHelper(languageSettingFilePath);
+            var language = languageHelper.ReadLanguageFromSetting();
+            languageHelper.SetLanguageSettings(MainGrid, Dispatcher, );
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args)
