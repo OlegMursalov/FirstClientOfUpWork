@@ -23,10 +23,10 @@ namespace ScriptWpf
             currentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             // Set URI (add_assets.php)
-            CetbixURI.Text = $"{Common.TestApi}/add_assets.php";
-
+            CetbixURI.Text = $"{Common.ApiCetbixUri}/{Common.AddAssets}";
+            
             // Checking license key (trial)
-            var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + "Cetbix.Activation.dll";
+            var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.ActivationFileName;
             var checker = new Checker(cetbixActivationFilePath);
             checker.StartCheckingAfterInstall(60000, () =>
             {

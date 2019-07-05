@@ -117,9 +117,9 @@ namespace LicenseCheckerCustomAction.Trial
             if (!string.IsNullOrEmpty(enteredLicenseKey))
             {
                 var exMessage = string.Empty;
-                var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + "Cetbix.Activation.dll";
+                var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.ActivationFileName;
                 var checker = new Checker(cetbixActivationFilePath);
-                var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.TestApi}/license-checker.php", out exMessage);
+                var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.ApiCetbixUri}/{Common.LicenseChecker}", out exMessage);
                 if (checkFlag)
                 {
                     RemoveControlsForTrial();

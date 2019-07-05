@@ -148,7 +148,7 @@ namespace LicenseCheckerCustomAction
                                     {
                                         try
                                         {
-                                            var httpWebRequest = (HttpWebRequest)WebRequest.Create($"{Common.TestApi}/activation-checker.php");
+                                            var httpWebRequest = (HttpWebRequest)WebRequest.Create($"{Common.ApiCetbixUri}/{Common.ActivationChecker}");
                                             httpWebRequest.ContentType = "application/json";
                                             httpWebRequest.Method = "POST";
                                             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))

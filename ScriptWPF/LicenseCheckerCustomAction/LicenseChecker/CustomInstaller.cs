@@ -38,7 +38,7 @@ namespace LicenseCheckerCustomAction
                                 // Checking license key
                                 var exMessage = string.Empty;
                                 var checker = new Checker($"{mainPath}\\Cetbix.Activation.dll");
-                                var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.TestApi}/license-checker.php", out exMessage, () => { base.OnBeforeInstall(stateSaver); });
+                                var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.ApiCetbixUri}/{Common.LicenseChecker}", out exMessage, () => { base.OnBeforeInstall(stateSaver); });
                                 if (!checkFlag && !string.IsNullOrEmpty(exMessage))
                                 {
                                     throw new Exception(exMessage);
