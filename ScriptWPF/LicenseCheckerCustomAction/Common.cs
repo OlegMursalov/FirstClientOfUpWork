@@ -14,6 +14,7 @@ namespace LicenseCheckerCustomAction
         public static string GuidForEncryptor { get { return "bf269582-eab7-4f53-9311-12cb834076b0"; } }
         public static string URIForBuyApp { get { return "https://xvex.de/isms/test/asset_management/home_product.php"; } }
         public static string ActivationFileName { get { return "Cetbix.Activation.dll"; } }
+        public static string LanguageFileName { get { return "Cetbix.Language.dll"; } }
 
         public static string GetUUID()
         {

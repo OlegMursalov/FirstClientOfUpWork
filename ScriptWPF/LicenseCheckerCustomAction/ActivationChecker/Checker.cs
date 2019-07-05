@@ -32,57 +32,58 @@ namespace LicenseCheckerCustomAction
             exMessage = string.Empty;
             try
             {
-                var uuid = Common.GetUUID();
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUri);
-                httpWebRequest.ContentType = "application/json";
-                httpWebRequest.Method = "POST";
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                using (var fstream = new FileStream(cetbixActivationFilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
-                    streamWriter.Write($"LicenseKeyValue={enteredLicenseKey};UUID={uuid}");
-                }
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-                    if (!string.IsNullOrEmpty(result))
+                    var uuid = Common.GetUUID();
+                    var httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUri);
+                    httpWebRequest.ContentType = "application/json";
+                    httpWebRequest.Method = "POST";
+                    using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                     {
-                        var parts = result.Split(';');
-                        if (parts.Length >= 2)
+                        streamWriter.Write($"LicenseKeyValue={enteredLicenseKey};UUID={uuid}");
+                    }
+                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                    {
+                        var result = streamReader.ReadToEnd();
+                        if (!string.IsNullOrEmpty(result))
                         {
-                            if (parts[0].IndexOf("ActivationId", 0, StringComparison.CurrentCultureIgnoreCase) != -1 && parts[1].IndexOf("AmountOfMinutes", 0, StringComparison.CurrentCultureIgnoreCase) != -1)
+                            var parts = result.Split(';');
+                            if (parts.Length >= 2)
                             {
-                                var fragmentsOfActivationId = parts[0].Split('=');
-                                var fragmentsOfAmountOfMinutes = parts[1].Split('=');
-                                if (fragmentsOfActivationId.Length >= 2 && fragmentsOfAmountOfMinutes.Length >= 2)
+                                if (parts[0].IndexOf("ActivationId", 0, StringComparison.CurrentCultureIgnoreCase) != -1 && parts[1].IndexOf("AmountOfMinutes", 0, StringComparison.CurrentCultureIgnoreCase) != -1)
                                 {
-                                    var activationId = fragmentsOfActivationId[1];
-                                    var amountOfMinutes = int.Parse(fragmentsOfAmountOfMinutes[1]);
-                                    var lastDate = DateTime.Now.AddMinutes(amountOfMinutes);
-                                    actionBeforeInstall?.Invoke();
-                                    using (var fstream = new FileStream(cetbixActivationFilePath, FileMode.OpenOrCreate))
+                                    var fragmentsOfActivationId = parts[0].Split('=');
+                                    var fragmentsOfAmountOfMinutes = parts[1].Split('=');
+                                    if (fragmentsOfActivationId.Length >= 2 && fragmentsOfAmountOfMinutes.Length >= 2)
                                     {
+                                        var activationId = fragmentsOfActivationId[1];
+                                        var amountOfMinutes = int.Parse(fragmentsOfAmountOfMinutes[1]);
+                                        var lastDate = DateTime.Now.AddMinutes(amountOfMinutes);
+                                        actionBeforeInstall?.Invoke();
                                         var encryptor = new Encryptor(Common.GuidForEncryptor);
                                         var text = $"ActivationId={activationId};LastDate={lastDate}";
                                         var encryptText = encryptor.Encrypt(text);
                                         var array = Encoding.UTF8.GetBytes(encryptText);
                                         fstream.Write(array, 0, array.Length);
+                                        fstream.Close();
                                         return true;
                                     }
+                                }
+                                else
+                                {
+                                    throw new Exception("Error in MSI [6703]");
                                 }
                             }
                             else
                             {
-                                throw new Exception("Error in MSI [6703]");
+                                throw new Exception(result);
                             }
                         }
                         else
                         {
-                            throw new Exception(result);
+                            throw new Exception("Error in MSI [9958]");
                         }
-                    }
-                    else
-                    {
-                        throw new Exception("Error in MSI [9958]");
                     }
                 }
             }

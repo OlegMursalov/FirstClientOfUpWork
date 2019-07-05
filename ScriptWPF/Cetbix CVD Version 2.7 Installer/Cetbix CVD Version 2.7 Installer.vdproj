@@ -295,7 +295,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_1A067B10_96F4_412E_AC41_117FD6510C03"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:/EnteredLicenseKey=[EDITA1] /FileMSI=\"[EDITA2]\""
+            "CustomActionData" = "8:/EnteredLicenseKey=[EDITA1] /FileMSI=\"[EDITA2]\" /LanguageSet=\"[LANGUAGESET]\""
             }
         }
         "DefaultFeature"
@@ -727,7 +727,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cetbix Utilities WMP Version 2.7"
         "ProductCode" = "8:{2F1EDE24-D020-4E7A-89CF-87CD0B15DB9C}"
-        "PackageCode" = "8:{E19A1011-55AC-4147-A7C9-41688C519D82}"
+        "PackageCode" = "8:{41DC5A13-453B-41F5-AE37-98867361586D}"
         "UpgradeCode" = "8:{812A0348-2DB6-4AB0-A22C-44BAC554EC4B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

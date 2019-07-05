@@ -3,6 +3,8 @@ using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
 using System.IO;
+using System.Text;
+using System.Windows;
 
 namespace LicenseCheckerCustomAction
 {
@@ -37,8 +39,26 @@ namespace LicenseCheckerCustomAction
                             {
                                 // Checking license key
                                 var exMessage = string.Empty;
-                                var checker = new Checker($"{mainPath}\\Cetbix.Activation.dll");
-                                var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.ApiCetbixUri}/{Common.LicenseChecker}", out exMessage, () => { base.OnBeforeInstall(stateSaver); });
+                                var checker = new Checker($"{mainPath}\\{Common.ActivationFileName}");
+                                var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.ApiCetbixUri}/{Common.LicenseChecker}", out exMessage, () => 
+                                {
+                                    // Creating language setting
+                                    if (Context.Parameters.ContainsKey("LanguageSet"))
+                                    {
+                                        var languageVal = Context.Parameters["LanguageSet"];
+                                        if (!string.IsNullOrEmpty(languageVal))
+                                        {
+                                            var language = 0;
+                                            if (int.TryParse(languageVal, out language))
+                                            {
+                                                var languageHelper = new LanguageHelper($"{mainPath}\\{Common.LanguageFileName}");
+                                                languageHelper.CreateSetting((Language)language);
+                                            }
+                                        }
+                                    }
+                                    // OnBeforeInstall
+                                    base.OnBeforeInstall(stateSaver);
+                                });
                                 if (!checkFlag && !string.IsNullOrEmpty(exMessage))
                                 {
                                     throw new Exception(exMessage);
