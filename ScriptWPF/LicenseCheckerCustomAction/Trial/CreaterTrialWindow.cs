@@ -1,11 +1,4 @@
-﻿using LicenseCheckerCustomAction;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -123,79 +116,22 @@ namespace LicenseCheckerCustomAction.Trial
             var enteredLicenseKey = EnteredLicenseKey.Text;
             if (!string.IsNullOrEmpty(enteredLicenseKey))
             {
-                try
+                var exMessage = string.Empty;
+                var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + "Cetbix.Activation.dll";
+                var checker = new Checker(cetbixActivationFilePath);
+                var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.TestApi}/license-checker.php", out exMessage);
+                if (checkFlag)
                 {
-                    var mainPath = AppDomain.CurrentDomain.BaseDirectory;
-                    using (var fstream = new FileStream($"{mainPath}\\Cetbix.Activation.dll", FileMode.OpenOrCreate))
-                    {
-                        var uuid = Common.GetUUID();
-                        var httpWebRequest = (HttpWebRequest)WebRequest.Create($"{Common.TestApi}/license-checker.php");
-                        httpWebRequest.ContentType = "application/json";
-                        httpWebRequest.Method = "POST";
-                        using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-                        {
-                            streamWriter.Write($"LicenseKeyValue={enteredLicenseKey};UUID={uuid}");
-                        }
-                        var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                        using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                        {
-                            var result = streamReader.ReadToEnd();
-                            if (!string.IsNullOrEmpty(result))
-                            {
-                                var parts = result.Split(';');
-                                if (parts.Length >= 2)
-                                {
-                                    if (parts[0].IndexOf("ActivationId", 0, StringComparison.CurrentCultureIgnoreCase) != -1 && parts[1].IndexOf("AmountOfMinutes", 0, StringComparison.CurrentCultureIgnoreCase) != -1)
-                                    {
-                                        var fragmentsOfActivationId = parts[0].Split('=');
-                                        var fragmentsOfAmountOfMinutes = parts[1].Split('=');
-                                        if (fragmentsOfActivationId.Length >= 2 && fragmentsOfAmountOfMinutes.Length >= 2)
-                                        {
-                                            var activationId = fragmentsOfActivationId[1];
-                                            var amountOfMinutes = int.Parse(fragmentsOfAmountOfMinutes[1]);
-                                            var lastDate = DateTime.Now.AddMinutes(amountOfMinutes);
-                                            var encryptor = new Encryptor(Common.GuidForEncryptor);
-                                            var text = $"ActivationId={activationId};LastDate={lastDate}";
-                                            var encryptText = encryptor.Encrypt(text);
-                                            var array = Encoding.UTF8.GetBytes(encryptText);
-                                            fstream.Write(array, 0, array.Length);
-                                            RemoveControlsForTrial();
-                                            BlockAndHideInterface(false);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        // throw new Exception("Error in MSI [6703]");
-                                        MessageBox.Show("Error in MSI [6703]");
-                                    }
-                                }
-                                else
-                                {
-                                    // throw new Exception(result);
-                                    MessageBox.Show(result);
-                                }
-                            }
-                            else
-                            {
-                                // throw new Exception("Error in MSI [9958]");
-                                MessageBox.Show("Error in MSI [9958]");
-                            }
-                        }
-                    }
+                    RemoveControlsForTrial();
+                    BlockAndHideInterface(false);
                 }
-                catch (UnauthorizedAccessException ex)
+                else if (!string.IsNullOrEmpty(exMessage))
                 {
-                    MessageBox.Show("Run as admin.");
-                }
-                catch (WebException ex)
-                {
-                    // throw new Exception("Check your internet connection.");
-                    MessageBox.Show("Check your internet connection.");
+                    MessageBox.Show(exMessage);
                 }
             }
             else
             {
-                // throw new Exception("You have not entered a license key.");
                 MessageBox.Show("You have not entered a license key.");
             }
         }

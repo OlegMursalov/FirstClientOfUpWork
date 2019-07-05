@@ -26,8 +26,9 @@ namespace ScriptWpf
             CetbixURI.Text = $"{Common.TestApi}/add_assets.php";
 
             // Checking license key (trial)
-            var checker = new Checker();
-            checker.StartChecking(10000, () =>
+            var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + "Cetbix.Activation.dll";
+            var checker = new Checker(cetbixActivationFilePath);
+            checker.StartCheckingAfterInstall(60000, () =>
             {
                 var createrTrialWindow = new CreaterTrialWindow(this, MainGrid, Application.Current.Dispatcher, SendToCetbixRadio, SaveToLocalTxtRadio, SaveToLocalExcelRadio, Run, CetbixURI, LabelCetbix);
                 createrTrialWindow.Create();
