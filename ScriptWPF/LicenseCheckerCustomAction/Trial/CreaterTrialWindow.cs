@@ -61,8 +61,8 @@ namespace LicenseCheckerCustomAction.Trial
                 TitleForTrial.HorizontalAlignment = HorizontalAlignment.Left;
                 TitleForTrial.VerticalAlignment = VerticalAlignment.Top;
                 TitleForTrial.Margin = new Thickness(10, 29, 0, 0);
-                mainLanguage.SetContentForControlByDefault(TitleForTrial);
                 TitleForTrial.Name = this.labelName;
+                mainLanguage.SetContentForControlByDefault(TitleForTrial);
                 grid.Children.Add(TitleForTrial);
                 EnteredLicenseKey = new TextBox();
                 EnteredLicenseKey.HorizontalAlignment = HorizontalAlignment.Left;
