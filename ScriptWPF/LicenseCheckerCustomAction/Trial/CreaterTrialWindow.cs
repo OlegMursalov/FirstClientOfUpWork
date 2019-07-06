@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CetbixCVD.Language;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -11,26 +12,25 @@ namespace LicenseCheckerCustomAction.Trial
         private Window window;
         private Grid grid;
         private Dispatcher dispatcher;
+        private MainLanguage mainLanguage;
         private Control[] unnecessaryControls;
 
         private string labelName = "TitleForTrial";
-        private string labelContent = "Your trial is expired. \nYou can buy and enter new key. \nNeed internet connection that checking new key.";
         private string textBoxName = "EnteredLicenseKey";
         private string button1Name = "CheckLicenseKey";
-        private string button1Content = "Check license key.";
         private string button2Name = "LinkToBuyApp";
-        private string button2Content = "Link to buy app.";
 
         private Label TitleForTrial;
         private TextBox EnteredLicenseKey;
         private Button CheckLicenseKey;
         private Button LinkToBuyApp;
 
-        public CreaterTrialWindow(Window window, Grid grid, Dispatcher dispatcher, params Control[] unnecessaryControls)
+        public CreaterTrialWindow(Window window, Grid grid, Dispatcher dispatcher, MainLanguage mainLanguage, params Control[] unnecessaryControls)
         {
             this.window = window;
             this.grid = grid;
             this.dispatcher = dispatcher;
+            this.mainLanguage = mainLanguage;
             this.unnecessaryControls = unnecessaryControls;
         }
 
@@ -61,7 +61,7 @@ namespace LicenseCheckerCustomAction.Trial
                 TitleForTrial.HorizontalAlignment = HorizontalAlignment.Left;
                 TitleForTrial.VerticalAlignment = VerticalAlignment.Top;
                 TitleForTrial.Margin = new Thickness(10, 29, 0, 0);
-                TitleForTrial.Content = this.labelContent;
+                mainLanguage.SetContentForControlByDefault(TitleForTrial);
                 TitleForTrial.Name = this.labelName;
                 grid.Children.Add(TitleForTrial);
                 EnteredLicenseKey = new TextBox();
@@ -79,7 +79,7 @@ namespace LicenseCheckerCustomAction.Trial
                 CheckLicenseKey.Height = 28;
                 CheckLicenseKey.Margin = new Thickness(10, 129, 0, 0);
                 CheckLicenseKey.Name = this.button1Name;
-                CheckLicenseKey.Content = this.button1Content;
+                mainLanguage.SetContentForControlByDefault(CheckLicenseKey);
                 CheckLicenseKey.Click += CheckLicenseKey_Click;
                 grid.Children.Add(CheckLicenseKey);
                 LinkToBuyApp = new Button();
@@ -89,7 +89,7 @@ namespace LicenseCheckerCustomAction.Trial
                 LinkToBuyApp.Height = 28;
                 LinkToBuyApp.Margin = new Thickness(10, 169, 0, 0);
                 LinkToBuyApp.Name = this.button2Name;
-                LinkToBuyApp.Content = this.button2Content;
+                mainLanguage.SetContentForControlByDefault(LinkToBuyApp);
                 LinkToBuyApp.Click += LinkToBuyApp_Click;
                 grid.Children.Add(LinkToBuyApp);
             }));
@@ -132,7 +132,7 @@ namespace LicenseCheckerCustomAction.Trial
             }
             else
             {
-                MessageBox.Show("You have not entered a license key.");
+                MessageBox.Show(mainLanguage.GetMessageByKey("NotEnteredLicenseKey"));
             }
         }
     }

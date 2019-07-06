@@ -19,7 +19,7 @@ namespace ScriptWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainLanguage MainLanguage { get; }
+        private MainLanguage mainLanguage { get; }
 
         public MainWindow()
         {
@@ -34,15 +34,15 @@ namespace ScriptWpf
             var languageSettingFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.LanguageFileName;
             var languageHelper = new LanguageHelper(languageSettingFilePath);
             var language = languageHelper.ReadLanguageFromSetting();
-            MainLanguage = new MainLanguage(language, Application.Current.Dispatcher);
-            MainLanguage.SetContentsForControls(new List<ContentControl> { SendToCetbixRadio, SaveToLocalTxtRadio, Run, LabelCetbix, SaveToLocalExcelRadio });
+            mainLanguage = new MainLanguage(language, Application.Current.Dispatcher);
+            mainLanguage.SetContentsForControls(new List<ContentControl> { SendToCetbixRadio, SaveToLocalTxtRadio, Run, LabelCetbix, SaveToLocalExcelRadio });
 
             // Checking license key (trial)
             var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.ActivationFileName;
             var checker = new Checker(cetbixActivationFilePath);
             checker.StartCheckingAfterInstall(60000, () =>
             {
-                var createrTrialWindow = new CreaterTrialWindow(this, MainGrid, Application.Current.Dispatcher, SendToCetbixRadio, SaveToLocalTxtRadio, SaveToLocalExcelRadio, Run, CetbixURI, LabelCetbix);
+                var createrTrialWindow = new CreaterTrialWindow(this, MainGrid, Application.Current.Dispatcher, mainLanguage, SendToCetbixRadio, SaveToLocalTxtRadio, SaveToLocalExcelRadio, Run, CetbixURI, LabelCetbix);
                 createrTrialWindow.Create();
             });
         }
@@ -67,7 +67,7 @@ namespace ScriptWpf
         {
             MainProgress.Visibility = Visibility.Visible;
             MainProgress.IsIndeterminate = true;
-            MainLanguage.SetContentForControlByKey(Run, "Run_Click_Start");
+            mainLanguage.SetContentForControlByKey(Run, "Run_Click_Start");
             Background = new SolidColorBrush(Color.FromRgb(255, 255, 230));
             Run.IsEnabled = false;
             var cetbixURI = CetbixURI.Text;
@@ -168,7 +168,7 @@ namespace ScriptWpf
                     });
                     if (sendFlag)
                     {
-                        MessageBox.Show(MainLanguage.GetMessageByKey("DataSuccessfullySent"));
+                        MessageBox.Show(mainLanguage.GetMessageByKey("DataSuccessfullySent"));
                     }
                     else
                     {
@@ -186,7 +186,7 @@ namespace ScriptWpf
                     });
                     if (saveFlag)
                     {
-                        MessageBox.Show(MainLanguage.GetMessageByKey("DataSuccessfullySaveToTxt"));
+                        MessageBox.Show(mainLanguage.GetMessageByKey("DataSuccessfullySaveToTxt"));
                     }
                     else
                     {
@@ -204,7 +204,7 @@ namespace ScriptWpf
                     });
                     if (saveFlag)
                     {
-                        MessageBox.Show(MainLanguage.GetMessageByKey("DataSuccessfullySaveToExcel"));
+                        MessageBox.Show(mainLanguage.GetMessageByKey("DataSuccessfullySaveToExcel"));
                     }
                     else
                     {
@@ -214,9 +214,9 @@ namespace ScriptWpf
             }
             else
             {
-                MessageBox.Show(MainLanguage.GetMessageByKey("FillCetbixURI"));
+                MessageBox.Show(mainLanguage.GetMessageByKey("FillCetbixURI"));
             }
-            MainLanguage.SetContentForControlByDefault(Run);
+            mainLanguage.SetContentForControlByDefault(Run);
             Run.IsEnabled = true;
             Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             MainProgress.IsIndeterminate = false;

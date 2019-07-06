@@ -90,12 +90,6 @@
     <Compile Include="Info\HDDInfo.cs" />
     <Compile Include="Info\RamInfo.cs" />
     <Compile Include="Info\SoundCardInfo.cs" />
-    <Compile Include="Language\EnglishLanguageSetting.cs" />
-    <Compile Include="Language\FrenchLanguageSetting.cs" />
-    <Compile Include="Language\GermanLanguageSetting.cs" />
-    <Compile Include="Language\ILanguageSetting.cs" />
-    <Compile Include="Language\LanguageSettingFactory.cs" />
-    <Compile Include="Language\MainLanguage.cs" />
     <Compile Include="Saver\ExcelFileCreator.cs" />
     <Compile Include="Saver\IFileCreator.cs" />
     <Compile Include="Saver\TxtFileCreator.cs" />

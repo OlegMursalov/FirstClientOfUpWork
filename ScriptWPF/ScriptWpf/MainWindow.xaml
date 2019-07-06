@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScriptWpf"
         mc:Ignorable="d"
-        Title="Cetbix Utilities WMP Version 2.7" Height="350" Width="300">
+        Title="Cetbix Utilities WMP Version 2.7" Height="350" Width="350">
     <Grid Name="MainGrid">
         <RadioButton IsChecked="True" x:Name="SendToCetbixRadio" Content="Send the Information to Your Cetbix Account" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" />
         <RadioButton x:Name="SaveToLocalTxtRadio" Content="Save the Information on your local PC (*.txt)" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Checked="SaveToLocalTxtRadio_Checked" Unchecked="SaveToLocalTxtRadio_Unchecked" />

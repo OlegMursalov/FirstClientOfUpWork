@@ -15,7 +15,10 @@ namespace CetbixCVD.Language
                     { "Run", "Lauf" },
                     { "LabelCetbix", "Cetbix URI (add_assets.php)" },
                     { "SaveToLocalExcelRadio", "Speichern Sie die Informationen auf Ihrem lokalen PC (* .xlsx)" },
-                    { "Run_Click_Start", "Warten Sie mal..." }
+                    { "Run_Click_Start", "Warten Sie mal..." },
+                    { "TitleForTrial", "Ihre Testversion ist abgelaufen. \nSie können einen neuen Schlüssel kaufen und eingeben. \nIch brauche eine Internetverbindung, die den neuen Schlüssel überprüft." },
+                    { "CheckLicenseKey", "Überprüfen Sie den Lizenzschlüssel" },
+                    { "LinkToBuyApp", "Link zum App kaufen" }
                 };
             }
         }

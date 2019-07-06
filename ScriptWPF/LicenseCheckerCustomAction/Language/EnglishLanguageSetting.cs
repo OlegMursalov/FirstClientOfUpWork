@@ -15,7 +15,10 @@ namespace CetbixCVD.Language
                     { "Run", "Run" },
                     { "LabelCetbix", "Cetbix URI (add_assets.php)" },
                     { "SaveToLocalExcelRadio", "Save the Information on your local PC (*.xlsx)" },
-                    { "Run_Click_Start", "Please, wait..." }
+                    { "Run_Click_Start", "Please, wait..." },
+                    { "TitleForTrial", "Your trial is expired. \nYou can buy and enter new key. \nNeed internet connection that checking new key." },
+                    { "CheckLicenseKey", "Check license key" },
+                    { "LinkToBuyApp", "Link to buy app" }
                 };
             }
         }
