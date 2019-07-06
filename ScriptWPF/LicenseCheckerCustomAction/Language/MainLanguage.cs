@@ -83,5 +83,37 @@ namespace CetbixCVD.Language
                 return string.Empty;
             }
         }
+
+        /// <summary>
+        /// Get title by key (for windows)
+        /// </summary>
+        public string GetTitleByKey(string key)
+        {
+            var dictionary = languageSetting.Titles;
+            if (dictionary.ContainsKey(key))
+            {
+                return dictionary[key];
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Get string by key (other strings)
+        /// </summary>
+        public string GetStringByKey(string key)
+        {
+            var dictionary = languageSetting.Strings;
+            if (dictionary.ContainsKey(key))
+            {
+                return dictionary[key];
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
     }
 }

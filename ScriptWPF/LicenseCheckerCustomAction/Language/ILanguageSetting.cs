@@ -13,5 +13,15 @@ namespace CetbixCVD.Language
         /// Messages for MessageBox
         /// </summary>
         Dictionary<string, string> Messages { get; }
+
+        /// <summary>
+        /// Titles for windows
+        /// </summary>
+        Dictionary<string, string> Titles { get; }
+
+        /// <summary>
+        /// Other strings
+        /// </summary>
+        Dictionary<string, string> Strings { get; }
     }
 }

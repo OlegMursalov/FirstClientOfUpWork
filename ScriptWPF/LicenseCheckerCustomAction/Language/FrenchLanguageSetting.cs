@@ -33,7 +33,30 @@ namespace CetbixCVD.Language
                     { "DataSuccessfullySaveToTxt", "Les données ont été sauvegardées avec succès en local (* .txt)." },
                     { "DataSuccessfullySaveToExcel", "Les données ont été sauvegardées avec succès en local (* .xlsx)." },
                     { "FillCetbixURI", "Remplir l'URI Cetbix (add_assets.php)" },
-                    { "NotEnteredLicenseKey", "Vous n'avez pas entré de clé de licence." }
+                    { "NotEnteredLicenseKey", "Vous n'avez pas entré de clé de licence." },
+                    { "NotDone", "Pas fini." }
+                };
+            }
+        }
+
+        public Dictionary<string, string> Titles
+        {
+            get
+            {
+                return new Dictionary<string, string>
+                {
+                    { "SaveLogFile", "Enregistrer le fichier journal." }
+                };
+            }
+        }
+
+        public Dictionary<string, string> Strings
+        {
+            get
+            {
+                return new Dictionary<string, string>
+                {
+                    { "Information", "Les informations" }
                 };
             }
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using CetbixCVD.Language;
+using Microsoft.Win32;
 using Script.Info;
 using System;
 using System.IO;
@@ -8,6 +9,13 @@ namespace CetbixCVD.Saver
 {
     public class TxtFileCreator : IFileCreator
     {
+        private MainLanguage mainLanguage { get; }
+
+        public TxtFileCreator(MainLanguage mainLanguage)
+        {
+            this.mainLanguage = mainLanguage;
+        }
+
         public bool SaveInfoToFile(DataOfComputer dataOfComputer, out string exMessgae)
         {
             exMessgae = string.Empty;
@@ -15,7 +23,7 @@ namespace CetbixCVD.Saver
             {
                 var saveFileDialog1 = new SaveFileDialog();
                 saveFileDialog1.Filter = "txt|*.txt";
-                saveFileDialog1.Title = "Save log file";
+                saveFileDialog1.Title = mainLanguage.GetTitleByKey("SaveLogFile");
                 saveFileDialog1.ShowDialog();
                 if (saveFileDialog1.FileName != string.Empty)
                 {
@@ -32,7 +40,7 @@ namespace CetbixCVD.Saver
                 }
                 else
                 {
-                    exMessgae = "Not done";
+                    exMessgae = mainLanguage.GetMessageByKey("NotDone");
                     return false;
                 }
             }

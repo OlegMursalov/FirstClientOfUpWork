@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using CetbixCVD.Language;
+using Microsoft.Win32;
 using OfficeOpenXml;
 using Script.Info;
 using System;
@@ -9,6 +10,13 @@ namespace CetbixCVD.Saver
 {
     public class ExcelFileCreator : IFileCreator
     {
+        private MainLanguage mainLanguage { get; }
+
+        public ExcelFileCreator(MainLanguage mainLanguage)
+        {
+            this.mainLanguage = mainLanguage;
+        }
+
         public bool SaveInfoToFile(DataOfComputer dataOfComputer, out string exMessgae)
         {
             exMessgae = string.Empty;
@@ -16,7 +24,7 @@ namespace CetbixCVD.Saver
             {
                 var saveFileDialog1 = new SaveFileDialog();
                 saveFileDialog1.Filter = "xlsx|*.xlsx";
-                saveFileDialog1.Title = "Save Excel file";
+                saveFileDialog1.Title = mainLanguage.GetTitleByKey("SaveLogFile");
                 saveFileDialog1.ShowDialog();
                 if (saveFileDialog1.FileName != string.Empty)
                 {
@@ -25,7 +33,8 @@ namespace CetbixCVD.Saver
                     using (var pck = new ExcelPackage(fileInfo))
                     {
                         var i = 1;
-                        var informationWorksheet = pck.Workbook.Worksheets.Add("Information");
+                        var headerStr = mainLanguage.GetStringByKey("Information");
+                        var informationWorksheet = pck.Workbook.Worksheets.Add(headerStr);
                         var dictionary = dataOfComputer.GetInfoByDictionary();
                         foreach (var item in dictionary)
                         {
@@ -41,7 +50,7 @@ namespace CetbixCVD.Saver
                 }
                 else
                 {
-                    exMessgae = "Not done";
+                    exMessgae = mainLanguage.GetMessageByKey("NotDone");
                     return false;
                 }
             }

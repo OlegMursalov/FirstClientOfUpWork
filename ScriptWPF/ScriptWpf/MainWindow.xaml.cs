@@ -179,7 +179,7 @@ namespace ScriptWpf
                 if (SaveToLocalTxtRadio.IsChecked != null && SaveToLocalTxtRadio.IsChecked.Value)
                 {
                     string exMessgae = string.Empty;
-                    var myLog = new TxtFileCreator();
+                    var myLog = new TxtFileCreator(mainLanguage);
                     var saveFlag = await Task.Run(() =>
                     {
                         return myLog.SaveInfoToFile(dataOfComputer, out exMessgae);
@@ -197,7 +197,7 @@ namespace ScriptWpf
                 if (SaveToLocalExcelRadio.IsChecked != null && SaveToLocalExcelRadio.IsChecked.Value)
                 {
                     string exMessgae = string.Empty;
-                    var excelFileCreator = new ExcelFileCreator();
+                    var excelFileCreator = new ExcelFileCreator(mainLanguage);
                     var saveFlag = await Task.Run(() =>
                     {
                         return excelFileCreator.SaveInfoToFile(dataOfComputer, out exMessgae);
