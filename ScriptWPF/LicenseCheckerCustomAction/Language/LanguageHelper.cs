@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Threading;
 
 namespace LicenseCheckerCustomAction
 {
-    public enum Language
-    {
-        English = 1,
-        German = 2,
-        French = 3
-    }
-
     public class LanguageHelper
     {
         private string languageSettingFilePath;
@@ -28,7 +16,7 @@ namespace LicenseCheckerCustomAction
         /// Create language setting when installation
         /// </summary>
         /// <param name="language">Language enum</param>
-        public void CreateSetting(Language language)
+        public void CreateSetting(LanguageEnum language)
         {
             try
             {
@@ -52,7 +40,7 @@ namespace LicenseCheckerCustomAction
         /// If file doesn't exists, return English (default).
         /// </summary>
         /// <returns>Language.</returns>
-        public Language ReadLanguageFromSetting()
+        public LanguageEnum ReadLanguageFromSetting()
         {
             try
             {
@@ -74,7 +62,7 @@ namespace LicenseCheckerCustomAction
                                     var language = 0;
                                     if (int.TryParse(languageVal, out language))
                                     {
-                                        return (Language)language;
+                                        return (LanguageEnum)language;
                                     }
                                 }
                             }
@@ -85,25 +73,7 @@ namespace LicenseCheckerCustomAction
             finally
             {
             }
-            return Language.English;
-        }
-
-        /// <summary>
-        /// Set language settings
-        /// </summary>
-        /// <param name="grid">Main grid from Window</param>
-        /// <param name="dispatcher">Dispatcher</param>
-        /// <param name="languageSettingsDict">Dictionary</param>
-        public void SetLanguageSettings(Grid grid, Dispatcher dispatcher, Dictionary<ContentControl, string> languageSettingsDict)
-        {
-            dispatcher.Invoke(new Action(() =>
-            {
-                foreach (var item in languageSettingsDict)
-                {
-                    var contentControl = item.Key;
-                    contentControl.Content = item.Value;
-                }
-            }));
+            return LanguageEnum.English;
         }
     }
 }

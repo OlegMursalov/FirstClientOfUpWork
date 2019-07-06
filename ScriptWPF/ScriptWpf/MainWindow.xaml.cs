@@ -10,6 +10,7 @@ using CetbixCVD.Saver;
 using CetbixCVD.Sender;
 using System.Windows.Controls;
 using System.Collections.Generic;
+using CetbixCVD.Language;
 
 namespace ScriptWpf
 {
@@ -18,6 +19,8 @@ namespace ScriptWpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainLanguage mainLanguage { get; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,7 +43,8 @@ namespace ScriptWpf
             var languageSettingFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.LanguageFileName;
             var languageHelper = new LanguageHelper(languageSettingFilePath);
             var language = languageHelper.ReadLanguageFromSetting();
-            languageHelper.SetLanguageSettings(MainGrid, Dispatcher, );
+            mainLanguage = new MainLanguage(language, Application.Current.Dispatcher);
+            mainLanguage.SetContentsForControls(new List<ContentControl> { SendToCetbixRadio, SaveToLocalTxtRadio, Run, LabelCetbix, SaveToLocalExcelRadio });
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args)
@@ -63,7 +67,7 @@ namespace ScriptWpf
         {
             MainProgress.Visibility = Visibility.Visible;
             MainProgress.IsIndeterminate = true;
-            Run.Content = "Please, wait...";
+            mainLanguage.SetContentForControlByKey(Run, "Run_Click_Start");
             Background = new SolidColorBrush(Color.FromRgb(255, 255, 230));
             Run.IsEnabled = false;
             var cetbixURI = CetbixURI.Text;
@@ -212,7 +216,7 @@ namespace ScriptWpf
             {
                 MessageBox.Show("Fill Cetbix URI (add_assets.php)");
             }
-            Run.Content = "Run";
+            mainLanguage.SetContentForControlByDefault(Run);
             Run.IsEnabled = true;
             Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             MainProgress.IsIndeterminate = false;

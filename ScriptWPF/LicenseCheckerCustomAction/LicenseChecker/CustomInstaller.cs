@@ -3,8 +3,6 @@ using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
 using System.IO;
-using System.Text;
-using System.Windows;
 
 namespace LicenseCheckerCustomAction
 {
@@ -52,7 +50,7 @@ namespace LicenseCheckerCustomAction
                                             if (int.TryParse(languageVal, out language))
                                             {
                                                 var languageHelper = new LanguageHelper($"{mainPath}\\{Common.LanguageFileName}");
-                                                languageHelper.CreateSetting((Language)language);
+                                                languageHelper.CreateSetting((LanguageEnum)language);
                                             }
                                         }
                                     }

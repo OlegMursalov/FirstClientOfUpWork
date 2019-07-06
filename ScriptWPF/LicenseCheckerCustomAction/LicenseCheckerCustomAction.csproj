@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="ActivationChecker\Checker.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="Language\LanguageEnum.cs" />
     <Compile Include="Language\LanguageHelper.cs" />
     <Compile Include="LicenseChecker\CustomAction.cs" />
     <Compile Include="LicenseChecker\CustomInstaller.cs">

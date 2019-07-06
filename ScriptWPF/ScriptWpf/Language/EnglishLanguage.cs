@@ -1,25 +1,25 @@
-﻿using ScriptWpf;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
-namespace CetbixCVD
+namespace CetbixCVD.Language
 {
-    public static class EnglishLanguage
+    public class EnglishLanguageSetting : ILanguageSetting
     {
-        public static Dictionary<string, string> GetLanguageSettingsForControls()
+        public Dictionary<string, string> Setting
         {
-            return new Dictionary<string, string>
+            get
             {
-                { "SendToCetbixRadio", "Send the Information to Your Cetbix Account" },
-                { "SaveToLocalTxtRadio", "Save the Information on your local PC (*.txt)" },
-                { "Run", "Run" },
-                { "LabelCetbix", "Cetbix URI (add_assets.php)" },
-                { "SaveToLocalExcelRadio", "Save the Information on your local PC (*.xlsx)" }
-            };
+                return new Dictionary<string, string>
+                {
+                    { "SendToCetbixRadio", "Send the Information to Your Cetbix Account" },
+                    { "SaveToLocalTxtRadio", "Save the Information on your local PC (*.txt)" },
+                    { "Run", "Run" },
+                    { "LabelCetbix", "Cetbix URI (add_assets.php)" },
+                    { "SaveToLocalExcelRadio", "Save the Information on your local PC (*.xlsx)" },
+
+                    { "Run_Click_Start", "Please, wait..." }
+                };
+            }
         }
     }
 }

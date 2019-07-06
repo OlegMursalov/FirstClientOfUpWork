@@ -1,28 +1,71 @@
 ﻿using LicenseCheckerCustomAction;
-using ScriptWpf;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
-namespace CetbixCVD
+namespace CetbixCVD.Language
 {
-    public class MainLanguage : MainWindow
+    public class MainLanguage
     {
-        public Language language;
+        private Dispatcher dispatcher;
+        private ILanguageSetting languageSetting;
 
-        public MainLanguage(Language language)
+        public MainLanguage(LanguageEnum language, Dispatcher dispatcher)
         {
-            this.language = language;
+            this.languageSetting = LanguageSettingFactory.GetSettingByLanguage(language);
+            this.dispatcher = dispatcher;
         }
 
-        public Dictionary<ContentControl, string> GetLanguageSettings()
+        /// <summary>
+        /// Set language settings (initializer)
+        /// </summary>
+        /// <param name="languageSettingsDict">Dictionary</param>
+        public void SetContentsForControls(List<ContentControl> contentControls)
         {
-            if (language == LicenseCheckerCustomAction.Language.English)
+            var dictionary = languageSetting.Setting;
+            dispatcher.Invoke(new Action(() =>
             {
-                return EnglishLanguage.GetLanguageSettingsForControls();
+                foreach (var pair in dictionary)
+                {
+                    foreach (var control in contentControls)
+                    {
+                        if (control.Name == pair.Key)
+                        {
+                            control.Content = pair.Value;
+                        }
+                    }
+                }
+            }));
+        }
+
+        /// <summary>
+        /// Set language setting by key
+        /// </summary>
+        public void SetContentForControlByKey(ContentControl contentControl, string key)
+        {
+            var dictionary = languageSetting.Setting;
+            if (dictionary.ContainsKey(key))
+            {
+                dispatcher.Invoke(new Action(() =>
+                {
+                    contentControl.Content = dictionary[key];
+                }));
+            }
+        }
+
+        /// <summary>
+        /// Set language setting by control name (default)
+        /// </summary>
+        public void SetContentForControlByDefault(ContentControl contentControl)
+        {
+            var dictionary = languageSetting.Setting;
+            if (dictionary.ContainsKey(contentControl.Name))
+            {
+                dispatcher.Invoke(new Action(() =>
+                {
+                    contentControl.Content = dictionary[contentControl.Name];
+                }));
             }
         }
     }
