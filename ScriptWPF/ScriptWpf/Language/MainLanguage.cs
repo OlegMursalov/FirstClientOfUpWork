@@ -20,7 +20,6 @@ namespace CetbixCVD.Language
         /// <summary>
         /// Set language settings (initializer)
         /// </summary>
-        /// <param name="languageSettingsDict">Dictionary</param>
         public void SetContentsForControls(List<ContentControl> contentControls)
         {
             var dictionary = languageSetting.Contents;
@@ -69,6 +68,9 @@ namespace CetbixCVD.Language
             }
         }
 
+        /// <summary>
+        /// Get message by key (for MessageBox)
+        /// </summary>
         public string GetMessageByKey(string key)
         {
             var dictionary = languageSetting.Messages;
