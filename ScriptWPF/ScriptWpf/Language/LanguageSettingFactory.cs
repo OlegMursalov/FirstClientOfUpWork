@@ -12,11 +12,11 @@ namespace CetbixCVD.Language
             }
             else if (language == LanguageEnum.German)
             {
-                return new EnglishLanguageSetting();
+                return new GermanLanguageSetting();
             }
             else if (language == LanguageEnum.French)
             {
-                return new EnglishLanguageSetting();
+                return new FrenchLanguageSetting();
             }
             else
             {
