@@ -67,7 +67,7 @@ namespace LicenseCheckerCustomAction.Trial
                 EnteredLicenseKey = new TextBox();
                 EnteredLicenseKey.HorizontalAlignment = HorizontalAlignment.Left;
                 EnteredLicenseKey.VerticalAlignment = VerticalAlignment.Top;
-                EnteredLicenseKey.Width = 263;
+                EnteredLicenseKey.Width = 374;
                 EnteredLicenseKey.Height = 28;
                 EnteredLicenseKey.Margin = new Thickness(10, 89, 0, 0);
                 EnteredLicenseKey.Name = this.textBoxName;
@@ -75,7 +75,7 @@ namespace LicenseCheckerCustomAction.Trial
                 CheckLicenseKey = new Button();
                 CheckLicenseKey.HorizontalAlignment = HorizontalAlignment.Left;
                 CheckLicenseKey.VerticalAlignment = VerticalAlignment.Top;
-                CheckLicenseKey.Width = 263;
+                CheckLicenseKey.Width = 374;
                 CheckLicenseKey.Height = 28;
                 CheckLicenseKey.Margin = new Thickness(10, 129, 0, 0);
                 CheckLicenseKey.Name = this.button1Name;
@@ -85,7 +85,7 @@ namespace LicenseCheckerCustomAction.Trial
                 LinkToBuyApp = new Button();
                 LinkToBuyApp.HorizontalAlignment = HorizontalAlignment.Left;
                 LinkToBuyApp.VerticalAlignment = VerticalAlignment.Top;
-                LinkToBuyApp.Width = 263;
+                LinkToBuyApp.Width = 374;
                 LinkToBuyApp.Height = 28;
                 LinkToBuyApp.Margin = new Thickness(10, 169, 0, 0);
                 LinkToBuyApp.Name = this.button2Name;

@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScriptWpf"
         mc:Ignorable="d"
-        Title="Cetbix Utilities WMP Version 2.7" Height="350" Width="350">
+        Title="Cetbix Utilities WMP Version 2.7" Height="350" Width="415">
     <Grid Name="MainGrid">
         <RadioButton IsChecked="True" x:Name="SendToCetbixRadio" Content="Send the Information to Your Cetbix Account" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" />
         <RadioButton x:Name="SaveToLocalTxtRadio" Content="Save the Information on your local PC (*.txt)" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Checked="SaveToLocalTxtRadio_Checked" Unchecked="SaveToLocalTxtRadio_Unchecked" />
-        <Button x:Name="Run" Content="Run" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top" Width="263" Height="28" Click="Run_Click"/>
-        <TextBox x:Name="CetbixURI" HorizontalAlignment="Left" Height="23" Margin="10,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="263"/>
+        <Button x:Name="Run" Content="Run" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top" Width="374" Height="28" Click="Run_Click"/>
+        <TextBox x:Name="CetbixURI" HorizontalAlignment="Left" Height="23" Margin="10,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="374"/>
         <Label x:Name="LabelCetbix" Content="Cetbix URI (add_assets.php)" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top"/>
-        <ProgressBar Name="MainProgress" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="20" Margin="10,200,0,0" VerticalAlignment="Top" Width="263" Visibility="Hidden" />
+        <ProgressBar Name="MainProgress" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="20" Margin="10,200,0,0" VerticalAlignment="Top" Width="374" Visibility="Hidden" />
         <RadioButton x:Name="SaveToLocalExcelRadio" Content="Save the Information on your local PC (*.xlsx)" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Checked="SaveToLocalTxtRadio_Checked" Unchecked="SaveToLocalTxtRadio_Unchecked" />
     </Grid>
 </Window>
