@@ -12,7 +12,7 @@ namespace CetbixCVD.Language
                 {
                     { "SendToCetbixRadio", "Envoyez les informations sur votre compte Cetbix" },
                     { "SaveToLocalTxtRadio", "Enregistrez les informations sur votre PC local (* .txt)" },
-                    { "Run", "Run" },
+                    { "Run", "Courir" },
                     { "LabelCetbix", "URI Cetbix (add_assets.php)" },
                     { "SaveToLocalExcelRadio", "Enregistrez les informations sur votre PC local (* .xlsx)" },
                     { "Run_Click_Start", "S'il vous plaît, attendez..." },

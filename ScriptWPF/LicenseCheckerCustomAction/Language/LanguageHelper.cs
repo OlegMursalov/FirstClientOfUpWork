@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
+using System.Windows;
 
 namespace LicenseCheckerCustomAction
 {
@@ -23,7 +25,8 @@ namespace LicenseCheckerCustomAction
                 using (var fstream = new FileStream(languageSettingFilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     var encryptor = new Encryptor(Common.GuidForEncryptor);
-                    var text = $"Language={language}";
+                    var languageName = Enum.GetName(typeof(LanguageEnum), language);
+                    var text = $"Language={languageName}";
                     var encryptText = encryptor.Encrypt(text);
                     var array = Encoding.UTF8.GetBytes(encryptText);
                     fstream.Write(array, 0, array.Length);
@@ -56,13 +59,17 @@ namespace LicenseCheckerCustomAction
                             var parts = decryptText.Split('=');
                             if (parts.Length >= 2)
                             {
-                                var languageVal = parts[1];
-                                if (!string.IsNullOrEmpty(languageVal))
+                                var languageName = parts[1];
+                                if (!string.IsNullOrEmpty(languageName))
                                 {
-                                    var language = 0;
-                                    if (int.TryParse(languageVal, out language))
+                                    LanguageEnum language;
+                                    if (Enum.TryParse(languageName, out language))
                                     {
-                                        return (LanguageEnum)language;
+                                        return language;
+                                    }
+                                    else
+                                    {
+                                        return LanguageEnum.English;
                                     }
                                 }
                             }
