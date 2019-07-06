@@ -29,7 +29,8 @@ namespace CetbixCVD.Language
                     { "DataSuccessfullySent", "Daten erfolgreich an Cetbix gesendet." },
                     { "DataSuccessfullySaveToTxt", "Daten erfolgreich lokal (* .txt) speichern." },
                     { "DataSuccessfullySaveToExcel", "Daten erfolgreich lokal (* .xlsx) speichern." },
-                    { "FillCetbixURI", "Füllen Sie das Cetbix-URI aus (add_assets.php)" }
+                    { "FillCetbixURI", "Füllen Sie das Cetbix-URI aus (add_assets.php)" },
+                    { "NotEnteredLicenseKey", "Sie haben keinen Lizenzschlüssel eingegeben." }
                 };
             }
         }

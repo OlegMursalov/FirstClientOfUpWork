@@ -19,7 +19,7 @@ namespace CetbixCVD.Language
                 };
             }
         }
-
+        
         public Dictionary<string, string> Messages
         {
             get
@@ -29,7 +29,8 @@ namespace CetbixCVD.Language
                     { "DataSuccessfullySent", "Données envoyées avec succès à Cetbix." },
                     { "DataSuccessfullySaveToTxt", "Les données ont été sauvegardées avec succès en local (* .txt)." },
                     { "DataSuccessfullySaveToExcel", "Les données ont été sauvegardées avec succès en local (* .xlsx)." },
-                    { "FillCetbixURI", "Remplir l'URI Cetbix (add_assets.php)" }
+                    { "FillCetbixURI", "Remplir l'URI Cetbix (add_assets.php)" },
+                    { "NotEnteredLicenseKey", "Vous n'avez pas entré de clé de licence." }
                 };
             }
         }

@@ -10,12 +10,12 @@ namespace CetbixCVD.Language
             {
                 return new Dictionary<string, string>
                 {
-                    { "SendToCetbixRadio", "Senden Sie die Informationen an Ihr Cetbix-Konto" },
-                    { "SaveToLocalTxtRadio", "Speichern Sie die Informationen auf Ihrem lokalen PC (* .txt)" },
-                    { "Run", "Lauf" },
+                    { "SendToCetbixRadio", "Send the Information to Your Cetbix Account" },
+                    { "SaveToLocalTxtRadio", "Save the Information on your local PC (*.txt)" },
+                    { "Run", "Run" },
                     { "LabelCetbix", "Cetbix URI (add_assets.php)" },
-                    { "SaveToLocalExcelRadio", "Speichern Sie die Informationen auf Ihrem lokalen PC (* .xlsx)" },
-                    { "Run_Click_Start", "Warten Sie mal..." }
+                    { "SaveToLocalExcelRadio", "Save the Information on your local PC (*.xlsx)" },
+                    { "Run_Click_Start", "Please, wait..." }
                 };
             }
         }
@@ -26,10 +26,11 @@ namespace CetbixCVD.Language
             {
                 return new Dictionary<string, string>
                 {
-                    { "DataSuccessfullySent", "Daten erfolgreich an Cetbix gesendet." },
-                    { "DataSuccessfullySaveToTxt", "Daten erfolgreich lokal (* .txt) speichern." },
-                    { "DataSuccessfullySaveToExcel", "Daten erfolgreich lokal (* .xlsx) speichern." },
-                    { "FillCetbixURI", "Füllen Sie das Cetbix-URI aus (add_assets.php)" }
+                    { "DataSuccessfullySent", "Data successfully sent to Cetbix." },
+                    { "DataSuccessfullySaveToTxt", "Data successfully save to local (*.txt)." },
+                    { "DataSuccessfullySaveToExcel", "Data successfully save to local (*.xlsx)." },
+                    { "FillCetbixURI", "Fill Cetbix URI (add_assets.php)" },
+                    { "NotEnteredLicenseKey", "You have not entered a license key." }
                 };
             }
         }

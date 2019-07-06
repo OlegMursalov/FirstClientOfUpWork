@@ -19,7 +19,7 @@ namespace ScriptWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainLanguage mainLanguage { get; }
+        public MainLanguage MainLanguage { get; }
 
         public MainWindow()
         {
@@ -29,7 +29,14 @@ namespace ScriptWpf
 
             // Set URI (add_assets.php)
             CetbixURI.Text = $"{Common.ApiCetbixUri}/{Common.AddAssets}";
-            
+
+            // Selecting language for interface
+            var languageSettingFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.LanguageFileName;
+            var languageHelper = new LanguageHelper(languageSettingFilePath);
+            var language = languageHelper.ReadLanguageFromSetting();
+            MainLanguage = new MainLanguage(language, Application.Current.Dispatcher);
+            MainLanguage.SetContentsForControls(new List<ContentControl> { SendToCetbixRadio, SaveToLocalTxtRadio, Run, LabelCetbix, SaveToLocalExcelRadio });
+
             // Checking license key (trial)
             var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.ActivationFileName;
             var checker = new Checker(cetbixActivationFilePath);
@@ -38,13 +45,6 @@ namespace ScriptWpf
                 var createrTrialWindow = new CreaterTrialWindow(this, MainGrid, Application.Current.Dispatcher, SendToCetbixRadio, SaveToLocalTxtRadio, SaveToLocalExcelRadio, Run, CetbixURI, LabelCetbix);
                 createrTrialWindow.Create();
             });
-
-            // Selecting language for interface
-            var languageSettingFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.LanguageFileName;
-            var languageHelper = new LanguageHelper(languageSettingFilePath);
-            var language = languageHelper.ReadLanguageFromSetting();
-            mainLanguage = new MainLanguage(language, Application.Current.Dispatcher);
-            mainLanguage.SetContentsForControls(new List<ContentControl> { SendToCetbixRadio, SaveToLocalTxtRadio, Run, LabelCetbix, SaveToLocalExcelRadio });
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args)
@@ -67,7 +67,7 @@ namespace ScriptWpf
         {
             MainProgress.Visibility = Visibility.Visible;
             MainProgress.IsIndeterminate = true;
-            mainLanguage.SetContentForControlByKey(Run, "Run_Click_Start");
+            MainLanguage.SetContentForControlByKey(Run, "Run_Click_Start");
             Background = new SolidColorBrush(Color.FromRgb(255, 255, 230));
             Run.IsEnabled = false;
             var cetbixURI = CetbixURI.Text;
@@ -168,7 +168,7 @@ namespace ScriptWpf
                     });
                     if (sendFlag)
                     {
-                        MessageBox.Show(mainLanguage.GetMessageByKey("DataSuccessfullySent"));
+                        MessageBox.Show(MainLanguage.GetMessageByKey("DataSuccessfullySent"));
                     }
                     else
                     {
@@ -186,7 +186,7 @@ namespace ScriptWpf
                     });
                     if (saveFlag)
                     {
-                        MessageBox.Show(mainLanguage.GetMessageByKey("DataSuccessfullySaveToTxt"));
+                        MessageBox.Show(MainLanguage.GetMessageByKey("DataSuccessfullySaveToTxt"));
                     }
                     else
                     {
@@ -204,7 +204,7 @@ namespace ScriptWpf
                     });
                     if (saveFlag)
                     {
-                        MessageBox.Show(mainLanguage.GetMessageByKey("DataSuccessfullySaveToExcel"));
+                        MessageBox.Show(MainLanguage.GetMessageByKey("DataSuccessfullySaveToExcel"));
                     }
                     else
                     {
@@ -214,9 +214,9 @@ namespace ScriptWpf
             }
             else
             {
-                MessageBox.Show(mainLanguage.GetMessageByKey("FillCetbixURI"));
+                MessageBox.Show(MainLanguage.GetMessageByKey("FillCetbixURI"));
             }
-            mainLanguage.SetContentForControlByDefault(Run);
+            MainLanguage.SetContentForControlByDefault(Run);
             Run.IsEnabled = true;
             Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             MainProgress.IsIndeterminate = false;
