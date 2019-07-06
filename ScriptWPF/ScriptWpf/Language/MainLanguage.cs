@@ -23,7 +23,7 @@ namespace CetbixCVD.Language
         /// <param name="languageSettingsDict">Dictionary</param>
         public void SetContentsForControls(List<ContentControl> contentControls)
         {
-            var dictionary = languageSetting.Setting;
+            var dictionary = languageSetting.Contents;
             dispatcher.Invoke(new Action(() =>
             {
                 foreach (var pair in dictionary)
@@ -44,7 +44,7 @@ namespace CetbixCVD.Language
         /// </summary>
         public void SetContentForControlByKey(ContentControl contentControl, string key)
         {
-            var dictionary = languageSetting.Setting;
+            var dictionary = languageSetting.Contents;
             if (dictionary.ContainsKey(key))
             {
                 dispatcher.Invoke(new Action(() =>
@@ -59,13 +59,26 @@ namespace CetbixCVD.Language
         /// </summary>
         public void SetContentForControlByDefault(ContentControl contentControl)
         {
-            var dictionary = languageSetting.Setting;
+            var dictionary = languageSetting.Contents;
             if (dictionary.ContainsKey(contentControl.Name))
             {
                 dispatcher.Invoke(new Action(() =>
                 {
                     contentControl.Content = dictionary[contentControl.Name];
                 }));
+            }
+        }
+
+        public string GetMessageByKey(string key)
+        {
+            var dictionary = languageSetting.Messages;
+            if (dictionary.ContainsKey(key))
+            {
+                return dictionary[key];
+            }
+            else
+            {
+                return string.Empty;
             }
         }
     }

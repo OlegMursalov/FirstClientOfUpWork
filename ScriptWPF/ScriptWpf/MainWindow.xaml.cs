@@ -168,7 +168,7 @@ namespace ScriptWpf
                     });
                     if (sendFlag)
                     {
-                        MessageBox.Show("Data successfully sent to Cetbix.");
+                        MessageBox.Show(mainLanguage.GetMessageByKey("DataSuccessfullySent"));
                     }
                     else
                     {
@@ -186,7 +186,7 @@ namespace ScriptWpf
                     });
                     if (saveFlag)
                     {
-                        MessageBox.Show("Data successfully save to local (*.txt).");
+                        MessageBox.Show(mainLanguage.GetMessageByKey("DataSuccessfullySaveToTxt"));
                     }
                     else
                     {
@@ -204,7 +204,7 @@ namespace ScriptWpf
                     });
                     if (saveFlag)
                     {
-                        MessageBox.Show("Data successfully save to local (*.xlsx).");
+                        MessageBox.Show(mainLanguage.GetMessageByKey("DataSuccessfullySaveToExcel"));
                     }
                     else
                     {
@@ -214,7 +214,7 @@ namespace ScriptWpf
             }
             else
             {
-                MessageBox.Show("Fill Cetbix URI (add_assets.php)");
+                MessageBox.Show(mainLanguage.GetMessageByKey("FillCetbixURI"));
             }
             mainLanguage.SetContentForControlByDefault(Run);
             Run.IsEnabled = true;
