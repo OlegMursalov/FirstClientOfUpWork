@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CetbixCVD.Language
 {
@@ -11,12 +10,12 @@ namespace CetbixCVD.Language
             {
                 return new Dictionary<string, string>
                 {
-                    { "SendToCetbixRadio", "Senden Sie die Informationen an Ihr Cetbix-Konto" },
-                    { "SaveToLocalTxtRadio", "Speichern Sie die Informationen auf Ihrem lokalen PC (* .txt)" },
-                    { "Run", "Lauf" },
-                    { "LabelCetbix", "Cetbix URI (add_assets.php)" },
-                    { "SaveToLocalExcelRadio", "Speichern Sie die Informationen auf Ihrem lokalen PC (* .xlsx)" },
-                    { "Run_Click_Start", "Warten Sie mal..." }
+                    { "SendToCetbixRadio", "Envoyez les informations sur votre compte Cetbix" },
+                    { "SaveToLocalTxtRadio", "Enregistrez les informations sur votre PC local (* .txt)" },
+                    { "Run", "Run" },
+                    { "LabelCetbix", "URI Cetbix (add_assets.php)" },
+                    { "SaveToLocalExcelRadio", "Enregistrez les informations sur votre PC local (* .xlsx)" },
+                    { "Run_Click_Start", "S'il vous plaît, attendez..." }
                 };
             }
         }
@@ -27,10 +26,10 @@ namespace CetbixCVD.Language
             {
                 return new Dictionary<string, string>
                 {
-                    { "DataSuccessfullySent", "Daten erfolgreich an Cetbix gesendet." },
-                    { "DataSuccessfullySaveToTxt", "Daten erfolgreich lokal (* .txt) speichern." },
-                    { "DataSuccessfullySaveToExcel", "Daten erfolgreich lokal (* .xlsx) speichern." },
-                    { "FillCetbixURI", "Füllen Sie das Cetbix-URI aus (add_assets.php)" }
+                    { "DataSuccessfullySent", "Données envoyées avec succès à Cetbix." },
+                    { "DataSuccessfullySaveToTxt", "Les données ont été sauvegardées avec succès en local (* .txt)." },
+                    { "DataSuccessfullySaveToExcel", "Les données ont été sauvegardées avec succès en local (* .xlsx)." },
+                    { "FillCetbixURI", "Remplir l'URI Cetbix (add_assets.php)" }
                 };
             }
         }
