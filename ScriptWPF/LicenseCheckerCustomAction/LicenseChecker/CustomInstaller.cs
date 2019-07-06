@@ -3,6 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
 using System.IO;
+using System.Windows;
 
 namespace LicenseCheckerCustomAction
 {
@@ -86,6 +87,39 @@ namespace LicenseCheckerCustomAction
             {
                 throw new Exception("You have not entered a license key.");
             }
+        }
+
+        public override void Uninstall(IDictionary stateSaver)
+        {
+            try
+            {
+                if (Context.Parameters.ContainsKey("AssemblyPath"))
+                {
+                    var assemblyPath = Context.Parameters["AssemblyPath"];
+                    if (!string.IsNullOrEmpty(assemblyPath))
+                    {
+                        var i = assemblyPath.LastIndexOf("\\");
+                        var mainPath = assemblyPath.Substring(0, i);
+                        if (Directory.Exists(mainPath))
+                        {
+                            var activationFileName = $"{mainPath}\\{Common.ActivationFileName}";
+                            if (File.Exists(activationFileName))
+                            {
+                                File.Delete(activationFileName);
+                            }
+                            var languageFileName = $"{mainPath}\\{Common.LanguageFileName}";
+                            if (File.Exists(languageFileName))
+                            {
+                                File.Delete(languageFileName);
+                            }
+                        }
+                    }
+                }
+            }
+            finally
+            {
+            }
+            base.Uninstall(stateSaver);
         }
     }
 }

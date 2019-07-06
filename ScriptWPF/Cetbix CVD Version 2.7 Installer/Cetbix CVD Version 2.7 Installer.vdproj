@@ -283,6 +283,20 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_1681EB16A32C43269A06FAA9192E3DFA"
+            {
+            "Name" = "8:Primary output from LicenseCheckerCustomAction (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_DDCFD9779C4645A184A92F58D4D02CF5"
+            "FileType" = "3:1"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_B53677B0_A8F7_4D2F_BB61_B4A11FB5C69D"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_B07E07553DFD46AC96E7DF71927A85C0"
             {
             "Name" = "8:Primary output from LicenseCheckerCustomAction (Active)"
@@ -727,7 +741,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cetbix Utilities WMP Version 2.7"
         "ProductCode" = "8:{2F1EDE24-D020-4E7A-89CF-87CD0B15DB9C}"
-        "PackageCode" = "8:{41DC5A13-453B-41F5-AE37-98867361586D}"
+        "PackageCode" = "8:{7040A0AB-88FE-4244-95EC-0D21C9A3A8DB}"
         "UpgradeCode" = "8:{812A0348-2DB6-4AB0-A22C-44BAC554EC4B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
