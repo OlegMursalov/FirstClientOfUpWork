@@ -7,6 +7,27 @@ using System.Threading.Tasks;
 
 namespace LicenseCheckerCustomAction
 {
+    public class MainCancelation
+    {
+        private bool isCancel;
+        public bool IsCancel {
+            get
+            {
+                return isCancel;
+            }
+        }
+
+        public MainCancelation()
+        {
+            isCancel = false;
+        }
+
+        public void Cancel()
+        {
+            isCancel = true;
+        }
+    }
+
     public class Checker
     {
         private string cetbixActivationFilePath;
@@ -106,11 +127,17 @@ namespace LicenseCheckerCustomAction
         /// </summary>
         public void StartCheckingAfterInstall(int milliseconds, Action action)
         {
-            Task.Run(() =>
+            var mainCancelation = new MainCancelation();
+            var checkerTask = Task.Run(() => { MainCheck(mainCancelation, milliseconds, action); });
+        }
+
+        private void MainCheck(MainCancelation mainCancelation, int milliseconds, Action action)
+        {
+            while (true)
             {
-                while (true)
+                if (!mainCancelation.IsCancel)
                 {
-                    if (CheckAfterInstall())
+                    if (CheckAfterInstall(mainCancelation))
                     {
                         Thread.Sleep(milliseconds);
                     }
@@ -119,11 +146,15 @@ namespace LicenseCheckerCustomAction
                         break;
                     }
                 }
-                action();
-            });
+                else
+                {
+                    break;
+                }
+            }
+            action();
         }
 
-        private bool CheckAfterInstall()
+        private bool CheckAfterInstall(MainCancelation mainCancelation)
         {
             if (File.Exists(cetbixActivationFilePath))
             {
@@ -147,27 +178,42 @@ namespace LicenseCheckerCustomAction
                                     var lastDateStr = fragmentsOfLastDate[1];
                                     if (!string.IsNullOrEmpty(activationId) && !string.IsNullOrEmpty(lastDateStr))
                                     {
-                                        try
+                                        var lastDate = DateTime.MinValue;
+                                        if (DateTime.TryParse(lastDateStr, out lastDate))
                                         {
-                                            var httpWebRequest = (HttpWebRequest)WebRequest.Create($"{Common.ApiCetbixUri}/{Common.ActivationChecker}");
-                                            httpWebRequest.ContentType = "application/json";
-                                            httpWebRequest.Method = "POST";
-                                            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                                            if (lastDate == DateTime.MaxValue)
                                             {
-                                                streamWriter.Write($"ActivationId={activationId}");
+                                                mainCancelation.Cancel();
+                                                return true;
                                             }
-                                            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                                            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                                            else
                                             {
-                                                var result = streamReader.ReadToEnd().Trim();
-                                                var mainFlag = Convert.ToBoolean(int.Parse(result));
-                                                return mainFlag;
+                                                try
+                                                {
+                                                    var httpWebRequest = (HttpWebRequest)WebRequest.Create($"{Common.ApiCetbixUri}/{Common.ActivationChecker}");
+                                                    httpWebRequest.ContentType = "application/json";
+                                                    httpWebRequest.Method = "POST";
+                                                    using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                                                    {
+                                                        streamWriter.Write($"ActivationId={activationId}");
+                                                    }
+                                                    var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                                                    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                                                    {
+                                                        var result = streamReader.ReadToEnd().Trim();
+                                                        var mainFlag = Convert.ToBoolean(int.Parse(result));
+                                                        return mainFlag;
+                                                    }
+                                                }
+                                                catch (WebException ex)
+                                                {
+                                                    return DateTime.Now <= lastDate;
+                                                }
                                             }
                                         }
-                                        catch (WebException ex)
+                                        else
                                         {
-                                            var lastDate = DateTime.Parse(lastDateStr);
-                                            return DateTime.Now <= lastDate;
+                                            return false;
                                         }
                                     }
                                     else
