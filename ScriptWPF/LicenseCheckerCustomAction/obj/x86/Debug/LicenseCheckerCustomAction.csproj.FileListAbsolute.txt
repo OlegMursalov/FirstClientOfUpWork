@@ -5,3 +5,4 @@ C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\bin\Debug
 C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\bin\Debug\Microsoft.Deployment.WindowsInstaller.xml
 C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\obj\x86\Debug\LicenseCheckerCustomAction.dll
 C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\obj\x86\Debug\LicenseCheckerCustomAction.pdb
+C:\Users\Олег\Desktop\Project\ScriptWPF\LicenseCheckerCustomAction\obj\x86\Debug\LicenseCheckerCustomAction.csprojResolveAssemblyReference.cache
