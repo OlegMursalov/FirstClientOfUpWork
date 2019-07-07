@@ -79,7 +79,7 @@ namespace LicenseCheckerCustomAction
                                     if (fragmentsOfActivationId.Length >= 2 && fragmentsOfAmountOfMinutes.Length >= 2)
                                     {
                                         var activationId = fragmentsOfActivationId[1];
-                                        var amountOfMinutes = int.Parse(fragmentsOfAmountOfMinutes[1]);
+                                        var amountOfMinutes = long.Parse(fragmentsOfAmountOfMinutes[1]);
                                         var lastDate = DateTime.Now.AddMinutes(amountOfMinutes);
                                         actionBeforeInstall?.Invoke();
                                         var encryptor = new Encryptor(Common.GuidForEncryptor);
