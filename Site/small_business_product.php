@@ -588,7 +588,8 @@
 										</select>
 									</div>
 									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this);">Buy</a></br>
-									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this, { amountOfUsers: Number.MAX_SAFE_INTEGER, amountOfMinutes: 20160 });">Try for 14 days</a>
+									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this, { amountOfUsers: Number.MAX_SAFE_INTEGER, amountOfMinutes: 10080 });">Try for 7 days for all</a></br>
+									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this, { amountOfUsers: 1, amountOfMinutes: Number.MAX_SAFE_INTEGER });">Buy full for one</a>
 								</li>
 							<?}
 						}
