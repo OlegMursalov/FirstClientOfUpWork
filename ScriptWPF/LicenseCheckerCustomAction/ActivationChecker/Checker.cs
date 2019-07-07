@@ -151,6 +151,7 @@ namespace LicenseCheckerCustomAction
                     }
                     else
                     {
+                        action();
                         break;
                     }
                 }
@@ -159,7 +160,6 @@ namespace LicenseCheckerCustomAction
                     break;
                 }
             }
-            action();
         }
 
         private bool CheckAfterInstall(MainCancelation mainCancelation)
@@ -189,7 +189,7 @@ namespace LicenseCheckerCustomAction
                                         var lastDate = DateTime.MinValue;
                                         if (DateTime.TryParse(lastDateStr, out lastDate))
                                         {
-                                            if (lastDate == DateTime.MaxValue)
+                                            if (lastDate.Year == DateTime.MaxValue.Year)
                                             {
                                                 mainCancelation.Cancel();
                                                 return true;
