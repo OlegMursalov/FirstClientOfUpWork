@@ -9,6 +9,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Cetbix Utilities WMP Versio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseCheckerCustomAction", "LicenseCheckerCustomAction\LicenseCheckerCustomAction.csproj", "{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Cetbix Utilities WMP Version 2.7 Installer (wix)", "Cetbix Utilities WMP Version 2.7 Installer (wix)\Cetbix Utilities WMP Version 2.7 Installer (wix).wixproj", "{24BAB886-9BD5-416E-914D-2A6AF767ABB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,12 @@ Global
 		{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}.Release|Any CPU.ActiveCfg = Release|x86
 		{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}.Release|x86.ActiveCfg = Release|x86
 		{8ACDD674-C0BA-4BB6-B9FB-E9C85F2FF1DD}.Release|x86.Build.0 = Release|x86
+		{24BAB886-9BD5-416E-914D-2A6AF767ABB2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{24BAB886-9BD5-416E-914D-2A6AF767ABB2}.Debug|x86.ActiveCfg = Debug|x86
+		{24BAB886-9BD5-416E-914D-2A6AF767ABB2}.Debug|x86.Build.0 = Debug|x86
+		{24BAB886-9BD5-416E-914D-2A6AF767ABB2}.Release|Any CPU.ActiveCfg = Release|x86
+		{24BAB886-9BD5-416E-914D-2A6AF767ABB2}.Release|x86.ActiveCfg = Release|x86
+		{24BAB886-9BD5-416E-914D-2A6AF767ABB2}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
