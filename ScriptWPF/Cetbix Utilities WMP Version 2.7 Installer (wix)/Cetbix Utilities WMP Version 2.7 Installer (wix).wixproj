@@ -20,8 +20,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Product.wxs" />
+    <Compile Include="WixUI_WelcomeDlg.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="agreement.rtf" />
     <Content Include="Cetbix Utilities WMP Version 2.7 Installer %28wix%29.wax" />
     <Content Include="Variables.wxi" />
   </ItemGroup>

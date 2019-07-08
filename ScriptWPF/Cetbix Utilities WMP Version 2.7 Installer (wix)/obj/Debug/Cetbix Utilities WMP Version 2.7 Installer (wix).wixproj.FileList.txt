@@ -4,3 +4,4 @@ C:\Users\Олег\Desktop\Project\ScriptWPF\Cetbix Utilities WMP Version 2.7 Ins
 obj\Debug\Cetbix Utilities WMP Version 2.7 Installer (wix).wixproj.BindContentsFileListnull.txt
 obj\Debug\Cetbix Utilities WMP Version 2.7 Installer (wix).wixproj.BindOutputsFileListnull.txt
 obj\Debug\Cetbix Utilities WMP Version 2.7 Installer (wix).wixproj.BindBuiltOutputsFileListnull.txt
+obj\Debug\WixUI_WelcomeDlg.wixobj

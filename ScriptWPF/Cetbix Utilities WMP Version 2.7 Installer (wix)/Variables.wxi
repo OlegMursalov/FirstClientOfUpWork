@@ -6,4 +6,6 @@
   <?define UpgradeCode="06a81104-1e30-463d-87e1-e8a79b4c682a"?>
   <?define Manufacturer="Cetbix Technology"?>
   <?define MainPath="C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug"?>
+  <?define CustomWelcomeDlgDescription="Setup will run Cetbix Utilities WMP Version 2.7. Cetbix Utilities WMP Version 2.7 will not leave any files on your PC. To run click on next to continue."?>
+  <?define CustomWelcomeDlgTitle="Cetbix Utilities WMP Version 2.7 Setup"?>
 </Include>

@@ -85,12 +85,27 @@
     </Feature>
     <UI Id="UserInterface">
       <Property Id="WIXUI_INSTALLDIR" Value="MyProgramDir" />
+      <DialogRef Id="CustomWelcomeDlg" />
+      <DialogRef Id="MyInstallDirDlg" />
       <DialogRef Id="ProgressDlg" />
       <DialogRef Id="ErrorDlg" />
       <DialogRef Id="FilesInUse" />
       <DialogRef Id="FatalError" />
       <DialogRef Id="UserExit" />
+      <Publish Dialog="CustomWelcomeDlg" Control="Next" Event="NewDialog" Value="LicenseAgreementDlg">1</Publish>
+      <Publish Dialog="LicenseAgreementDlg" Control="Back" Event="NewDialog" Value="CustomWelcomeDlg">1</Publish>
     </UI>
     <UIRef Id="WixUI_InstallDir" />
+    <WixVariable Id="WixUILicenseRtf" Value="agreement.rtf" />
   </Product>
+  
+  <Fragment>
+    <UI>
+      <Dialog Id="MyInstallDirDlg" Width="370" Height="270" Title="!(loc.InstallDirDlg_Title)">
+        <Control Id="FolderLabel" Type="Text" X="20" Y="60" Width="290" Height="30" Text="!(loc.InstallDirDlgFolderLabel)" />
+        <Control Id="Folder" Type="PathEdit" X="20" Y="100" Width="320" Height="18" Property="WIXUI_INSTALLDIR" Indirect="yes" />
+        <Control Id="DesktopShortcutCheckBox" Type="CheckBox" X="20" Y="160" Width="290" Height="17" Property="INSTALLDESKTOPSHORTCUT" CheckBoxValue="1" Text="Create a shortcut for this program on the desktop." />
+      </Dialog>
+    </UI>
+  </Fragment>
 </Wix>

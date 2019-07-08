@@ -1,0 +1,7 @@
+C:\Users\Олег\Desktop\Project\ScriptWPF\CustomActionForWix\bin\Debug\CustomActionForWix.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\CustomActionForWix\bin\Debug\CustomActionForWix.pdb
+C:\Users\Олег\Desktop\Project\ScriptWPF\CustomActionForWix\bin\Debug\Microsoft.Deployment.WindowsInstaller.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\CustomActionForWix\bin\Debug\Microsoft.Deployment.WindowsInstaller.xml
+C:\Users\Олег\Desktop\Project\ScriptWPF\CustomActionForWix\obj\Debug\CustomActionForWix.csprojResolveAssemblyReference.cache
+C:\Users\Олег\Desktop\Project\ScriptWPF\CustomActionForWix\obj\Debug\CustomActionForWix.dll
+C:\Users\Олег\Desktop\Project\ScriptWPF\CustomActionForWix\obj\Debug\CustomActionForWix.pdb
