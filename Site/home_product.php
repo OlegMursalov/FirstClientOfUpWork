@@ -764,8 +764,8 @@ var buyApp = function(elem, info) {
         var obj = new Object();
         var langSel = elem.parentNode.querySelector('#languageForApp');
         if (langSel.options != null && langSel.selectedIndex > 0) {
-			var language = langSel.options[langSel.selectedIndex].value;
-			obj.language = language >= 1 && language <= 3 ? language : 1;
+			var languageCode = langSel.options[langSel.selectedIndex].value;
+			obj.languageCode = languageCode >= 1 && languageCode <= 3 ? languageCode : 1;
             obj.idApp = elem.getAttribute('data-id-app');
             if (info != null) {
                 obj.amountOfUsers = info.amountOfUsers;
@@ -798,7 +798,7 @@ var buyApp = function(elem, info) {
                 $.ajax({
                     type: "POST",
                     url: "main-seller.php",
-                    data: "idApp=" + obj.idApp + "&language=" + obj.language +"&amountOfMinutes=" + obj.amountOfMinutes + "&amountOfUsers=" + obj.amountOfUsers,
+                    data: "idApp=" + obj.idApp + "&languageCode=" + obj.languageCode +"&amountOfMinutes=" + obj.amountOfMinutes + "&amountOfUsers=" + obj.amountOfUsers,
                     success: function(msg) {
                         alert(msg);
                     }
