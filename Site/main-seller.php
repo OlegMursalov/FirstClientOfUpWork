@@ -11,7 +11,7 @@ if (isset($_POST['idApp']) && isset($_POST['languageCode']) && isset($_POST['amo
 			$row = $result->fetch_row();
 			
 			$mainFileName = $row[1];
-			$languageCode = intval($_POST['languageCode']);
+			$languageCode = doubleval($_POST['languageCode']);
 			if ($languageCode == 1) {
 				$files = glob("applications/en/" . $mainFileName);
 			} else if ($languageCode == 2) {
@@ -40,8 +40,8 @@ if (isset($_POST['idApp']) && isset($_POST['languageCode']) && isset($_POST['amo
 				$message->AddAddress('olofovich@mail.ru');
 				$message->Subject = "Message from Cetbix";
 				$message->Body = "Your licensing key = '" . $key . "'\n";
-				$message->Body .= "Amount of users = '" . $_POST['amountOfUsers'] . "'\n";
-				$message->Body .= "Amount of minutes = '" . $_POST['amountOfMinutes'] . "'\n";
+				$message->Body .= "Amount of users = '" . ($_POST['amountOfUsers'] == 9007199254740991 ? 'all users' : $_POST['amountOfUsers']) . "'\n";
+				$message->Body .= "Amount of minutes = '" . ($_POST['amountOfMinutes'] == 9007199254740991 ? 'full version (always)' : $_POST['amountOfMinutes']) . "'\n";
 				
 				if ($languageCode == 1) {
 					$message->Body .= "Language = 'English'" . "\n";
