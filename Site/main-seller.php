@@ -1,7 +1,7 @@
 <?
 include 'config.php';
 require_once('class.phpmailer.php');
-if (isset($_POST['idApp']) && isset($_POST['amountOfMinutes']) && isset($_POST['amountOfUsers'])) {
+if (isset($_POST['idApp']) && isset($_POST['language']) && isset($_POST['amountOfMinutes']) && isset($_POST['amountOfUsers'])) {
 	$conn = new mysqli($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 	if (!$conn->connect_error) {
 		// Retrieving app by id
@@ -10,7 +10,8 @@ if (isset($_POST['idApp']) && isset($_POST['amountOfMinutes']) && isset($_POST['
 		if ($result != null && $result->num_rows > 0) {
 			$row = $result->fetch_row();
 			$mainFileName = $row[1];
-			$files = glob("applications/" . $mainFileName);
+			$languageCode = $_POST['language'];
+			$files = glob("applications/" . ($languageCode == 1 ? 'en' : $languageCode == 2 ? 'de' : $languageCode == 3 ? 'fr' : 'en') . "/" . $mainFileName);
 			if ($files != null && count($files) > 0) {
 				$filePath = $files[0];
 				// Creating license key
@@ -28,7 +29,10 @@ if (isset($_POST['idApp']) && isset($_POST['amountOfMinutes']) && isset($_POST['
 				$message->AddAddress('german@xvex.de');
 				$message->AddAddress('olofovich@mail.ru');
 				$message->Subject = "Message from Cetbix";
-				$message->Body = "Your licensing key = '" . $key . "'";
+				$message->Body = "Your licensing key = '" . $key . "'\n";
+				$message->Body .= "Amount of users = '" . ($_POST['amountOfUsers'] == Number.MAX_SAFE_INTEGER ? 'all' : $_POST['amountOfUsers']) . "'\n";
+				$message->Body .= "Amount of days = '" . ($_POST['amountOfMinutes'] == Number.MAX_SAFE_INTEGER ? 'all' : ($_POST['amountOfMinutes'] / 60 / 24)) . "'\n";
+				$message->Body .= "Language = " . ($languageCode == 1 ? 'English' : $languageCode == 2 ? 'German' : $languageCode == 3 ? 'French' : 'English');
 				$message->AddAttachment($filePath, $mainFileName);
 				if($message->Send()) {
 					echo 'Please, check your email box.';

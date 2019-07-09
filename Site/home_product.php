@@ -756,52 +756,59 @@
    }*/
 </style>
 <script type="text/javascript">
-	// COMMON FUNCTION!!!
-	// Transfer to footer!
-	var buyApp = function (elem, info) {
-		debugger;
-		if (elem.parentNode != null) {
-			var obj = new Object();
-			obj.idApp = elem.getAttribute('data-id-app');
-			if (info != null) {
-				obj.amountOfUsers = info.amountOfUsers;
-				obj.amountOfMinutes = info.amountOfMinutes;
-			} else {
-				var amUsSel = elem.parentNode.querySelector('#amountOfUsers');
-				if (amUsSel.options != null && amUsSel.selectedIndex > 0) {
-					var amountOfUsers = amUsSel.options[amUsSel.selectedIndex].value;
-					if (amountOfUsers > 5000) {
-						amountOfUsers = 5000;
-					}
-					if (amountOfUsers < 1) {
-						amountOfUsers = 1;
-					}
-					obj.amountOfUsers = amountOfUsers;
-				}
-				var amMSel = elem.parentNode.querySelector('#amountOfMinutes');
-				if (amMSel.options != null && amMSel.selectedIndex > 0) {
-					var value = amMSel.options[amMSel.selectedIndex].value;
-					if (value > 3) {
-						value = 3;
-					}
-					if (value < 1) {
-						value = 1;
-					}
-					obj.amountOfMinutes = value * 525600;
-				}
-			}
-			if (obj.idApp && obj.amountOfUsers && obj.amountOfMinutes) {
-				$.ajax({
-					type: "POST",
-					url: "main-seller.php",
-					data: "idApp=" + obj.idApp + "&amountOfMinutes=" + obj.amountOfMinutes + "&amountOfUsers=" + obj.amountOfUsers,
-					success: function(msg){
-						alert(msg);
-					}
-				});
-			} else {
-				alert('Please, select amount of users and select type license.');
-			}
-		}
-	}
+// COMMON FUNCTION!!!
+// Transfer to footer!
+var buyApp = function(elem, info) {
+    debugger;
+    if (elem.parentNode != null) {
+        var obj = new Object();
+        var langSel = elem.parentNode.querySelector('#languageForApp');
+        if (langSel.options != null && langSel.selectedIndex > 0) {
+			var language = langSel.options[langSel.selectedIndex].value;
+			obj.language = language >= 1 && language <= 3 ? language : 1;
+            obj.idApp = elem.getAttribute('data-id-app');
+            if (info != null) {
+                obj.amountOfUsers = info.amountOfUsers;
+                obj.amountOfMinutes = info.amountOfMinutes;
+            } else {
+                var amUsSel = elem.parentNode.querySelector('#amountOfUsers');
+                if (amUsSel.options != null && amUsSel.selectedIndex > 0) {
+                    var amountOfUsers = amUsSel.options[amUsSel.selectedIndex].value;
+                    if (amountOfUsers > 5000) {
+                        amountOfUsers = 5000;
+                    }
+                    if (amountOfUsers < 1) {
+                        amountOfUsers = 1;
+                    }
+                    obj.amountOfUsers = amountOfUsers;
+                }
+                var amMSel = elem.parentNode.querySelector('#amountOfMinutes');
+                if (amMSel.options != null && amMSel.selectedIndex > 0) {
+                    var value = amMSel.options[amMSel.selectedIndex].value;
+                    if (value > 3) {
+                        value = 3;
+                    }
+                    if (value < 1) {
+                        value = 1;
+                    }
+                    obj.amountOfMinutes = value * 525600;
+                }
+            }
+            if (obj.idApp && obj.amountOfUsers && obj.amountOfMinutes) {
+                $.ajax({
+                    type: "POST",
+                    url: "main-seller.php",
+                    data: "idApp=" + obj.idApp + "&language=" + obj.language +"&amountOfMinutes=" + obj.amountOfMinutes + "&amountOfUsers=" + obj.amountOfUsers,
+                    success: function(msg) {
+                        alert(msg);
+                    }
+                });
+            } else {
+                alert('Please, select amount of users and select type license.');
+            }
+        } else {
+			alert('Please, select language for app.');
+        }
+    }
+}
 </script>
