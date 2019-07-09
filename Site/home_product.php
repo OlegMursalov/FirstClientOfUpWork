@@ -579,9 +579,15 @@
 											<option value="2">2 year</option>
 											<option value="3">3 year</option>
 										</select>
+										<select name="languageForApp" id="languageForApp">
+											<option>Select language for app</option>
+											<option value="1">English</option>
+											<option value="2">German</option>
+											<option value="3">French</option>
+										</select>
 									</div>
-									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this);">Buy</a></br>
-									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this, { amountOfUsers: Number.MAX_SAFE_INTEGER, amountOfMinutes: 10080 });">Try for 7 days for all</a></br>
+									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this);">Buy (select license year and amount)</a></br>
+									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this, { amountOfUsers: Number.MAX_SAFE_INTEGER, amountOfMinutes: 10080 });">Trial for seven days for all</a></br>
 									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this, { amountOfUsers: 1, amountOfMinutes: Number.MAX_SAFE_INTEGER });">Buy full for one</a>
 								</li>
 							<?}
