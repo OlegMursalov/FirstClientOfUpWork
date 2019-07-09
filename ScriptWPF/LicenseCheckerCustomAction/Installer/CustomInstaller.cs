@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CetbixCVD.Language;
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
@@ -10,6 +11,25 @@ namespace LicenseCheckerCustomAction
     [RunInstaller(true)]
     public class CustomInstaller : Installer
     {
+        /// <summary>
+        /// NEED CHANGE LANGUAGE FOR DIFFERENT MSI!
+        /// </summary>
+        public static LanguageEnum Language
+        {
+            get
+            {
+                return LanguageEnum.French;
+            }
+        }
+
+        public static MainLanguage MainLanguage
+        {
+            get
+            {
+                return new MainLanguage(Language);
+            }
+        }
+
         public override void Install(IDictionary stateSaver)
         {
             base.Install(stateSaver);
@@ -38,29 +58,26 @@ namespace LicenseCheckerCustomAction
                             {
                                 // Checking license key
                                 var exMessage = string.Empty;
-                                var checker = new Checker($"{mainPath}\\{Common.ActivationFileName}");
-                                var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.ApiCetbixUri}/{Common.LicenseChecker}", out exMessage, () => 
+                                var checker = new Checker($"{mainPath}\\{Common.ActivationFileName}", MainLanguage);
+                                var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.ApiCetbixUri}/{Common.LicenseChecker}", out exMessage, () =>
                                 {
                                     // Creating language setting
-                                    if (Context.Parameters.ContainsKey("LanguageSet"))
-                                    {
-                                        var languageVal = Context.Parameters["LanguageSet"];
-                                        if (!string.IsNullOrEmpty(languageVal))
-                                        {
-                                            var language = 0;
-                                            if (int.TryParse(languageVal, out language))
-                                            {
-                                                var languageHelper = new LanguageHelper($"{mainPath}\\{Common.LanguageFileName}");
-                                                languageHelper.CreateSetting((LanguageEnum)language);
-                                            }
-                                        }
-                                    }
+                                    var languageHelper = new LanguageHelper($"{mainPath}\\{Common.LanguageFileName}");
+                                    languageHelper.CreateSetting(Language);
                                     // OnBeforeInstall
                                     base.OnBeforeInstall(stateSaver);
                                 });
                                 if (!checkFlag && !string.IsNullOrEmpty(exMessage))
                                 {
-                                    throw new Exception(exMessage);
+                                    var message = MainLanguage.GetMessageByKey(exMessage);
+                                    if (!string.IsNullOrEmpty(message))
+                                    {
+                                        throw new Exception(message);
+                                    }
+                                    else
+                                    {
+                                        throw new Exception($"Error in MSI [{exMessage}].");
+                                    }
                                 }
                             }
                             else
@@ -80,14 +97,15 @@ namespace LicenseCheckerCustomAction
                 }
                 else
                 {
-                    throw new Exception("You have not entered a license key.");
+                    throw new Exception(MainLanguage.GetMessageByKey("NotEnteredLicenseKey"));
                 }
             }
             else
             {
-                throw new Exception("You have not entered a license key.");
+                throw new Exception(MainLanguage.GetMessageByKey("NotEnteredLicenseKey"));
             }
         }
+        
 
         public override void Uninstall(IDictionary stateSaver)
         {

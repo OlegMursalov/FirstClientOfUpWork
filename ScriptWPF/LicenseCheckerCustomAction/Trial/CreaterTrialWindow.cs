@@ -118,16 +118,24 @@ namespace LicenseCheckerCustomAction.Trial
             {
                 var exMessage = string.Empty;
                 var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.ActivationFileName;
-                var checker = new Checker(cetbixActivationFilePath);
+                var checker = new Checker(cetbixActivationFilePath, mainLanguage);
                 var checkFlag = checker.CheckLicenseKeyBeforeInstall(enteredLicenseKey, $"{Common.ApiCetbixUri}/{Common.LicenseChecker}", out exMessage);
                 if (checkFlag)
                 {
                     RemoveControlsForTrial();
                     BlockAndHideInterface(false);
                 }
-                else if (!string.IsNullOrEmpty(exMessage))
+                else if (!checkFlag && !string.IsNullOrEmpty(exMessage))
                 {
-                    MessageBox.Show(exMessage);
+                    var message = mainLanguage.GetMessageByKey(exMessage);
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        MessageBox.Show(message);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error in MSI [{exMessage}].");
+                    }
                 }
             }
             else

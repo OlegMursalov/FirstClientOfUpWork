@@ -34,7 +34,11 @@ namespace CetbixCVD.Language
                     { "DataSuccessfullySaveToExcel", "Data successfully save to local (*.xlsx)." },
                     { "FillCetbixURI", "Fill Cetbix URI (add_assets.php)" },
                     { "NotEnteredLicenseKey", "You have not entered a license key." },
-                    { "NotDone", "Not done." }
+                    { "NotDone", "Not done." },
+                    { "KeyDoesNotExist", "This key does not exist." },
+                    { "KeyIsActivation", "For this key, activation is complete." },
+                    { "TrialPeriodHasExpired", "Your trial period has expired." },
+                    { "CheckYourInternetConnection", "Check your internet connection." }
                 };
             }
         }

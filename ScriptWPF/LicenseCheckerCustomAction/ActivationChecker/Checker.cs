@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CetbixCVD.Language;
+using System;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -31,10 +32,12 @@ namespace LicenseCheckerCustomAction
     public class Checker
     {
         private string cetbixActivationFilePath;
+        private MainLanguage mainLanguage;
 
-        public Checker(string cetbixActivationFilePath)
+        public Checker(string cetbixActivationFilePath, MainLanguage mainLanguage)
         {
             this.cetbixActivationFilePath = cetbixActivationFilePath;
+            this.mainLanguage = mainLanguage;
         }
 
         #region [Checking license key before installation]
@@ -101,7 +104,7 @@ namespace LicenseCheckerCustomAction
                                 }
                                 else
                                 {
-                                    throw new Exception("Error in MSI [6703]");
+                                    throw new Exception("6703");
                                 }
                             }
                             else
@@ -111,14 +114,14 @@ namespace LicenseCheckerCustomAction
                         }
                         else
                         {
-                            throw new Exception("Error in MSI [9958]");
+                            throw new Exception("9958");
                         }
                     }
                 }
             }
             catch (WebException)
             {
-                exMessage = "Check your internet connection.";
+                exMessage = "NotEnteredLicenseKey";
             }
             catch (Exception ex)
             {

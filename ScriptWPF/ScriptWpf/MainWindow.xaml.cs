@@ -39,7 +39,7 @@ namespace ScriptWpf
 
             // Checking license key (trial)
             var cetbixActivationFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.ActivationFileName;
-            var checker = new Checker(cetbixActivationFilePath);
+            var checker = new Checker(cetbixActivationFilePath, mainLanguage);
             checker.StartCheckingAfterInstall(60000, () =>
             {
                 var createrTrialWindow = new CreaterTrialWindow(this, MainGrid, Application.Current.Dispatcher, mainLanguage, SendToCetbixRadio, SaveToLocalTxtRadio, SaveToLocalExcelRadio, Run, CetbixURI, LabelCetbix);

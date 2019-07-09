@@ -17,6 +17,12 @@ namespace CetbixCVD.Language
             this.dispatcher = dispatcher;
         }
 
+        public MainLanguage(LanguageEnum language)
+        {
+            this.languageSetting = LanguageSettingFactory.GetSettingByLanguage(language);
+            this.dispatcher = null;
+        }
+
         /// <summary>
         /// Set language settings (initializer)
         /// </summary>

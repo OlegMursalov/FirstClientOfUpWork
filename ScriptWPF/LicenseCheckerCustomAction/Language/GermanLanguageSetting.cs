@@ -34,7 +34,11 @@ namespace CetbixCVD.Language
                     { "DataSuccessfullySaveToExcel", "Daten erfolgreich lokal (* .xlsx) speichern." },
                     { "FillCetbixURI", "Füllen Sie das Cetbix-URI aus (add_assets.php)" },
                     { "NotEnteredLicenseKey", "Sie haben keinen Lizenzschlüssel eingegeben." },
-                    { "NotDone", "Nicht durchgeführt." }
+                    { "NotDone", "Nicht durchgeführt." },
+                    { "KeyDoesNotExist", "Dieser Schlüssel existiert nicht." },
+                    { "KeyIsActivation", "Für diesen Schlüssel ist die Aktivierung abgeschlossen." },
+                    { "TrialPeriodHasExpired", "Ihre Probezeit ist abgelaufen." },
+                    { "CheckYourInternetConnection", "Prüfe deine Internetverbindung." }
                 };
             }
         }

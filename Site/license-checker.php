@@ -37,26 +37,26 @@ if ($rest_json != null) {
 									$result = $conn->query($query);
 									print "ActivationId=" . $activationId . ";AmountOfMinutes=" . $amountOfMinutes;
 								} else {
-									print "Your trial period has expired.";
+									print "TrialPeriodHasExpired";
 								}
 							} else {
-								"Error in MSI [1228].";
+								"1228";
 							}
 						} else {
-							print "For this key, activation is complete.";
+							print "KeyIsActivation";
 						}
 					} else {
-						"Error in MSI [1218].";
+						"1218";
 					}
 				} else {
-					print "This key does not exist.";
+					print "KeyDoesNotExist";
 				}
 			}
 		} else {
-			"Error in MSI [1208].";
+			"1208";
 		}
 	} else {
-		print "Error in MSI [1206].";
+		print "1206";
 	}
 }
 ?>
