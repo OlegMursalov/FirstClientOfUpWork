@@ -4,6 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace LicenseCheckerCustomAction
@@ -120,15 +121,24 @@ namespace LicenseCheckerCustomAction
                         var mainPath = assemblyPath.Substring(0, i);
                         if (Directory.Exists(mainPath))
                         {
+                            // Delete activation file (.dll)
                             var activationFileName = $"{mainPath}\\{Common.ActivationFileName}";
                             if (File.Exists(activationFileName))
                             {
                                 File.Delete(activationFileName);
                             }
+                            // Delete language file (.dll)
                             var languageFileName = $"{mainPath}\\{Common.LanguageFileName}";
                             if (File.Exists(languageFileName))
                             {
                                 File.Delete(languageFileName);
+                            }
+                            // Delete tmp files (.tmp)
+                            var directoryInfo = new DirectoryInfo(mainPath);
+                            var filesTmp = directoryInfo.GetFiles("*.tmp").ToArray();
+                            for (var j = 0; j < filesTmp.Length; j++)
+                            {
+                                File.Delete(filesTmp[j].FullName);
                             }
                         }
                     }
