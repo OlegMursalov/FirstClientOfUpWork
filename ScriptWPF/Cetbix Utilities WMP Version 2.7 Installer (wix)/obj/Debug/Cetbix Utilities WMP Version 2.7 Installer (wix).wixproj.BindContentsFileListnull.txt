@@ -1,5 +1,0 @@
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\CetbixCVD.exe
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\CetbixCVD.exe.config
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\EPPlus.dll
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\LicenseCheckerCustomAction.dll
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\Microsoft.Deployment.WindowsInstaller.dll

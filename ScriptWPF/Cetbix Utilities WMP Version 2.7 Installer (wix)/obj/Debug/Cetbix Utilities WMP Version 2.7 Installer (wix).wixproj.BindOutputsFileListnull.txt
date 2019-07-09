@@ -1,2 +1,0 @@
-C:\Users\Олег\Desktop\Project\ScriptWPF\Cetbix Utilities WMP Version 2.7 Installer (wix)\bin\Debug\Cetbix_Utilities_WMP_Version_2.7_Installer__wix_.msi
-C:\Users\Олег\Desktop\Project\ScriptWPF\Cetbix Utilities WMP Version 2.7 Installer (wix)\bin\Debug\Cetbix_Utilities_WMP_Version_2.7_Installer__wix_.wixpdb

@@ -22,6 +22,7 @@ namespace LicenseCheckerCustomAction
 
         protected override void OnBeforeInstall(IDictionary stateSaver)
         {
+
             if (Context.Parameters.ContainsKey("EnteredLicenseKey"))
             {
                 var enteredLicenseKey = Context.Parameters["EnteredLicenseKey"];
