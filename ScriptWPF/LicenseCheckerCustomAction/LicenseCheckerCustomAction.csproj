@@ -57,8 +57,8 @@
     <Compile Include="Language\LanguageHelper.cs" />
     <Compile Include="Language\LanguageSettingFactory.cs" />
     <Compile Include="Language\MainLanguage.cs" />
-    <Compile Include="LicenseChecker\CustomAction.cs" />
-    <Compile Include="LicenseChecker\CustomInstaller.cs">
+    <Compile Include="CustomAction\CustomAction.cs" />
+    <Compile Include="Installer\CustomInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ActivationChecker\Encryptor.cs" />

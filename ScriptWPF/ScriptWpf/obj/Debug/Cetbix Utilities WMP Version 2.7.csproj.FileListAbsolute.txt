@@ -1,7 +1,3 @@
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\MainWindow.g.cs
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\App.g.cs
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD_MarkupCompile.cache
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD_MarkupCompile.lref
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\CetbixCVD.exe.config
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\CetbixCVD.exe
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\CetbixCVD.pdb
@@ -16,10 +12,14 @@ C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\EPPlus.xml
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\Google.Protobuf.xml
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\MySql.Data.xml
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\bin\Debug\Microsoft.Deployment.WindowsInstaller.xml
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\Cetbix Utilities WMP Version 2.7.csprojResolveAssemblyReference.cache
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\MainWindow.g.cs
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\App.g.cs
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD_MarkupCompile.cache
+C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD_MarkupCompile.lref
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\MainWindow.baml
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.g.resources
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.Properties.Resources.resources
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\Cetbix Utilities WMP Version 2.7.csproj.GenerateResource.Cache
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.exe
 C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\CetbixCVD.pdb
-C:\Users\Олег\Desktop\Project\ScriptWPF\ScriptWpf\obj\Debug\Cetbix Utilities WMP Version 2.7.csprojResolveAssemblyReference.cache

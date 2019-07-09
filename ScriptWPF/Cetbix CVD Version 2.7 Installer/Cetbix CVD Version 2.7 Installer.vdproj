@@ -4,9 +4,9 @@
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
 "ProjectName" = "8:Cetbix Utilities WMP Version 2.7 Installer"
-"LanguageId" = "3:1033"
+"LanguageId" = "3:1031"
 "CodePage" = "3:1252"
-"UILanguageId" = "3:1033"
+"UILanguageId" = "3:1031"
 "SccProjectName" = "8:"
 "SccLocalPath" = "8:"
 "SccAuxPath" = "8:"
@@ -309,7 +309,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_1A067B10_96F4_412E_AC41_117FD6510C03"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:/EnteredLicenseKey=[EDITA1] /FileMSI=\"[EDITA2]\" /LanguageSet=\"[LANGUAGESET]\""
+            "CustomActionData" = "8:/EnteredLicenseKey=[EDITA1] /FileMSI=\"[EDITA2]\" /LanguageSet=\"2\""
             }
         }
         "DefaultFeature"
@@ -733,7 +733,7 @@
         }
         "MsiBootstrapper"
         {
-        "LangId" = "3:1033"
+        "LangId" = "3:1031"
         "RequiresElevation" = "11:FALSE"
         }
         "Product"
@@ -741,7 +741,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cetbix Utilities WMP Version 2.7"
         "ProductCode" = "8:{2F1EDE24-D020-4E7A-89CF-87CD0B15DB9C}"
-        "PackageCode" = "8:{47C2C54C-8831-45AA-AAC3-C5B98D0F4090}"
+        "PackageCode" = "8:{6C6F4D1A-6E63-499C-AD47-09557C679759}"
         "UpgradeCode" = "8:{812A0348-2DB6-4AB0-A22C-44BAC554EC4B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
