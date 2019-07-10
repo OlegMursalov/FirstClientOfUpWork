@@ -585,6 +585,7 @@
 											<option value="2">German</option>
 											<option value="3">French</option>
 										</select>
+										<input style="width: 100%; height: 40px; padding: 10px; margin-bottom: 15px;" id="user-email" name="user-email" class="form-control" type="email" placeholder="Enter email" />
 									</div>
 									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this);">Trial</a></br>
 									<a href="#" class="btn" data-id-app="<?=$row[0]?>" onclick="buyApp(this, { amountOfUsers: 1, amountOfMinutes: Number.MAX_SAFE_INTEGER });">Buy</a>
@@ -761,52 +762,58 @@ var buyApp = function(elem, info) {
     debugger;
     if (elem.parentNode != null) {
         var obj = new Object();
-        var langSel = elem.parentNode.querySelector('#languageForApp');
-        if (langSel.options != null && langSel.selectedIndex > 0) {
-			var languageCode = langSel.options[langSel.selectedIndex].value;
-			obj.languageCode = languageCode >= 1 && languageCode <= 3 ? languageCode : 1;
-            obj.idApp = elem.getAttribute('data-id-app');
-            if (info != null) {
-                obj.amountOfUsers = info.amountOfUsers;
-                obj.amountOfMinutes = info.amountOfMinutes;
-            } else {
-                var amUsSel = elem.parentNode.querySelector('#amountOfUsers');
-                if (amUsSel.options != null && amUsSel.selectedIndex > 0) {
-                    var amountOfUsers = amUsSel.options[amUsSel.selectedIndex].value;
-                    if (amountOfUsers > 5000) {
-                        amountOfUsers = 5000;
+        var userEmail = elem.parentNode.querySelector('#user-email');
+        if (userEmail.value) {
+			obj.userEmail = userEmail.value;
+            var langSel = elem.parentNode.querySelector('#languageForApp');
+            if (langSel.options != null && langSel.selectedIndex > 0) {
+                var languageCode = langSel.options[langSel.selectedIndex].value;
+                obj.languageCode = languageCode >= 1 && languageCode <= 3 ? languageCode : 1;
+                obj.idApp = elem.getAttribute('data-id-app');
+                if (info != null) {
+                    obj.amountOfUsers = info.amountOfUsers;
+                    obj.amountOfMinutes = info.amountOfMinutes;
+                } else {
+                    var amUsSel = elem.parentNode.querySelector('#amountOfUsers');
+                    if (amUsSel.options != null && amUsSel.selectedIndex > 0) {
+                        var amountOfUsers = amUsSel.options[amUsSel.selectedIndex].value;
+                        if (amountOfUsers > 5000) {
+                            amountOfUsers = 5000;
+                        }
+                        if (amountOfUsers < 1) {
+                            amountOfUsers = 1;
+                        }
+                        obj.amountOfUsers = amountOfUsers;
                     }
-                    if (amountOfUsers < 1) {
-                        amountOfUsers = 1;
+                    var amMSel = elem.parentNode.querySelector('#amountOfMinutes');
+                    if (amMSel.options != null && amMSel.selectedIndex > 0) {
+                        var value = amMSel.options[amMSel.selectedIndex].value;
+                        if (value > 3) {
+                            value = 3;
+                        }
+                        if (value < 1) {
+                            value = 1;
+                        }
+                        obj.amountOfMinutes = value * 525600;
                     }
-                    obj.amountOfUsers = amountOfUsers;
                 }
-                var amMSel = elem.parentNode.querySelector('#amountOfMinutes');
-                if (amMSel.options != null && amMSel.selectedIndex > 0) {
-                    var value = amMSel.options[amMSel.selectedIndex].value;
-                    if (value > 3) {
-                        value = 3;
-                    }
-                    if (value < 1) {
-                        value = 1;
-                    }
-                    obj.amountOfMinutes = value * 525600;
+                if (obj.idApp && obj.amountOfUsers && obj.amountOfMinutes) {
+                    $.ajax({
+                        type: "POST",
+                        url: "main-seller.php",
+                        data: "idApp=" + obj.idApp + "&userEmail=" + obj.userEmail + "&languageCode=" + obj.languageCode + "&amountOfMinutes=" + obj.amountOfMinutes + "&amountOfUsers=" + obj.amountOfUsers,
+                        success: function(msg) {
+                            alert(msg);
+                        }
+                    });
+                } else {
+                    alert('Please, select amount of users and select type license.');
                 }
-            }
-            if (obj.idApp && obj.amountOfUsers && obj.amountOfMinutes) {
-                $.ajax({
-                    type: "POST",
-                    url: "main-seller.php",
-                    data: "idApp=" + obj.idApp + "&languageCode=" + obj.languageCode +"&amountOfMinutes=" + obj.amountOfMinutes + "&amountOfUsers=" + obj.amountOfUsers,
-                    success: function(msg) {
-                        alert(msg);
-                    }
-                });
             } else {
-                alert('Please, select amount of users and select type license.');
+                alert('Please, select language for app.');
             }
         } else {
-			alert('Please, select language for app.');
+			alert('Please, enter email address.');
         }
     }
 }

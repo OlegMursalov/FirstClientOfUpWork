@@ -1,7 +1,7 @@
 <?
 include 'config.php';
 require_once('class.phpmailer.php');
-if (isset($_POST['idApp']) && isset($_POST['languageCode']) && isset($_POST['amountOfMinutes']) && isset($_POST['amountOfUsers'])) {
+if (isset($_POST['idApp']) && isset($_POST['userEmail']) && isset($_POST['languageCode']) && isset($_POST['amountOfMinutes']) && isset($_POST['amountOfUsers'])) {
 	$conn = new mysqli($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 	if (!$conn->connect_error) {
 		// Retrieving app by id
@@ -36,8 +36,7 @@ if (isset($_POST['idApp']) && isset($_POST['languageCode']) && isset($_POST['amo
 				$message = new PHPMailer();
 				$message->SetFrom('olegmursalovistrue@gmail.com', 'Cetbix');
 				// Test email
-				$message->AddAddress('german@xvex.de');
-				$message->AddAddress('olofovich@mail.ru');
+				$message->AddAddress($_POST['userEmail']);
 				$message->Subject = "Message from Cetbix";
 				$message->Body = "Your licensing key = '" . $key . "'\n";
 				$message->Body .= "Amount of users = '" . ($_POST['amountOfUsers'] == 9007199254740991 ? 'all users' : $_POST['amountOfUsers']) . "'\n";
