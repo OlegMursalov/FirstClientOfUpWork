@@ -4,9 +4,9 @@
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
 "ProjectName" = "8:Cetbix Utilities WMP Version 2.7 Installer"
-"LanguageId" = "3:1036"
+"LanguageId" = "3:1031"
 "CodePage" = "3:1252"
-"UILanguageId" = "3:1036"
+"UILanguageId" = "3:1031"
 "SccProjectName" = "8:"
 "SccLocalPath" = "8:"
 "SccAuxPath" = "8:"
@@ -733,7 +733,7 @@
         }
         "MsiBootstrapper"
         {
-        "LangId" = "3:1036"
+        "LangId" = "3:1031"
         "RequiresElevation" = "11:FALSE"
         }
         "Product"
