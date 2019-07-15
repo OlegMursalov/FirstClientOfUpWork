@@ -34,7 +34,7 @@ if (isset($_POST['idApp']) && isset($_POST['userEmail']) && isset($_POST['langua
 				$query = "INSERT INTO `LicensingKeys`(`Id`, `Buyer`, `AppId`, `Value`, `GenerationDate`, `AmountOfMinutes`, `AmountOfUsers`) VALUES ('" . $id . "','" . $userId . "','" . $_POST['idApp'] . "','" . $key . "','" . date("Y-m-d H:i:s") . "','" . $_POST['amountOfMinutes'] . "','" . $_POST['amountOfUsers'] . "')";
 				$result = $conn->query($query);
 				$message = new PHPMailer();
-				$message->SetFrom('olegmursalovistrue@gmail.com', 'Cetbix');
+				$message->SetFrom('customer_support@cetbix.com', 'Cetbix');
 				// Test email
 				$message->AddAddress($_POST['userEmail']);
 				$message->Subject = "Message from Cetbix";

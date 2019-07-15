@@ -19,7 +19,7 @@ namespace LicenseCheckerCustomAction
         {
             get
             {
-                return LanguageEnum.German;
+                return LanguageEnum.French;
             }
         }
 
