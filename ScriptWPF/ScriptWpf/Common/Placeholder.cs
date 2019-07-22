@@ -15,6 +15,7 @@ namespace Script.Common
         public void AddText(string text)
         {
             Text = text;
+            TextBox.Text = text;
             TextBox.GotFocus += TextBox_GotFocus;
             TextBox.LostFocus += TextBox_LostFocus;
         }
