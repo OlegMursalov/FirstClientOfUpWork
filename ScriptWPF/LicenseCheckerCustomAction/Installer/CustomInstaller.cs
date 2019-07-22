@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Configuration.Install;
 using System.IO;
 using System.Linq;
-using System.Windows;
 
 namespace LicenseCheckerCustomAction
 {

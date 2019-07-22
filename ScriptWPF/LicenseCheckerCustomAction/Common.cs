@@ -7,14 +7,15 @@ namespace LicenseCheckerCustomAction
 {
     public static class Common
     {
-        public static string ApiCetbixUri { get { return "https://xvex.de/isms/add_ons/cetbix_vulnerability_management"; } }
+        public static string ApiCetbixUri { get { return "https://cetbix.com/isms/add_ons/cetbix_vulnerability_management"; } }
         public static string AddAssets { get { return "add_assets.php"; } }
         public static string LicenseChecker { get { return "license-checker.php"; } }
         public static string ActivationChecker { get { return "activation-checker.php"; } }
         public static string GuidForEncryptor { get { return "bf269582-eab7-4f53-9311-12cb834076b0"; } }
-        public static string URIForBuyApp { get { return "https://xvex.de/isms/test/asset_management/home_product.php"; } }
+        public static string URIForBuyApp { get { return "https://cetbix.com/isms/test/asset_management/home_product.php"; } }
         public static string ActivationFileName { get { return "Cetbix.Activation.dll"; } }
         public static string LanguageFileName { get { return "Cetbix.Language.dll"; } }
+        public static string PlaceholderForCetbixURITextBox { get { return "https//......"; } }
 
         public static string GetUUID()
         {

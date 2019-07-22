@@ -84,6 +84,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\Placeholder.cs" />
     <Compile Include="Info\BaseBoardInfo.cs" />
     <Compile Include="Info\CPUInfo.cs" />
     <Compile Include="Info\GraphicsCardInfo.cs" />

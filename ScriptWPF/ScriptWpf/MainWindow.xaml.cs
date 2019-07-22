@@ -28,7 +28,9 @@ namespace ScriptWpf
             currentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             // Set URI (add_assets.php)
-            CetbixURI.Text = $"{Common.ApiCetbixUri}/{Common.AddAssets}";
+            // CetbixURI.Text = $"{Common.ApiCetbixUri}/{Common.AddAssets}";
+            var placeholderForCetbixURI = new Placeholder(CetbixURI);
+            placeholderForCetbixURI.AddText(Common.PlaceholderForCetbixURITextBox);
 
             // Selecting language for interface
             var languageSettingFilePath = AppDomain.CurrentDomain.BaseDirectory + Common.LanguageFileName;
