@@ -36,3 +36,8 @@ else{
 
 NEW PASS FOR FTP: LGa8uUHdFGHRWTnp
 
+NEW DATA {
+	FTP user: w018fe98
+	domain: cetbix.com
+	password: dvCzWctz2uzwBHVH
+}
