@@ -76,7 +76,7 @@
                               if($slug==null)
                               {
                                 ?>
-                           <p class="text-light">Home product</p>
+                           <p class="text-light">Home product 1-5 Employees</p>
                            <?php }
                               ?> 
                            <?php if($main_heading)
@@ -270,7 +270,6 @@
                   <div class="container">
                      <div class="row">
                         Home Product
-                        
                      </div>
                   </div>
                   <!---end here------>
@@ -594,7 +593,7 @@
 						}
 					}
 				}?>
-                <li>
+                <!--<li>
                   <div class="imgbox">
                     <a href="#"><img src="https://www.cetbix.com/uploader/pageimg/classificationpolicy.jpeg" /></a>
                   </div>
@@ -737,7 +736,7 @@
 					<a href="#" class="btn">Try for 7 days</a>
                 </li>
               </ul>
-            </div>
+            </div>-->
             <!-- box section html end here -->
             
          </div>

@@ -564,7 +564,7 @@
 									<h3><?=$row[2]?></h3>
 									<p><?=$row[3]?></p>
 									<h2 align="center"><b>$<?=$row[4]?></b></h2>
-									<p>Enter Desktops and Servers from 1 to 5</p>
+									<p>Enter Desktops and Servers from 1000 to 5000</p>
 									<div class="select_drop">
 										<select name="amountOfUsers" id="amountOfUsers">
 											<option>Select number of PC</option>
@@ -595,7 +595,7 @@
 						}
 					}
 				}?>
-                <li>
+                <!--<li>
                   <div class="imgbox">
                     <a href="#"><img src="https://www.cetbix.com/uploader/pageimg/classificationpolicy.jpeg" /></a>
                   </div>
@@ -758,7 +758,7 @@
 					<a href="#" class="btn">Try for 7 days</a>
                 </li>
               </ul>
-            </div>
+            </div>-->
             <!-- box section html end here -->
             
          </div>
