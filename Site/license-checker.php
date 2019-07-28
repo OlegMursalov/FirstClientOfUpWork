@@ -7,7 +7,7 @@ if ($rest_json != null) {
 		$licenseKeyValue = str_replace("LicenseKeyValue=", "", $parts[0]);
 		$uuid = str_replace("UUID=", "", $parts[1]);
 		if ($licenseKeyValue != null && $licenseKeyValue !== '' && $uuid != null && $uuid !== '') {
-			$conn = new mysqli('localhost', 'd02eb2b7', 'kmG6PAbTxMWXKSkn', 'd02eb2b7');
+			$conn = new mysqli('localhost', 'd02f240b', 'BvLnSTHEzyBxRo38', 'd02f240b');
 			if (!$conn->connect_error) {
 				$query = "select Id, AppId, Value, GenerationDate, AmountOfMinutes, AmountOfUsers from `LicensingKeys` where Value = '" . $licenseKeyValue . "'";
 				$result = $conn->query($query);
