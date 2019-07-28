@@ -56,6 +56,8 @@ if (isset($_POST['idApp']) && isset($_POST['userEmail']) && isset($_POST['langua
 				} else {
 					echo 'Sorry, bad request.';
 				}
+			} else {
+				echo 'Files are not found.';
 			}
 		}
 	}
