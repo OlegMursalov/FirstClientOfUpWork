@@ -4,9 +4,9 @@
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
 "ProjectName" = "8:Cetbix Utilities WMP Version 2.7 Installer"
-"LanguageId" = "3:1036"
+"LanguageId" = "3:1031"
 "CodePage" = "3:1252"
-"UILanguageId" = "3:1036"
+"UILanguageId" = "3:1031"
 "SccProjectName" = "8:"
 "SccLocalPath" = "8:"
 "SccAuxPath" = "8:"
@@ -733,7 +733,7 @@
         }
         "MsiBootstrapper"
         {
-        "LangId" = "3:1036"
+        "LangId" = "3:1031"
         "RequiresElevation" = "11:FALSE"
         }
         "Product"
@@ -741,7 +741,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cetbix Utilities WMP Version 2.7"
         "ProductCode" = "8:{2F1EDE24-D020-4E7A-89CF-87CD0B15DB9C}"
-        "PackageCode" = "8:{627150FD-B614-4271-87C7-7E343422DCDC}"
+        "PackageCode" = "8:{E9951AD3-8C29-4C74-B4EF-CA50A3B7A03F}"
         "UpgradeCode" = "8:{812A0348-2DB6-4AB0-A22C-44BAC554EC4B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
