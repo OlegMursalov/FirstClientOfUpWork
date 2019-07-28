@@ -3,7 +3,7 @@ $contents = file_get_contents('php://input');
 if ($contents != null) {
 	$data = json_decode($contents, true);
 	if ($data != null) {
-		$conn = new mysqli('localhost', 'd02eb2b7', 'kmG6PAbTxMWXKSkn', 'd02eb2b7');
+		$conn = new mysqli('localhost', 'd02f240b', 'BvLnSTHEzyBxRo38', 'd02f240b');
 		if (!$conn->connect_error) {
 			$query1 = "INSERT INTO Domains(`Id`, `Domain`) VALUES ('" . $data['Id'] . "', '" . $data['Domain'] . "')";
 			$result = $conn->query($query1);

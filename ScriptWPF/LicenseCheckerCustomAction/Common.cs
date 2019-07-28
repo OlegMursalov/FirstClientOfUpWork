@@ -7,7 +7,7 @@ namespace LicenseCheckerCustomAction
 {
     public static class Common
     {
-        public static string ApiCetbixUri { get { return "https://www.cetbix.com/store/asset_management"; } }
+        public static string ApiCetbixUri { get { return "https://www.cetbix.com/store/asset_management/api"; } }
         public static string AddAssets { get { return "add_assets.php"; } }
         public static string LicenseChecker { get { return "license-checker.php"; } }
         public static string ActivationChecker { get { return "activation-checker.php"; } }
