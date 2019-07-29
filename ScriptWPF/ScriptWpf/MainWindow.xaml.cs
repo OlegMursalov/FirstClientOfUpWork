@@ -73,7 +73,7 @@ namespace ScriptWpf
             Background = new SolidColorBrush(Color.FromRgb(255, 255, 230));
             Run.IsEnabled = false;
             var cetbixURI = CetbixURI.Text;
-            if (!string.IsNullOrEmpty(cetbixURI) || cetbixURI == Common.PlaceholderForCetbixURITextBox)
+            if (!string.IsNullOrEmpty(cetbixURI) && cetbixURI != Common.PlaceholderForCetbixURITextBox)
             {
                 var dataOfComputer = new DataOfComputer();
                 
