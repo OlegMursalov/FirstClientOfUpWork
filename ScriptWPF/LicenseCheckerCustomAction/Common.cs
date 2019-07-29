@@ -7,12 +7,12 @@ namespace LicenseCheckerCustomAction
 {
     public static class Common
     {
-        public static string ApiCetbixUri { get { return "https://www.cetbix.com/store/asset_management/api"; } }
+        public static string ApiCetbixUri { get { return "https://www.cetbix.com/store/api"; } }
         public static string AddAssets { get { return "add_assets.php"; } }
         public static string LicenseChecker { get { return "license-checker.php"; } }
         public static string ActivationChecker { get { return "activation-checker.php"; } }
         public static string GuidForEncryptor { get { return "bf269582-eab7-4f53-9311-12cb834076b0"; } }
-        public static string URIForBuyApp { get { return "https://www.cetbix.com/store/asset_management/home_product.php"; } }
+        public static string URIForBuyApp { get { return "https://www.cetbix.com/store/home_product.php"; } }
         public static string ActivationFileName { get { return "Cetbix.Activation.dll"; } }
         public static string LanguageFileName { get { return "Cetbix.Language.dll"; } }
         public static string PlaceholderForCetbixURITextBox { get { return "https//......"; } }

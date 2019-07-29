@@ -295,7 +295,7 @@
             "Sequence" = "3:1"
             "Identifier" = "8:_B53677B0_A8F7_4D2F_BB61_B4A11FB5C69D"
             "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
+            "CustomActionData" = "8:/EnteredLicenseKey=[EDITA1] /FileMSI=\"[EDITA2]\" /LanguageSet=\"2\""
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_B07E07553DFD46AC96E7DF71927A85C0"
             {
@@ -740,15 +740,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cetbix Utilities WMP Version 2.7"
-        "ProductCode" = "8:{2F1EDE24-D020-4E7A-89CF-87CD0B15DB9C}"
-        "PackageCode" = "8:{E9951AD3-8C29-4C74-B4EF-CA50A3B7A03F}"
+        "ProductCode" = "8:{B78318E2-DD8D-443B-8167-B92268088E66}"
+        "PackageCode" = "8:{CBF76651-5DDD-4844-9111-171C0F8DC7AA}"
         "UpgradeCode" = "8:{812A0348-2DB6-4AB0-A22C-44BAC554EC4B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Cetbix Technology"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

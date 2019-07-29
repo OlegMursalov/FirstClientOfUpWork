@@ -107,7 +107,7 @@ namespace LicenseCheckerCustomAction
         }
         
 
-        /*public override void Uninstall(IDictionary stateSaver)
+        public override void Uninstall(IDictionary stateSaver)
         {
             try
             {
@@ -147,6 +147,6 @@ namespace LicenseCheckerCustomAction
             {
             }
             base.Uninstall(stateSaver);
-        }*/
+        }
     }
 }
