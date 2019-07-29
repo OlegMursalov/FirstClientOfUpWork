@@ -73,7 +73,9 @@ namespace ScriptWpf
             Background = new SolidColorBrush(Color.FromRgb(255, 255, 230));
             Run.IsEnabled = false;
             var cetbixURI = CetbixURI.Text;
-            if (!string.IsNullOrEmpty(cetbixURI) && cetbixURI != Common.PlaceholderForCetbixURITextBox)
+            if ((SendToCetbixRadio.IsChecked != null && SendToCetbixRadio.IsChecked.Value && !string.IsNullOrEmpty(cetbixURI) && cetbixURI != Common.PlaceholderForCetbixURITextBox) ||
+                (SaveToLocalTxtRadio.IsChecked != null && SaveToLocalTxtRadio.IsChecked.Value) ||
+                (SaveToLocalExcelRadio.IsChecked != null && SaveToLocalExcelRadio.IsChecked.Value))
             {
                 var dataOfComputer = new DataOfComputer();
                 
