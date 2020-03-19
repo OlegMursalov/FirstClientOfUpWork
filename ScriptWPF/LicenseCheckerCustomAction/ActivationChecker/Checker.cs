@@ -56,6 +56,7 @@ namespace LicenseCheckerCustomAction
             exMessage = string.Empty;
             try
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
                 using (var fstream = new FileStream(cetbixActivationFilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
                 {
                     var uuid = Common.GetUUID();
@@ -118,10 +119,6 @@ namespace LicenseCheckerCustomAction
                         }
                     }
                 }
-            }
-            catch (WebException)
-            {
-                exMessage = "NotEnteredLicenseKey";
             }
             catch (Exception ex)
             {

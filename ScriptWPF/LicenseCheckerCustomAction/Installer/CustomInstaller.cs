@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -18,7 +19,7 @@ namespace LicenseCheckerCustomAction
         {
             get
             {
-                return LanguageEnum.French;
+                return LanguageEnum.English;
             }
         }
 
@@ -32,6 +33,7 @@ namespace LicenseCheckerCustomAction
 
         public override void Install(IDictionary stateSaver)
         {
+            Debugger.Launch();
             base.Install(stateSaver);
         }
 
