@@ -19,7 +19,7 @@ namespace LicenseCheckerCustomAction
         {
             get
             {
-                return LanguageEnum.English;
+                return LanguageEnum.French;
             }
         }
 
@@ -33,7 +33,7 @@ namespace LicenseCheckerCustomAction
 
         public override void Install(IDictionary stateSaver)
         {
-            Debugger.Launch();
+            // Debugger.Launch();
             base.Install(stateSaver);
         }
 
