@@ -5,13 +5,21 @@ if ($contents != null) {
 	if ($data != null) {
 		$conn = new mysqli('localhost', 'd02f240b', 'BvLnSTHEzyBxRo38', 'd02f240b');
 		if (!$conn->connect_error) {
-			$query1 = "INSERT INTO Domains(`Id`, `Domain`) VALUES ('" . $data['Id'] . "', '" . $data['Domain'] . "')";
+            $ref = '';
+            $uid = '';
+            
+            if(isset($_GET['ref']) && isset($_GET['uid'])) {
+                $ref = $_GET['ref'];
+                $uid = $_GET['uid'];
+            }
+            
+			$query1 = "INSERT INTO Domains(`Id`, `Domain`, `CompanyId`, `UserId`) VALUES ('" . $data['Id'] . "', '" . $data['Domain'] . "', '" . $ref . "', '" . $uid . "')";
 			$result = $conn->query($query1);
 			
-			$query2 = "INSERT INTO Hostnames(`Id`, `Hostname`) VALUES('" . $data['Id'] . "', '" . $data['HostName'] . "')";
+			$query2 = "INSERT INTO Hostnames(`Id`, `Hostname`, `CompanyId`, `UserId`) VALUES('" . $data['Id'] . "', '" . $data['HostName'] . "', '" . $ref . "', '" . $uid . "')";
 			$result = $conn->query($query2);
 		
-			$query3 = "INSERT INTO Scans(`Id`, `DateScan`) VALUES ('" . $data['Id'] . "', '" . $data['DateScan'] . "')";
+			$query3 = "INSERT INTO Scans(`Id`, `DateScan`, `CompanyId`, `UserId`) VALUES ('" . $data['Id'] . "', '" . $data['DateScan'] . "', '" . $ref . "', '" . $uid . "')";
 			$result = $conn->query($query3);
 			
 			$query4 = "INSERT INTO KeysValues(`Id`, `AccountLockoutDuration`, `CetbixVulnerabilityScannerVersion`, `ComputerRole`, `IP`, `Java`, `LAPS`, `LockoutObservationWindows`, ";
