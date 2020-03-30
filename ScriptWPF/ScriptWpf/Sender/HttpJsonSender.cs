@@ -20,6 +20,7 @@ namespace CetbixCVD.Sender
             exMessage = string.Empty;
             try
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
