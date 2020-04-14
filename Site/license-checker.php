@@ -1,4 +1,5 @@
 <?
+include 'config.php';
 // Check license key when installation..
 $rest_json = file_get_contents("php://input");
 if ($rest_json != null) {
@@ -7,7 +8,7 @@ if ($rest_json != null) {
 		$licenseKeyValue = str_replace("LicenseKeyValue=", "", $parts[0]);
 		$uuid = str_replace("UUID=", "", $parts[1]);
 		if ($licenseKeyValue != null && $licenseKeyValue !== '' && $uuid != null && $uuid !== '') {
-			$conn = new mysqli('localhost', 'd02f240b', 'BvLnSTHEzyBxRo38', 'd02f240b');
+			$conn = new mysqli($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 			if (!$conn->connect_error) {
 				$query = "select Id, AppId, Value, GenerationDate, AmountOfMinutes, AmountOfUsers from `LicensingKeys` where Value = '" . $licenseKeyValue . "'";
 				$result = $conn->query($query);

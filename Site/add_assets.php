@@ -1,9 +1,10 @@
 <?
+include 'config.php';
 $contents = file_get_contents('php://input');
 if ($contents != null) {
 	$data = json_decode($contents, true);
 	if ($data != null) {
-		$conn = new mysqli('localhost', 'd02f240b', 'BvLnSTHEzyBxRo38', 'd02f240b');
+		$conn = new mysqli($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
 		if (!$conn->connect_error) {
             $ref = '';
             $uid = '';
